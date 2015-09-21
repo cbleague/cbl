@@ -15,12 +15,24 @@ describe('auth routes', function() {
   });
 
   it('should be able to create a user', function(done) {
-    chai.request('localhost:3000/api')
+    chai.request('localhost:3000/api/auth')
     .post('/signup')
     .send({email:'test1', password: 'foobar123'})
     .end(function(err, res) {
       expect(err).to.eql(null);
       expect(res.body.token).to.have.length.above(0);
+      done();
+    });
+  });
+
+  it('should not be able to create user with same email', function(done) {
+    chai.request('localhost:3000/api/auth')
+    .post('/signup')
+    .send({email:'test1', password: 'foobar123'})
+    .end(function(err, res) {
+      expect(err).to.eql(null);
+      console.log(res.status);
+      expect(res.status).to.eql(401);
       done();
     });
   });
@@ -43,7 +55,7 @@ describe('auth routes', function() {
     });
 
     it('should be able to signin', function(done) {
-      chai.request('localhost:3000/api')
+      chai.request('localhost:3000/api/auth')
       .get('/signin')
       .auth('test2', 'foobar123')
       .end(function(err, res) {

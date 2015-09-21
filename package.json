@@ -1,0 +1,33 @@
+{
+  "name": "CBL",
+  "version": "0.1.0",
+  "description": "Express + Authentication",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.0",
+    "chai": "^3.2.0",
+    "chai-http": "^1.0.0",
+    "eat": "^0.1.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romangusev/Basic-Auth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romangusev/Basic-Auth/issues"
+  },
+  "homepage": "https://github.com/romangusev/Basic-Auth"
+}

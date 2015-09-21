@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/user_dev');
 process.env.APP_SECRET = process.env.APP_SECRET || 'gabaswillgetajob';
 var userRouter = require(__dirname + '/routes/user_routes');
 
-app.use('/api', userRouter);
+app.use('/api/auth', userRouter);
 
 app.listen(port, function() {
   console.log('Server up on port:' + port);
