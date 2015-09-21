@@ -1,2 +1,2 @@
-# cbl
-Main Repository
+# Christian Basketball League
+Application for managing league 
