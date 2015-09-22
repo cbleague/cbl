@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose');
-var Player = require(__dirname + '/player');
+//var Player = require(__dirname + '/player');
+var ObjectId = mongoose.Schema.Types.ObjectId
 
 var teamSchema = new mongoose.Schema({
 
@@ -8,7 +9,7 @@ var teamSchema = new mongoose.Schema({
 
   division: {type: String, required: true},
 
-  season: {type: Number, required: true},
+  season: {type: String, required: true},
 
   players: [{type: ObjectId, ref: 'Player'}],  // type: Schema.ObjectId
 
@@ -22,6 +23,12 @@ var teamSchema = new mongoose.Schema({
 
 	coach: {name: {first: String, middle: String, second: String},
 					 email: String, phone: String},
+
+  administrator: String,
+
+  captain: String,
+
+  coach: String,
 
 	photo: String,
 
@@ -37,8 +44,6 @@ var teamSchema = new mongoose.Schema({
 
   adminChecked: {type: Boolean, default: false}
 
-}, {
-  collection: 'season' + season //season collection
 });
 
 module.exports = exports = mongoose.model('Team', teamSchema);
