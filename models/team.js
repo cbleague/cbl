@@ -4,8 +4,6 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId
 var uniqueValidator = require('mongoose-unique-validator');
 
-
-
 var teamSchema = new mongoose.Schema({
 	name: {type: String, unique: true, required: true},
   division: {type: String, required: true},
