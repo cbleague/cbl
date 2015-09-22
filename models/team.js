@@ -15,14 +15,14 @@ var teamSchema = new mongoose.Schema({
 
 	logo: String, // img url 
 
-	administrator: {name: {first: String, middle: String, second: String},
-									 email: String, phone: String},
+	// administrator: {name: {first: String, middle: String, second: String},
+	// 								 email: String, phone: String},
 
-	captain: {name: {first: String, middle: String, second: String},
-						 email: String, phone: String},
+	// captain: {name: {first: String, middle: String, second: String},
+	// 					 email: String, phone: String},
 
-	coach: {name: {first: String, middle: String, second: String},
-					 email: String, phone: String},
+	// coach: {name: {first: String, middle: String, second: String},
+	// 				 email: String, phone: String},
 
   administrator: String,
 

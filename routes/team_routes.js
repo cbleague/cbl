@@ -15,20 +15,14 @@ teamRouter.post('/registerteam', jsonParser, function(req, res){
   newTeam.name = req.body.name; 
   newTeam.division = req.body.division;
   newTeam.season = req.body.season;
-  //newTeam.players = req.body.players;
-  //newTeam.logo = req.body.logo;
-
-  // newTeam.administrator = req.body.administrator;
-  // newTeam.captain = req.body.captain;
-  // newTeam.coach = req.body.coach;
-
-  //newTeam.photo = req.body.photo;
-  //console.log(newTeam);
+  newTeam.players = req.body.players;
+  newTeam.logo = req.body.logo;
+  newTeam.administrator = req.body.administrator;
+  newTeam.captain = req.body.captain;
+  newTeam.coach = req.body.coach;
+  newTeam.photo = req.body.photo;
+  console.log(newTeam);
   teamEvents.emit('saveTeam', newTeam, req, res);
 });
 
-// ee.on('saveteam', function(req, res, newTeam){
-//   console.log('received emitter saveteam')
-//   console.log(newTeam);
-// });
 
