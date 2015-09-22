@@ -6,12 +6,14 @@ var handleError = require(__dirname + '/../lib/handleError');
 var teamEvents = require(__dirname + '/../lib/teamEvents');
 var Team = require(__dirname + '/../models/team');
 //events is an instance of an event emitter that can listen to events from this router
+var isUser = require(__dirname + '/../lib/eat_authenticate');
+var isAdmin = require(__dirname + '/../lib/eat_authorize');
 
 require(__dirname + '/../lib/teamEvents');
 
 var teamRouter = module.exports = exports = express.Router();
 
-teamRouter.post('/registerteam', jsonParser, function(req, res){
+teamRouter.post('/registerteam', isUser, jsonParser, function(req, res){
   var newTeam = new Team();
   newTeam.name = req.body.name; 
   newTeam.division = req.body.division;
@@ -26,14 +28,14 @@ teamRouter.post('/registerteam', jsonParser, function(req, res){
   teamEvents.emit('saveTeam', newTeam, req, res);
 });
 
-teamRouter.delete('/deleteteam/:name', function(req, res){
+teamRouter.delete('/deleteteam/:name', isUser, function(req, res){
   Team.remove({name: req.params.name}, function(err){
     if(err) handleError(err,res);
     console.log('removed!');
   });
 });
 
-teamRouter.put('/updateteam/:name/:field/:newvalue', function(req, res){
+teamRouter.put('/updateteam/:name/:field/:newvalue', isUser, function(req, res){
   var field = req.params.field;
   var newVal = req.params.newvalue
   Team.findOne({name: req.params.name}, function(err, team){
@@ -43,6 +45,7 @@ teamRouter.put('/updateteam/:name/:field/:newvalue', function(req, res){
     });
   });
 });
+
 
 teamRouter.get('/seeteam/:name', function(req,res){
   Team.findOne({name: req.params.name}, function(err, team){
