@@ -3,7 +3,13 @@ var mongoose = require('mongoose');
 
 var playerSchema = new mongoose.Schema({
 
-	name: {first: String, middle: String, second: String, required: true},
+//	name: {first: String, middle: String, second: String, required: true},
+
+	firstname: {type: String, required: true},
+
+	middlename: {type: String, required: true},
+
+	secondname: {type: String, required: true},
 
 	email: {type: String, required: true},
 
