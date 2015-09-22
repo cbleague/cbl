@@ -4,18 +4,14 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
 var newsSchema = new mongoose.Schema({
-  title: String,
+  title: {type: String, require: true},
 
   timestamp: {type: Date, default: Date.now},
 
-  postedBy: String,
+  postedBy: {type: String, require: true},
 
-  contents: String,
+  contents: {type: String, require: true}
 
-  // comments: [{body: String, 
-  //             postedBy: {type: ObjectId, ref: 'User'}, 
-  //             date: Date}],
-
-});
+},{collection: 'news'});
 
 module.exports = exports = mongoose.model('News', newsSchema);

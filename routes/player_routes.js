@@ -2,10 +2,12 @@ var express = require('express');
 var Player = require(__dirname + '/../models/player');
 var jsonParser = require('body-parser').json();
 var handleError = require(__dirname + '/../lib/handleError');
+var isUser = require(__dirname + '/../lib/eat_auth');
+
 
 var playerRouter = module.exports = exports = express.Router();
 
-playerRouter.post('/registerplayer', jsonParser, function(req, res) {
+playerRouter.post('/register', jsonParser, isUser, function(req, res) {
   var newPlayer = new Player();
   newPlayer.firstname = req.body.firstname;
   newPlayer.middlename = req.body.middlename;
@@ -19,16 +21,42 @@ playerRouter.post('/registerplayer', jsonParser, function(req, res) {
   newPlayer.number = req.body.number;
   newPlayer.position = req.body.position;
   newPlayer.photo = req.body.photo;
-  console.log(req.body);
+
   newPlayer.save(function(err, data) {
     if(err) return handleError.standard(err,res);
     res.json(data);
   });
 });
 
-playerRouter.get('/registerplayer/:email', function(req, res) {
+playerRouter.get('/find/:email', isUser, function(req, res) {
   Player.findOne({'email': req.params.email}, function(err, player) {
     if (err) return handleError.standard(err, res);
     console.log(player);
   });
 });
+
+playerRouter.put('/modify/:email', isUser, function(req,res) {
+  Player.findOne({'email': req.params.email}, function(err, player) {
+    if (err) return handleError.standard(err, res);
+    player.firstname = req.body.firstname;
+    player.middlename = req.body.middlename;
+    player.secondname = req.body.secondname;
+    player.email = req.body.email;
+    player.phone = req.body.phone;
+    player.dateOfBirth = req.body.dateOfBirth;
+    player.age = req.body.age;
+    player.height = req.body.height;
+    player.weight = req.body.weight;
+    player.number = req.body.number;
+    player.position = req.body.position;
+    player.photo = req.body.photo;
+
+    player.save(function(err, data) {
+    if(err) return handleError.standard(err,res);
+    res.json(data);
+  });
+
+  })
+})
+
+//modify, delete

@@ -9,8 +9,8 @@ var playerRouter = require(__dirname + '/routes/player_routes');
 var newsRouter = require(__dirname + '/routes/news_routes');
 
 app.use('/api/auth', userRouter);
-app.use('/api', playerRouter);
-app.use('/api', newsRouter);
+app.use('/api/player', playerRouter);
+app.use('/api/news', newsRouter);
 
 app.listen(port, function() {
   console.log('Server up on port:' + port);
