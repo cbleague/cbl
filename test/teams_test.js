@@ -17,10 +17,11 @@ describe('team routes', function(){
   it('should be able to save a team', function(done){
     chai.request('localhost:3000/api/register')
     .post('/registerteam')
-    .send({name: 'Timberwolves  ', division: 'minor', season: 'winter'})
+    .send({name: 'Timberwolves', division: 'minor', season: 'winter'})
     .end(function(err, res){
       expect(err).to.eql(null);
-      expect(res.body.team).to.be.eql('Timberwolves');
+      expect(res.body.name).to.eql('Timberwolves');
+      done();
     });
   });
 
