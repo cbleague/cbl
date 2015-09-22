@@ -4,7 +4,8 @@ var jsonParser = require('body-parser').json();
 var eventEmitter = require(__dirname + '/../lib/userEvents');
 var httpBasic = require(__dirname + '/../lib/http_basic');
 var handleError = require(__dirname + '/../lib/handleError');
-var eatAuth = require(__dirname + '/../lib/eat_auth');
+var isUser = require(__dirname + '/../lib/eat_authenticate');
+var isAdmin = require(__dirname + '/../lib/eat_authorize');
 
 
 var userRouter = module.exports = exports = express.Router();
@@ -26,4 +27,18 @@ userRouter.get('/signin', httpBasic, function(req, res) {
   });
 });
 
-//userRouter.put('/update', userAuthentication)
+userRouter.put('/update', jsonParser, isUser, function(req, res) {
+  //This route receives JSON which can have email or password fields(base64 encoded), or both
+  //After isAuthenticated middleware we have req.user as authenticated user object from db
+  eventEmitter.emit('updateUser', req, res);
+});
+
+userRouter.post('/addadmin', jsonParser, isAdmin, function(req, res) {
+  //This route receives JSON with email field of user where we want to add admin role
+  eventEmitter.emit('addAdminRole', req, res);
+});
+
+userRouter.put('/addadmin', jsonParser, isAdmin, function(req, res) {
+  //This route receives JSON with email field of user where we want to remove admin role
+  eventEmitter.emit('removeAdminRole', req, res);
+});
