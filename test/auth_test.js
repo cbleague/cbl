@@ -17,7 +17,7 @@ describe('auth routes', function() {
   it('should be able to create a user', function(done) {
     chai.request('localhost:3000/api/auth')
     .post('/signup')
-    .send({email:'test1', password: 'foobar123'})
+    .send({email:'test100', password: 'foobar123'})
     .end(function(err, res) {
       expect(err).to.eql(null);
       expect(res.body.token).to.have.length.above(0);
@@ -28,7 +28,7 @@ describe('auth routes', function() {
   it('should not be able to create user with same email', function(done) {
     chai.request('localhost:3000/api/auth')
     .post('/signup')
-    .send({email:'test1', password: 'foobar123'})
+    .send({email:'test100', password: 'foobar123'})
     .end(function(err, res) {
       expect(err).to.eql(null);
       console.log(res.status);
