@@ -8,7 +8,7 @@ var userRouter = require(__dirname + '/routes/user_routes');
 var teamRouter = require(__dirname + '/routes/team_routes');
 
 app.use('/api/auth', userRouter);
-app.use('/api/register', teamRouter);
+app.use('/api/team', teamRouter);
 
 app.listen(port, function() {
   console.log('Server up on port:' + port);
