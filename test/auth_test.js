@@ -87,14 +87,14 @@ describe('auth routes', function() {
       chai.request('localhost:3000/api/auth/update')
       .put('/')
       .set('token', token)
-      .send({email:'test5', password: 'foobar1234'})
+      .send({email:'test5', password: 'cm9tYW4='})
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(res.status).to.eql(200);
         User.findOne({email: 'test5'}, function(err, user) {
           if (err) throw err;
           expect(user._id).to.exist;
-          user.compareHash('foobar1234', function(err, resHash) {
+          user.compareHash('roman', function(err, resHash) {
             if (err) throw err;
             expect(resHash).to.eql(true);
             done();
