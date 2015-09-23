@@ -8,7 +8,7 @@ var teamSchema = new mongoose.Schema({
   name: {type: String, unique: true, required: true},
   division: {type: String, required: true},
   season: {type: String, required: true},
-  players: [{type: ObjectId, ref: 'Player'}],  // type: Schema.ObjectId
+  players: [{type: mongoose.Schema.Types.ObjectId, ref: 'Player'}],  // type: Schema.ObjectId
   logo: String, // img url 
   administrator: String,
   captain: String,

@@ -1,9 +1,14 @@
 'use strict';
 var mongoose = require('mongoose');
+var Team = require(__dirname + '/team');
 
 var playerSchema = new mongoose.Schema({
 
-  name: {first: String, middle: String, second: String, required: true},
+	firstname: {type: String, required: true},
+
+	middlename: {type: String, required: true},
+
+	secondname: {type: String, required: true},
 
   email: {type: String, required: true},
 
@@ -21,8 +26,10 @@ var playerSchema = new mongoose.Schema({
 
   position: {type: String, required: true},
 
-  photo: String
+	photo: String,
 
-});
+	teamID: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'}
+
+},{collection: 'players'});
 
 module.exports = exports = mongoose.model('Player', playerSchema);
