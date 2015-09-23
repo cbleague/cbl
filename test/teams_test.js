@@ -33,17 +33,53 @@ describe('team routes', function(){
       }.bind(this));
     });
 
-  it('should be able to save a team', function(done){
-    var token = this.token;
-    chai.request('localhost:3000/api/team')
-    .post('/registerteam')
-    .set('token', token)
-    .send({name: 'Timberwolves', division: 'A', season: 'winter'})
-    .end(function(err, res){
-      expect(err).to.eql(null);
-      expect(res.body.name).to.eql('Timberwolves');
-      done();
+    it('should be able to save a team', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .post('/registerteam')
+      .set('token', token)
+      .send({name: 'Timberwolves', division: 'A', season: 'winter'})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.name).to.eql('Timberwolves');
+        done();
+      });
     });
+
+    it('should be able to modify a team', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .put('/updateteam/Timberwolves/season/fall')
+      .set('token', token)
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.season).to.eql('fall');
+        done();
+      });
+    });
+
+    it('should be able to see a team', function(done){
+      chai.request('localhost:3000/api/team')
+      .get('/seeteam/Timberwolves')
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.name).to.eql('Timberwolves');
+        expect(res.body.season).to.eql('fall');
+        expect(res.body.division).to.eql('A');
+        done();
+      });
+    });
+
+    it('should be able to delete a team', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .del('/deleteteam/Timberwolves')
+      .set('token', token)
+      .end(function(err, res){
+        expect(res.body.msg).to.eql('removed');
+        done();
+      });
+    });
+
   });
-});
 });
