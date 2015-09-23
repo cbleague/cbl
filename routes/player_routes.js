@@ -35,7 +35,7 @@ playerRouter.get('/find/:email', isUser, function(req, res) {
   });
 });
 
-playerRouter.put('/modify/:email', isUser, function(req,res) {
+playerRouter.put('/modify/:email', jsonParser, isUser, function(req,res) {
   Player.findOne({'email': req.params.email}, function(err, player) {
     if (err) return handleError.standard(err, res);
     player.firstname = req.body.firstname;

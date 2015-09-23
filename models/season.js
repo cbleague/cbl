@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var Team = require(__dirname + '/team');
 
 var seasonSchema = new mongoose.Schema({
-  seasonNumber: {type: Number, unique: true, required:true},
+  seasonNumber: {type: Number, unique: true, require:true},
   
-  name: {type: String, unique: true, required: true},
+  name: {type: String, unique: true, require: true},
   
   teamsA: [{
     team: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
@@ -38,8 +38,8 @@ var seasonSchema = new mongoose.Schema({
       id: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
       score: {type: Number, default: 0}  
     }],
-    date: Date,
-    location: String
+    date: {type: Date, require: true},
+    location: {type: String, require: true}
   }],
 
   gamesB: [{
@@ -47,8 +47,8 @@ var seasonSchema = new mongoose.Schema({
       id: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
       score: {type: Number, default: 0}  
     }],
-    date: Date,
-    location: String
+    date: {type: Date, require: true},
+    location: {type: String, require: true}
   }],
 });
 
