@@ -24,7 +24,6 @@ teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
   newTeam.captain = req.body.captain;
   newTeam.coach = req.body.coach;
   newTeam.photo = req.body.photo;
-  console.log(newTeam);
   teamEvents.emit('saveTeam', newTeam, req, res);
 });
 

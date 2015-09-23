@@ -164,7 +164,7 @@ describe('Auth Routes Tests', function() {
       chai.request('localhost:3000/api/auth/addadmin')
       .post('/')
       .set('token', token)
-      .send({email:'test6'}) //encrypted 'gusev'
+      .send({email:'test6'})
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(res.status).to.eql(200);
@@ -182,7 +182,7 @@ describe('Auth Routes Tests', function() {
       chai.request('localhost:3000/api/auth/addadmin')
       .put('/')
       .set('token', token)
-      .send({email:'test6'}) //encrypted 'gusev'
+      .send({email:'test6'})
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(res.status).to.eql(200);

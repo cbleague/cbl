@@ -10,7 +10,6 @@ var User = require(__dirname + '/../models/user');
 
 
 describe('team routes', function(){
-  
   after(function(done){
     mongoose.connection.db.dropDatabase(function(){
       done();

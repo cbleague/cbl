@@ -6,9 +6,9 @@ var uniqueValidator = require('mongoose-unique-validator');
 var User = require(__dirname + '/user');
 
 var teamSchema = new mongoose.Schema({
-  name: {type: String, unique: true, required: true},
+  name: {type: String, required: true},
   division: {type: String, required: true},
-  season: {type: String, required: true},
+  season: {type: ObjectId, ref: 'Season', required: true},
   players: [{type: ObjectId, ref: 'Player'}],
   logo: String, // img url 
   administrator: {

@@ -3,6 +3,8 @@ var mongoose = require('mongoose');
 var Team = require(__dirname + '/team');
 
 var seasonSchema = new mongoose.Schema({
+  seasonNumber: {type: Number, unique: true, required:true},
+  
   name: {type: String, unique: true, required: true},
   
   teamsA: [{
