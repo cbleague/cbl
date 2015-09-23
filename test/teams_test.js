@@ -102,4 +102,13 @@ describe('team routes', function(){
       });
     });
 
+    it('should be able to add a player', function(done){
+      chai.request('localhost:3000/api/team')
+      .put('/addplayer')
+      .send({playerId: '3fh3k3384302'})
+      .end(function(err, res){
+        expect(res.body.team).to.eql(['3fh3k3384302']);
+      });
+    });
+
 });    //end of top level describe block

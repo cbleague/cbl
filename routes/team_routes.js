@@ -56,10 +56,11 @@ teamRouter.get('/seeteam/:name', function(req,res){
   });
 });
 
-teamRouter.put('/addplayer/:name', jsonParser, isUser, function(req, res){
-  Team.findOne({name: req.params.name}, function(err, team){
+debugger;
+teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){
+  Team.findOne({name: req.body.name}, function(err, team){
     if(err) handleError(err, res);
-    team[players].push(req.playerId);
+    team[players].push(req.body.playerId);
     res.json(team);
   });
 });
