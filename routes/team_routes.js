@@ -13,7 +13,8 @@ require(__dirname + '/../lib/teamEvents');
 
 var teamRouter = module.exports = exports = express.Router();
 
-teamRouter.post('/registerteam', isUser, jsonParser, function(req, res){
+teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
+  debugger;
   var newTeam = new Team();
   newTeam.name = req.body.name; 
   newTeam.division = req.body.division;
