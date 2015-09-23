@@ -31,7 +31,7 @@ teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
 teamRouter.delete('/deleteteam/:name', isUser, function(req, res){
   Team.remove({name: req.params.name}, function(err){
     if(err) handleError(err,res);
-    console.log('removed!');
+    res.json({msg: 'removed'});
   });
 });
 
@@ -43,6 +43,7 @@ teamRouter.put('/updateteam/:name/:field/:newvalue', isUser, function(req, res){
     team.save(function(err){
       if(err) handleError(err, res);
     });
+    res.json(team);
   });
 });
 
