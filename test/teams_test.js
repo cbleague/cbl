@@ -34,16 +34,17 @@ describe('team routes', function(){
       }.bind(this));
     });
 
-  it('should be able to save a team', function(done){
-    var token = this.token;
-    chai.request('localhost:3000/api/team')
-    .post('/registerteam')
-    .set('token', token)
-    .send({name: 'Timberwolves', division: 'A', season: 'winter'})
-    .end(function(err, res){
-      expect(err).to.eql(null);
-      expect(res.body.name).to.eql('Timberwolves');
-      done();
+    it('should be able to save a team', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .post('/registerteam')
+      .set('token', token)
+      .send({name: 'Timberwolves', division: 'A', season: 'winter'})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.name).to.eql('Timberwolves');
+        done();
+      });
     });
   });
 });
