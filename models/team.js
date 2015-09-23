@@ -14,17 +14,23 @@ var teamSchema = new mongoose.Schema({
   administrator: {
     firstName: String,
     secondName: String,
-    middleName: String
+    middleName: String,
+    email: String,
+    phone: String
   },
   captain: {
     firstName: String,
     secondName: String,
-    middleName: String
+    middleName: String,
+    email: String,
+    phone: String
   },
   coach: {
     firstName: String,
     secondName: String,
-    middleName: String
+    middleName: String,
+    email: String,
+    phone: String
   },
   teamPhoto: String,
   creator: [{type: ObjectId, ref: 'User'}]

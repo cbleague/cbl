@@ -7,6 +7,7 @@ require(__dirname + '/../server');
 var mongoose = require('mongoose');
 var Team = require(__dirname + '/../models/team');
 var User = require(__dirname + '/../models/user');
+var Season = require(__dirname + '/../models/season')
 
 
 describe('team routes', function(){
@@ -15,11 +16,11 @@ describe('team routes', function(){
       done();
     });
   });
-
-  describe('user for team', function(){
-    before(function(done) {
+  
+  before(function(done) {
       var user = new User();
       user.email = 'test2';
+      user.role = 'admin';
       user.generateHash('foobar123', function(err, res) {
         if (err) throw err;
         user.save(function(err, data) {
@@ -33,12 +34,31 @@ describe('team routes', function(){
       }.bind(this));
     });
 
+    
+    var seasonId;
+     it('should be able to create season', function(done) {
+        var token = this.token;
+        chai.request('localhost:3000/api/season')
+        .post('/')
+        .set('token', token)
+        .send({seasonNumber: 9, name: '2014-2015'})
+        .end(function(err, res) {
+          Season.findOne({seasonNumber: 9}, function(err, season) {
+            seasonId = season._id;
+            expect(err).to.eql(null);
+            expect(season).to.exist;
+            expect(season.name).to.eql('2014-2015');
+            done();
+          });
+        });
+      });
+
     it('should be able to save a team', function(done){
       var token = this.token;
       chai.request('localhost:3000/api/team')
       .post('/registerteam')
       .set('token', token)
-      .send({name: 'Timberwolves', division: 'A', season: 'winter'})
+      .send({name: 'Timberwolves', division: 'A', season: seasonId})
       .end(function(err, res){
         expect(err).to.eql(null);
         expect(res.body.name).to.eql('Timberwolves');
@@ -49,11 +69,12 @@ describe('team routes', function(){
     it('should be able to modify a team', function(done){
       var token = this.token;
       chai.request('localhost:3000/api/team')
-      .put('/updateteam/Timberwolves/season/fall')
+      .put('/updateteam/Timberwolves/')
       .set('token', token)
+      .send({field: 'division', value: 'B'})
       .end(function(err, res){
         expect(err).to.eql(null);
-        expect(res.body.season).to.eql('fall');
+        expect(res.body.division).to.eql('B');
         done();
       });
     });
@@ -64,8 +85,8 @@ describe('team routes', function(){
       .end(function(err, res){
         expect(err).to.eql(null);
         expect(res.body.name).to.eql('Timberwolves');
-        expect(res.body.season).to.eql('fall');
-        expect(res.body.division).to.eql('A');
+        expect(res.body.season).to.eql(seasonId.toString());
+        expect(res.body.division).to.eql('B');
         done();
       });
     });
@@ -81,5 +102,4 @@ describe('team routes', function(){
       });
     });
 
-  });
-});
+});    //end of top level describe block
