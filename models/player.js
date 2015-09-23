@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose');
-var Team = require(__dirname + '/team');
+// var Team = require(__dirname + '/team');
+var uniqueValidator = require('mongoose-unique-validator');
 
 var playerSchema = new mongoose.Schema({
 
@@ -10,7 +11,7 @@ var playerSchema = new mongoose.Schema({
 
 	secondname: {type: String, required: true},
 
-  email: {type: String, required: true},
+  email: {type: String, required: true, unique: true, dropDups: true},
 
   phone: {type: Number, required: true},
 
@@ -31,5 +32,7 @@ var playerSchema = new mongoose.Schema({
 	teamID: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'}
 
 },{collection: 'players'});
+
+playerSchema.plugin(uniqueValidator);
 
 module.exports = exports = mongoose.model('Player', playerSchema);
