@@ -1,25 +1,33 @@
 'use strict';
 var mongoose = require('mongoose');
 //var Player = require(__dirname + '/player');
-var ObjectId = mongoose.Schema.Types.ObjectId
+var ObjectId = mongoose.Schema.Types.ObjectId;
 var uniqueValidator = require('mongoose-unique-validator');
+var User = require(__dirname + '/user');
 
 var teamSchema = new mongoose.Schema({
   name: {type: String, unique: true, required: true},
   division: {type: String, required: true},
   season: {type: String, required: true},
-  players: [{type: mongoose.Schema.Types.ObjectId, ref: 'Player'}],  // type: Schema.ObjectId
+  players: [{type: ObjectId, ref: 'Player'}],
   logo: String, // img url 
-  administrator: String,
-  captain: String,
-  coach: String,
-  photo: String,
-  win: Number,
-  loss: Number,
-  pld: Number,
-  basket: {score: Number, lost: Number},
-  pts: Number,
-  adminChecked: {type: Boolean, default: false}
+  administrator: {
+    firstName: String,
+    secondName: String,
+    middleName: String
+  },
+  captain: {
+    firstName: String,
+    secondName: String,
+    middleName: String
+  },
+  coach: {
+    firstName: String,
+    secondName: String,
+    middleName: String
+  },
+  teamPhoto: String,
+  creator: [{type: ObjectId, ref: 'User'}]
 });
 
 teamSchema.plugin(uniqueValidator);

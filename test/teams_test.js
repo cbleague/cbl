@@ -9,8 +9,6 @@ var Team = require(__dirname + '/../models/team');
 var User = require(__dirname + '/../models/user');
 
 
-
-
 describe('team routes', function(){
   
   after(function(done){
@@ -36,17 +34,14 @@ describe('team routes', function(){
       }.bind(this));
     });
 
-  
-
   it('should be able to save a team', function(done){
     var token = this.token;
-    chai.request('localhost:3000/api/register')
+    chai.request('localhost:3000/api/team')
     .post('/registerteam')
     .set('token', token)
-    .send({name: 'Timberwolves', division: 'minor', season: 'winter'})
+    .send({name: 'Timberwolves', division: 'A', season: 'winter'})
     .end(function(err, res){
       expect(err).to.eql(null);
-      debugger;
       expect(res.body.name).to.eql('Timberwolves');
       done();
     });
