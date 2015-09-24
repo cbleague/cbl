@@ -88,7 +88,8 @@ describe('Game routes', function(){
     chai.request('localhost:3000/api/game')
     .post('/create')
     .set('token', token)
-    .send({seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test2', team2_diviion:'A', date:3456, location:'test'})
+    .send({seasonNumber:1, team1_name:"'test1'", team1_division:"'A'", team2_name:"'test2'", team2_diviion:"'A'", date:3456, location:"'test'"})
+
     Team.findOne({name:'test1'}, function(err, team1){
           console.log(team1);});
     Season.findOne({seasonNumber:1}, function(err, season){
