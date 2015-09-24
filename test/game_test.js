@@ -30,35 +30,67 @@ describe('Game routes', function(){
         }.bind(this));
       }.bind(this));
     }.bind(this));
+  });
 
-    var team1 = new Team();
-    team1.name = 'team1';
-    team1.division = 'A';
-    team1.save(function(err) {
-      if(err) return handleError.standard(err,res);
-    });
+  var seasonId;
 
-    var team2 = new Team();
-    team2.name = 'team2';
-    team2.division = 'A';
-    team2.save(function(err) {
-      if(err) return handleError.standard(err,res);
-    });
+  it('should be able to create season', function(done) {
+    var token = this.token;
+    chai.request('localhost:3000/api/season')
+    .post('/')
+    .set('token', token)
+    .send({seasonNumber: 1, name: '2014-2015'})
+    .end(function(err, res) {
+        Season.findOne({seasonNumber: 1}, function(err, season) {
+          seasonId = season._id;
+          expect(err).to.eql(null);
+          expect(season).to.exist;
+          expect(season.name).to.eql('2014-2015');
+          done();
+        });
+      });
+  });
 
-    var season = new Season();
-    season.seasonNumber = 1;
-    season.name= 'test';
-    season.save(function(err) {
-      if(err) return handleError.standard(err,res);    
+  it('should be able to create team1', function(done){
+    var token = this.token;
+    chai.request('localhost:3000/api/team')
+    .post('/registerteam')
+    .set('token', token)
+    .send({name:'test1', division:'A', season:seasonId})
+    .end(function(err, res){
+      Team.findOne({name:'test1'}, function(err, team){
+        expect(err).to.eql(null);
+        expect(team.name).to.eql('test1');
+        done();
+      });
     });
   });
+
+  it('should be able to create team2', function(done){
+    var token = this.token;
+    chai.request('localhost:3000/api/team')
+    .post('/registerteam')
+    .set('token', token)
+    .send({name:'test2', division:'A', season:seasonId})
+    .end(function(err, res){
+      Team.findOne({name:'test2'}, function(err, team){
+        expect(err).to.eql(null);
+        expect(team.name).to.eql('test2');
+        done();
+      });
+    });
+  });
+  
+
 
   it('should be able to create a game', function(done){
     var token = this.token;
     chai.request('localhost:3000/api/game')
     .post('/create')
     .set('token', token)
-    .send({seasonNumber:1, team1_name:'team1', team1_division:'A', team2_name:'team2', team2_diviion:'A', date:3456, location:'test'})
+    .send({seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test2', team2_diviion:'A', date:3456, location:'test'})
+    Team.findOne({name:'test1'}, function(err, team1){
+          console.log(team1);});
     Season.findOne({seasonNumber:1}, function(err, season){
       expect(season.games).to.exist;
       console.log(season);
@@ -67,5 +99,6 @@ describe('Game routes', function(){
     });
   });
 });
+
 
 
