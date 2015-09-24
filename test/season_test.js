@@ -89,7 +89,7 @@ describe('Season Routes Testing', function() {
         expect(err).to.eql(null);
         expect(res.body.msg).to.eql('Team added to season');
         Season.findById(seasonId, function(err, season) {
-          expect(season.teamsA.length).to.eql(1);
+          expect(season.teams.length).to.eql(1);
         });
         done();
       });
@@ -105,7 +105,8 @@ describe('Season Routes Testing', function() {
         expect(err).to.eql(null);
         expect(res.body.msg).to.eql('Team added to season');
         Season.findById(seasonId, function(err, season) {
-          expect(season.teamsB.length).to.eql(1);
+          expect(season.teams.length).to.eql(2);
+          expect(season.teams[1].division).to.eql('B');
         });
         done();
       });
@@ -121,7 +122,7 @@ describe('Season Routes Testing', function() {
         expect(err).to.eql(null);
         expect(res.body.msg).to.eql('Team removed from season');
         Season.findById(seasonId, function(err, season) {
-          expect(season.teamsA.length).to.eql(0);
+          expect(season.teams.length).to.eql(1);
         });
         done();
       });
