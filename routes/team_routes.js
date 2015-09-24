@@ -56,7 +56,7 @@ teamRouter.get('/seeteam/:name', function(req,res){
   });
 });
 
-debugger;
+//debugger;
 teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){
   Team.findOne({name: req.body.name}, function(err, team){
     if(err) handleError(err, res);
