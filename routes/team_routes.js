@@ -56,24 +56,21 @@ teamRouter.get('/seeteam/:name', function(req,res){
   });
 });
 
-debugger;
+
 teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){
-  Team.findOne({name: req.body.name}, function(err, team){
+  Team.update({name: req.body.name}, {$push: {players: req.body.playerId}}, {upsert: true}, function(err){
     if(err) handleError(err, res);
-    team[players].push(req.body.playerId);
-    res.json(team);
-  });
+    res.end();
+  }); 
 });
 
-teamRouter.put('/removeplayer/:name', jsonParser, isUser, function(req, res){
-  Team.findOne({name: req.params.name}, function(err, team){
-    if(err) handleError(err, res);
-    for(var i = 0; i < team[players].length; i++){
-      if(team[players][i]===req.playerId){
-        team[players].splice(i, 1);
-      }
+
+teamRouter.put('/removeplayer', jsonParser, isUser, function(req, res){
+  Team.update({name: req.body.name}, {$pull: {players: req.body.playerId}}, function(err, data){
+    if(err){
+      return res.status(500).json({'error' : 'error in deleting player'});
     }
-    res.json({msg: team[players]})
+    console.log(res.status);
+    res.end();
   });
 });
-
