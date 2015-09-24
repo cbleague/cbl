@@ -91,6 +91,36 @@ describe('team routes', function(){
       });
     });
 
+    it('should be able to add a player', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .put('/addplayer')
+      .send({name: 'Timberwolves', playerId: '507f1f77bcf86cd799439011'})
+      .set('token', token)
+      .end(function(err, res){
+        Team.findOne({name: 'Timberwolves'}, function(err, team){
+          expect(team.players.length).to.eql(1);
+          expect(err).to.eql(null);
+          done();
+        })
+      });
+    });
+
+    it('should be able to remove a player', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .put('/removeplayer')
+      .send({name: 'Timberwolves', playerId: '507f1f77bcf86cd799439011'})
+      .set('token', token)
+      .end(function(err, res){
+        Team.findOne({name: 'Timberwolves'}, function(err, team){
+          console.log(team.players.length);
+          expect(team.players.length).to.eql(0);
+          done();
+        });
+      });
+    });
+
     it('should be able to delete a team', function(done){
       var token = this.token;
       chai.request('localhost:3000/api/team')
@@ -102,13 +132,4 @@ describe('team routes', function(){
       });
     });
 
-    it('should be able to add a player', function(done){
-      chai.request('localhost:3000/api/team')
-      .put('/addplayer')
-      .send({playerId: '3fh3k3384302'})
-      .end(function(err, res){
-        expect(res.body.team).to.eql(['3fh3k3384302']);
-      });
-    });
-
-});    //end of top level describe block
+}); //end of top level describe block
