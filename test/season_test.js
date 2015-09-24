@@ -106,7 +106,22 @@ describe('Season Routes Testing', function() {
         expect(res.body.msg).to.eql('Team added to season');
         Season.findById(seasonId, function(err, season) {
           expect(season.teamsB.length).to.eql(1);
-          console.log(season);
+        });
+        done();
+      });
+    });
+
+    it('should be able to delete team from Season', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/season')
+      .delete('/removeteam')
+      .set('token', token)
+      .send({seasonId: seasonId, teamId: teamIdA})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Team removed from season');
+        Season.findById(seasonId, function(err, season) {
+          expect(season.teamsA.length).to.eql(0);
         });
         done();
       });

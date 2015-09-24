@@ -22,3 +22,8 @@ seasonRouter.post('/', jsonParser, isAdmin, function(req, res) {
 seasonRouter.post('/addteam', jsonParser, isAdmin, function(req, res) {
   ee.emit('addTeamToSeason', req, res);
 });
+
+//should receive teamId and seasonId
+seasonRouter.delete('/removeteam', jsonParser, isAdmin, function(req, res) {
+  ee.emit('removeTeamFromSeason', req, res);
+});
