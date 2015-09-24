@@ -8,7 +8,7 @@ var ee = require(__dirname + '/../lib/seasonEvents');
 var seasonRouter = module.exports = exports = express.Router();
 
 //should receive seasonNumber and seasonName
-seasonRouter.post('/', jsonParser, isAdmin, function(req, res) {
+seasonRouter.post('/', jsonParser, /*isAdmin,*/ function(req, res) {
   var season = new Season();
   season.name = req.body.name;
   season.seasonNumber = req.body.seasonNumber;

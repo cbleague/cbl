@@ -58,11 +58,10 @@ describe('Game routes', function(){
     chai.request('localhost:3000/api/game')
     .post('/create')
     .set('token', token)
-    .send({seasonNumber:1, team1_name:'team1', team1_division:'A', team2_name:'team2', team2_diviion:'A', date:1234, location:'test'})
+    .send({seasonNumber:1, team1_name:'team1', team1_division:'A', team2_name:'team2', team2_diviion:'A', date:3456, location:'test'})
     Season.findOne({seasonNumber:1}, function(err, season){
-      expect(season).to.exist;
+      expect(season.games).to.exist;
       console.log(season);
-      expect(season.gamesA).to.have.deep.property('teams.name', 'team1');
       expect(err).to.eql(null);
       done();
     });
