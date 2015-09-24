@@ -23,7 +23,7 @@ playerRouter.post('/register', jsonParser, isUser, function(req, res) {
   newPlayer.photo = req.body.photo;
 
   newPlayer.save(function(err, data) {
-    if(err) return handleError.standard(err,res);
+    if(err) return handleError.standard(err, res);
     res.json(data);
   });
 });
@@ -38,7 +38,7 @@ playerRouter.get('/find/:email', isUser, function(req, res) {
 playerRouter.delete('/delete/:email', isUser, function(req,res) {
   Player.remove({email: req.params.email}, function(err){
     if(err) handleError(err,res);
-    console.log('removed' + req.params.email + 'player')
+    console.log('removed' + req.params.email + 'player');
   });
 });
 
