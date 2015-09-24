@@ -9,12 +9,15 @@ var playerRouter = require(__dirname + '/routes/player_routes');
 var newsRouter = require(__dirname + '/routes/news_routes');
 var seasonRouter = require(__dirname + '/routes/season_routes');
 var teamRouter = require(__dirname + '/routes/team_routes');
+var tableRouter = require(__dirname + '/routes/table_routes');
 var gameRouter = require(__dirname + '/routes/game_routes');
+
 app.use('/api/season', seasonRouter);
 app.use('/api/team', teamRouter);
 app.use('/api/auth', userRouter);
 app.use('/api/player', playerRouter);
 app.use('/api/news', newsRouter);
+app.use('/api/table', tableRouter);
 app.use('/api/game', gameRouter);
 
 app.listen(port, function() {
