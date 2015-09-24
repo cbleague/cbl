@@ -35,6 +35,7 @@ playerRouter.get('/find/:email', isUser, function(req, res) {
   });
 });
 
+
 playerRouter.delete('/delete/:email', isUser, function(req,res) {
   Player.remove({email: req.params.email}, function(err){
     if(err) handleError(err,res);
@@ -42,7 +43,7 @@ playerRouter.delete('/delete/:email', isUser, function(req,res) {
   });
 });
 
-playerRouter.put('/update/:email', isUser, function(req,res) {
+playerRouter.put('/update/:email', jsonParser, isUser, function(req,res) {
   Player.findOne({'email': req.params.email}, function(err, player) {
     if (err) return handleError.standard(err, res);
     player.firstname = req.body.firstname;
