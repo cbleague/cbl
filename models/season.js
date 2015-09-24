@@ -7,8 +7,8 @@ var seasonSchema = new mongoose.Schema({
   name: {type: String, unique: true, required: true},
   teams: [{
     team: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
-    name: String,
-    division: String,
+    name: {type: String, required: true},
+    division: {type: String, required: true},
     played: {type: Number, default: 0},
     win: {type: Number, default: 0},
     lost: {type: Number, default: 0},
