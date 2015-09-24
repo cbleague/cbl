@@ -112,6 +112,37 @@ describe('Season Routes Testing', function() {
       });
     });
 
+    it('should be able to get tables data', function(done){
+      chai.request('localhost:3000/api/table')
+      .get('/allstats')
+      .send({number:9})
+      .end(function(err, season){
+        expect(season.body.name).to.eql('2014-2015');
+        done();
+      });
+    });
+
+    it('should be able to show just teams data', function(done){
+      chai.request('localhost:3000/api/table')
+      .get('/teams')
+      .send({number:9})
+      .end(function(err, season){
+        expect(season.body[0].name).to.eql('Timberwolves');
+        expect(season.body[1].name).to.eql('Lakers');
+        done();
+      });
+    });
+
+    it('should be able to show just score data', function(done){
+      chai.request('localhost:3000/api/table')
+      .get('scores')
+      .send({number:9})
+      .end(function(err, season){
+        expect(season.body).to.eql({});
+        done();
+      });
+    });
+
     it('should be able to delete team from Season', function(done) {
       var token = this.token;
       chai.request('localhost:3000/api/season')

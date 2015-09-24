@@ -10,7 +10,7 @@ var isAdmin = require(__dirname + '/../lib/eat_authorize');
 
 var teamRouter = module.exports = exports = express.Router();
 
-teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
+teamRouter.post('/registerteam', jsonParser, /*isUser,*/ function(req, res){
   var newTeam = new Team();
   newTeam.name = req.body.name; 
   newTeam.division = req.body.division;
@@ -24,7 +24,7 @@ teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
   teamEvents.emit('saveTeam', newTeam, req, res);
 });
 
-teamRouter.delete('/deleteteam/:name', /*isUser,*/ function(req, res){
+teamRouter.delete('/deleteteam/:name', isUser, function(req, res){
   Team.remove({name: req.params.name}, function(err){
     if(err) handleError(err,res);
     res.json({msg: 'removed'});
@@ -52,6 +52,7 @@ teamRouter.get('/seeteam/:name', function(req,res){
     res.json(team);
   });
 });
+
 
 
 teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){

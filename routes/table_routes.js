@@ -1,19 +1,30 @@
 var express = require('express');
 var Season = require(__dirname + '/../models/season');
-var jsoonParser = require('body-parser').json();
+var jsonParser = require('body-parser').json();
 var handleError = require(__dirname + '/../lib/handleError');
 
 var tableRouter = module.exports = exports = express.Router();
 
-tableRouter.get('/stats', function(req, res){
-  Season.find({}, function(err, season){
+tableRouter.get('/teams', jsonParser, function(req, res){
+  Season.findOne({seasonNumber: req.body.number}, function(err, season){
+    if(err) handleError(err);
+    var tableData = season.teams;
+    res.json(tableData);
+  });
+});
+
+tableRouter.get('/scores', jsonParser, function(req,res){
+  Season.findOne({seasonNumber: req.body.number}, function(err, season){
+    var gameData = season.games;
+    res.json(gameData);
+  });
+});
+
+tableRouter.get('/allstats', jsonParser, function(req,res){
+  Season.findOne({seasonNumber: req.body.number}, function(err, season){
     res.json(season);
   });
 });
 
+//requests are based on season number
 
-//route for getting all teams and stats
-
-//route for getting scores and dates
-
-//route for getting all scores and dates
