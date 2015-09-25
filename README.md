@@ -53,7 +53,7 @@ INPUT: {email:'test', password: 'foobar123'}
 
 ```
 
-#### Sign in
+##### Sign in
 User can sign-in with email and password.
 Incorrect emall or password will return error.
 ```
@@ -63,7 +63,7 @@ INPUT: {email:'test', password: 'ENCRYPTED'}
 ```
 
 
-#### Change account
+##### Change account
 User can change email and password.
 ```
 API: /api/auth/update/
@@ -71,7 +71,7 @@ Method: PUT
 INPUT: {email:'test5', password: 'ENCRYPTED'}
 ```
 
-#### Administrator
+##### Administrator
 
 * Add admin role
 ```
@@ -95,7 +95,7 @@ INPUT: {email:'test'}
 
 ### <a name="players"></a>**Players**
 
-#### Register
+##### Register
 User can register players.
 Email can't be duplicated
 To register players, player's name(firstname, middlename, secondname), email, phone, date of birth, age, height, weight, position must be required.
@@ -108,7 +108,7 @@ INPUT: {firstname: 'test1', middlename: 'test', secondname: 'test', email: 'test
               phone: 1234, dateOfBirth: 1234, age: 20, height: 7, weight: 7, number: 7, position: 'test'}
 ```
 
-#### Search
+##### Search
 Players information can be searched by email.
 
 ```
@@ -119,7 +119,7 @@ OUTPUT:  {firstname: 'test1', middlename: 'test', secondname: 'test', email: 'te
 ```
 
 
-#### Modify profile(update)
+##### Modify profile(update)
 Players information can be modified.
 
 ```
@@ -132,7 +132,7 @@ OUTPUT:  {firstname: 'Albert', middlename: 'test', secondname: 'test', email: 't
 
 
 
-#### Delete
+##### Delete
 
 ```
 API: /api/player/delete/test@test.com
@@ -150,7 +150,7 @@ METHOD: delete
 ###<a name="seasons"></a> **Seasons**
 Season includes season number, name, teams, games.
 
-#### Create (Admin Only)
+##### Create (Admin Only)
 Season can be created.
 To create Season, name, season number must be required.
 ```
@@ -175,7 +175,7 @@ INPUT: {seasonId: seasonId, teamId: teamId}
 
 ### <a name="teams"></a>**Teams**
 
-#### Register
+##### Register
 Teams change every seasons. So, ``Season`` must be created before creating team.
 To register, name, division, season_objectID must be required and administrator, captian, coach, photo, logo are optional.
 
@@ -186,7 +186,7 @@ INPUT: {name: 'Timberwolves', division: 'A', season: seasonId}
 ```
 
 
-#### Add/Remove Players
+##### Add/Remove Players
 
 Players can be added or removed with player's name and objectID.
 ```
@@ -200,7 +200,7 @@ METHOD: PUT
 INPUT: {name: 'Timberwolves', playerId: '507f1f77bcf86cd799439011'}
 ```
 
-#### Search
+##### Search
 
 Teams can be searched by team name
 ```
@@ -208,14 +208,14 @@ API: /api/team/seeteam/Timberwolves
 METHOD: PUT
 ```
 
-#### Modify team info. (update)
+##### Modify team info. (update)
 Teams can be updated by team name
 ```
 API: /api/team/updateteam/Timberwolves
 METHOD: PUT
 ```
 
-#### Delete
+##### Delete
 
 Teams can be deleted by team name
 ```
@@ -232,7 +232,7 @@ METHOD: delete
 Multiple games in a season.
 So, a ``Season`` and two ``Teams`` must be created at least before creating a game.
 
-#### Create
+##### Create
 To create a game, two teams and location, date must be required.
 If teams have a game on the day, it can't be created.
 
@@ -252,12 +252,12 @@ INPUT: {seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test
 ### <a name="table"></a>**Table**
 It shows data of teams, scores or all status.
 
-#### Teams
+##### Teams
 
 
-#### Score
+##### Score
 
-#### Allstats
+##### Allstats
 
 
 
