@@ -1,5 +1,5 @@
 # CBL
-=================
+-------------------
 
 ## List of Contents
 * [Users](#users)
@@ -32,7 +32,7 @@
   - Teams
   - Score
   - Allstats
-
+--------------------------
 
 
 ### <a name="users"></a>**Users**
@@ -59,7 +59,6 @@ INPUT: {email:'test', password: 'ENCRYPTED'}
 ```
 
 
-
 #### Change account
 User can change email and password.
 ```
@@ -70,18 +69,25 @@ INPUT: {email:'test5', password: 'ENCRYPTED'}
 
 #### Administrator
 
-* Add admin roll
+* Add admin role
 ```
 API: /api/auth/addadmin/ 
 METHOD: POST 
 INPUT: {email:'test'}
 ```
-* Remove admin roll
+* Remove admin role
 ```
 API: /api/auth/addadmin/ 
 METHOD: PUT 
 INPUT: {email:'test'}
 ```
+
+
+
+
+
+
+-------------------------------
 
 
 
@@ -134,6 +140,11 @@ METHOD: delete
 
 
 
+
+
+---------------------------------------
+
+
 ###<a name="seasons"></a> **Seasons**
 Season includes season number, name, teams, games.
 
@@ -154,6 +165,10 @@ METHOD: POST
 INPUT: {seasonId: seasonId, teamId: teamId}
 ```
 
+
+
+
+-----------------------------------------
 
 
 ### <a name="teams"></a>**Teams**
@@ -207,6 +222,10 @@ METHOD: delete
 ```
 
 
+
+
+----------------------------------------
+
 ### <a name="games"></a>**Games**
 Multiple games in a season.
 So, a ``Season`` and two ``Teams`` must be created at least before creating a game.
@@ -220,6 +239,12 @@ API: /api/game/create
 METHOD: POST
 INPUT: {seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test2', team2_division:'A', date:3456, location:'testlocation'}
 ```
+
+
+
+
+
+--------------------------------
 
 
 ### <a name="table"></a>**Table**
