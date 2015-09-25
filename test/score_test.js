@@ -8,7 +8,6 @@ var mongoose = require('mongoose');
 var Season = require(__dirname + '/../models/season');
 var User = require(__dirname + '/../models/user');
 
-
 describe('Season Routes Testing', function() {
   after(function(done){
     mongoose.connection.db.dropDatabase(function() {
@@ -17,8 +16,7 @@ describe('Season Routes Testing', function() {
   });
 
   describe('Creating a user with admin role', function() {
-    var seasonId, teamIdA, teamIdB;
-    
+    var seasonId, teamId1, teamId2, teamId3, teamId4, teamId5;
     before(function(done) {
       var user = new User();
       user.email = 'test';
@@ -81,6 +79,34 @@ describe('Season Routes Testing', function() {
       });
     });
 
+    it('Creating team3 on A division', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .post('/registerteam')
+      .set('token', token)
+      .send({name: 'ChicagoBulls', division: 'A', season: seasonId})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.name).to.eql('ChicagoBulls');
+        teamId3 = res.body._id;
+        done();
+      });
+    });
+
+    it('Creating team4 on A division', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/team')
+      .post('/registerteam')
+      .set('token', token)
+      .send({name: 'Cats', division: 'A', season: seasonId})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.name).to.eql('Cats');
+        teamId4 = res.body._id;
+        done();
+      });
+    });
+
     it('Adding team1 to Season', function(done) {
       var token = this.token;
       chai.request('localhost:3000/api/season')
@@ -108,47 +134,173 @@ describe('Season Routes Testing', function() {
         expect(res.body.msg).to.eql('Team added to season');
         Season.findById(seasonId, function(err, season) {
           expect(season.teams.length).to.eql(2);
-          expect(season.teams[0].division).to.eql('A');
-          done();
-        });
-      });
-    });
-
-    it('Should be able to update scores', function(done) {
-      var token = this.token;
-      chai.request('localhost:3000/api/score')
-      .post('/')
-      .set('token', token)
-      .send({id1: teamId1, id2: teamId2, id1Score: 55, id2Score: 44, seasonNumber: 9})
-      .end(function(err, res){
-        expect(err).to.eql(null);
-        expect(res.body.msg).to.eql('Updated');
-        Season.findById(seasonId, function(err, season) {
-          console.log(season.teams);
-          expect(season.teams.length).to.eql(2);
           expect(season.teams[1].division).to.eql('A');
           done();
         });
       });
     });
 
-    // it('Should be able to update scores one more time', function(done) {
-    //   var token = this.token;
-    //   chai.request('localhost:3000/api/score')
-    //   .post('/')
-    //   .set('token', token)
-    //   .send({id1: teamId1, id2: teamId2, id1Score: 10, id2Score: 20, seasonNumber: 9})
-    //   .end(function(err, res){
-    //     expect(err).to.eql(null);
-    //     expect(res.body.msg).to.eql('Updated');
-    //     Season.findById(seasonId, function(err, season) {
-    //       console.log(season.teams);
-    //       expect(season.teams.length).to.eql(2);
-    //       expect(season.teams[1].division).to.eql('A');
-    //       done();
-    //     });
-    //   });
-    // });
+    it('Adding team3 to Season', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/season')
+      .post('/addteam')
+      .set('token', token)
+      .send({seasonId: seasonId, teamId: teamId3})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Team added to season');
+        Season.findById(seasonId, function(err, season) {
+          expect(season.teams.length).to.eql(3);
+          expect(season.teams[2].division).to.eql('A');
+          done();
+        });
+      });
+    });
+
+    it('Adding team4 to Season', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/season')
+      .post('/addteam')
+      .set('token', token)
+      .send({seasonId: seasonId, teamId: teamId4})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Team added to season');
+        Season.findById(seasonId, function(err, season) {
+          expect(season.teams.length).to.eql(4);
+          expect(season.teams[3].division).to.eql('A');
+          done();
+        });
+      });
+    });
+
+    it('Adding game 1', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/score')
+      .post('/')
+      .set('token', token)
+      .send({id1: teamId1, id2: teamId2, id1Score: 5, id2Score: 10, seasonNumber: 9})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Updated');
+        Season.findOne({seasonNumber: 9, 'teams.team': teamId2}, {'teams.$': 1}, function(err, data) {
+          // expect(data.teams[0].baskets.scored).to.eql(44);
+          // expect(data.teams[0].baskets.missed).to.eql(55);
+          // expect(data.teams[0].played).to.eql(1);
+          // expect(data.teams[0].win).to.eql(0);
+          // expect(data.teams[0].lost).to.eql(1);
+          // expect(data.teams[0].points).to.eql(1);
+          done();
+        });
+      });
+    });
+
+    it('Adding game 2', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/score')
+      .post('/')
+      .set('token', token)
+      .send({id1: teamId1, id2: teamId3, id1Score: 10, id2Score: 5, seasonNumber: 9})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Updated');
+        Season.findOne({seasonNumber: 9, 'teams.team': teamId2}, {'teams.$': 1}, function(err, data) {
+          // expect(data.teams[0].baskets.scored).to.eql(100);
+          // expect(data.teams[0].baskets.missed).to.eql(101);
+          // expect(data.teams[0].played).to.eql(2);
+          // expect(data.teams[0].win).to.eql(1);
+          // expect(data.teams[0].lost).to.eql(1);
+          // expect(data.teams[0].points).to.eql(3);
+          done();
+        });
+      });
+    });
+
+    it('Adding game 3', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/score')
+      .post('/')
+      .set('token', token)
+      .send({id1: teamId1, id2: teamId4, id1Score: 15, id2Score: 5, seasonNumber: 9})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Updated');
+        Season.findOne({seasonNumber: 9, 'teams.team': teamId2}, {'teams.$': 1}, function(err, data) {
+          // expect(data.teams[0].baskets.scored).to.eql(100);
+          // expect(data.teams[0].baskets.missed).to.eql(101);
+          // expect(data.teams[0].played).to.eql(2);
+          // expect(data.teams[0].win).to.eql(1);
+          // expect(data.teams[0].lost).to.eql(1);
+          // expect(data.teams[0].points).to.eql(3);
+          done();
+        });
+      });
+    });
+
+    it('Adding game 4', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/score')
+      .post('/')
+      .set('token', token)
+      .send({id1: teamId2, id2: teamId3, id1Score: 5, id2Score: 25, seasonNumber: 9})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Updated');
+        Season.findOne({seasonNumber: 9, 'teams.team': teamId2}, {'teams.$': 1}, function(err, data) {
+          // expect(data.teams[0].baskets.scored).to.eql(100);
+          // expect(data.teams[0].baskets.missed).to.eql(101);
+          // expect(data.teams[0].played).to.eql(2);
+          // expect(data.teams[0].win).to.eql(1);
+          // expect(data.teams[0].lost).to.eql(1);
+          // expect(data.teams[0].points).to.eql(3);
+          done();
+        });
+      });
+    });
+
+    it('Adding game 5', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/score')
+      .post('/')
+      .set('token', token)
+      .send({id1: teamId2, id2: teamId4, id1Score: 25, id2Score: 5, seasonNumber: 9})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Updated');
+        Season.findOne({seasonNumber: 9, 'teams.team': teamId2}, {'teams.$': 1}, function(err, data) {
+          // expect(data.teams[0].baskets.scored).to.eql(100);
+          // expect(data.teams[0].baskets.missed).to.eql(101);
+          // expect(data.teams[0].played).to.eql(2);
+          // expect(data.teams[0].win).to.eql(1);
+          // expect(data.teams[0].lost).to.eql(1);
+          // expect(data.teams[0].points).to.eql(3);
+          done();
+        });
+      });
+    });
+
+    it('Adding game 6', function(done) {
+      var token = this.token;
+      chai.request('localhost:3000/api/score')
+      .post('/')
+      .set('token', token)
+      .send({id1: teamId3, id2: teamId4, id1Score: 15, id2Score: 10, seasonNumber: 9})
+      .end(function(err, res){
+        expect(err).to.eql(null);
+        expect(res.body.msg).to.eql('Updated');
+        Season.findOne({seasonNumber: 9, 'teams.team': teamId1}, {'teams.$': 1}, function(err, data) {
+          expect(data.teams[0].baskets.scored).to.eql(30);
+          expect(data.teams[0].baskets.missed).to.eql(20);
+          expect(data.teams[0].played).to.eql(3);
+          expect(data.teams[0].win).to.eql(2);
+          expect(data.teams[0].lost).to.eql(1);
+          expect(data.teams[0].points).to.eql(5);
+          done();
+        });
+      });
+    });
+
+
 
 
 
