@@ -1,6 +1,6 @@
-=============================
+
 # CBL
-=============================
+
 
 ## List of Contents
 * [Users](#users)
@@ -41,7 +41,7 @@
 
 ### <a name="users"></a>**Users**
 
-#### Sign Up
+##### Sign Up
 Anyone can sign-up with email and password. 
 Password will be encrypted.
 Duplicated email is not allowed.
