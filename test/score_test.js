@@ -140,6 +140,8 @@ describe('Season Routes Testing', function() {
       });
     });
 
+
+
     it('Adding team3 to Season', function(done) {
       var token = this.token;
       chai.request('localhost:3000/api/season')
@@ -169,6 +171,104 @@ describe('Season Routes Testing', function() {
         Season.findById(seasonId, function(err, season) {
           expect(season.teams.length).to.eql(4);
           expect(season.teams[3].division).to.eql('A');
+          done();
+        });
+      });
+    });
+
+    it('Creating game for teams 1 - 2', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/game')
+      .post('/create')
+      .set('token', token)
+      .send({seasonNumber: 9, team1_name:'Timberwolves', team1_division:'A', team2_name:'Lakers', team2_division:'A', date:124125, location:'testlocation'})
+      .end(function(err, res){
+        Season.findOne({seasonNumber:9}, function(err, season){
+          expect(season.games).to.exist;
+          expect(err).to.eql(null);
+          expect(season.games[0].location).to.eql('testlocation');
+          done();
+        });
+      });
+    });
+
+    it('Creating game for teams 1 - 3', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/game')
+      .post('/create')
+      .set('token', token)
+      .send({seasonNumber: 9, team1_name:'Timberwolves', team1_division:'A', team2_name:'ChicagoBulls', team2_division:'A', date:85127, location:'somewhere'})
+      .end(function(err, res){
+        Season.findOne({seasonNumber:9}, function(err, season){
+          expect(season.games).to.exist;
+          expect(err).to.eql(null);
+          expect(season.games[1].location).to.eql('somewhere');
+          done();
+        });
+      });
+    });
+
+
+    it('Creating game for teams 1 - 4', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/game')
+      .post('/create')
+      .set('token', token)
+      .send({seasonNumber: 9, team1_name:'Timberwolves', team1_division:'A', team2_name:'Cats', team2_division:'A', date:23, location:'testlocation'})
+      .end(function(err, res){
+        Season.findOne({seasonNumber:9}, function(err, season){
+          expect(season.games).to.exist;
+          expect(err).to.eql(null);
+          expect(season.games[0].location).to.eql('testlocation');
+          done();
+        });
+      });
+    });
+
+
+    it('Creating game for teams 2 - 3', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/game')
+      .post('/create')
+      .set('token', token)
+      .send({seasonNumber: 9, team1_name:'Lakers', team1_division:'A', team2_name:'ChicagoBulls', team2_division:'A', date:5745863, location:'testlocation'})
+      .end(function(err, res){
+        Season.findOne({seasonNumber:9}, function(err, season){
+          expect(season.games).to.exist;
+          expect(err).to.eql(null);
+          expect(season.games[0].location).to.eql('testlocation');
+          done();
+        });
+      });
+    });
+
+    it('Creating game for teams 2 - 4', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/game')
+      .post('/create')
+      .set('token', token)
+      .send({seasonNumber: 9, team1_name:'Lakers', team1_division:'A', team2_name:'Cats', team2_division:'A', date:11563, location:'testlocation'})
+      .end(function(err, res){
+        Season.findOne({seasonNumber:9}, function(err, season){
+          expect(season.games).to.exist;
+          expect(err).to.eql(null);
+          expect(season.games[0].location).to.eql('testlocation');
+          done();
+        });
+      });
+    });
+
+    it('Creating game for teams 3 - 4', function(done){
+      var token = this.token;
+      chai.request('localhost:3000/api/game')
+      .post('/create')
+      .set('token', token)
+      .send({seasonNumber: 9, team1_name:'ChicagoBulls', team1_division:'A', team2_name:'Cats', team2_division:'A', date:63, location:'testlocation'})
+      .end(function(err, res){
+        Season.findOne({seasonNumber:9}, function(err, season){
+          expect(season.games).to.exist;
+          expect(err).to.eql(null);
+          expect(season.games[0].location).to.eql('testlocation');
           done();
         });
       });
@@ -298,6 +398,15 @@ describe('Season Routes Testing', function() {
           done();
         });
       });
+    });
+
+    it('show me season', function(done) {
+      Season.findOne({seasonNumber: 9}, function(err, data) {
+          console.log('--------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+          console.log(data.games);
+          done();
+        });
+
     });
 
 
