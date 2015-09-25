@@ -96,8 +96,8 @@ INPUT: {email:'test'}
 ### <a name="players"></a>**Players**
 
 ##### Register
-User can register players.
-Email can't be duplicated
+User can register players. and email can't be duplicated.
+
 To register players, player's name(firstname, middlename, secondname), email, phone, date of birth, age, height, weight, position must be required.
 photo is optional.
 
