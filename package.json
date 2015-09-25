@@ -26,7 +26,10 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
+  "engines": {
+    "node": ">=0.10"
+  },
+  "bugs":{
     "url": "https://github.com/romangusev/Basic-Auth/issues"
   },
   "homepage": "https://github.com/romangusev/Basic-Auth"
