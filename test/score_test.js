@@ -174,7 +174,9 @@ describe('Season Routes Testing', function() {
           done();
         });
       });
-    });
+    })
+
+
 
     it('Creating game for teams 1 - 2', function(done){
       var token = this.token;
@@ -399,21 +401,6 @@ describe('Season Routes Testing', function() {
         });
       });
     });
-
-    it('show me season', function(done) {
-      Season.findOne({seasonNumber: 9}, function(err, data) {
-          console.log('--------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-          console.log(data.games);
-          done();
-        });
-
-    });
-
-
-
-
-
-
 
   });
 });
