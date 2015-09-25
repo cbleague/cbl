@@ -1,5 +1,5 @@
 # CBL
--------------------
+=============================
 
 ## List of Contents
 * [Users](#users)
@@ -35,8 +35,10 @@
 
 
 
-### <a name="users"></a>**Users**
 --------------------------
+
+
+### <a name="users"></a>**Users**
 
 #### Sign Up
 Anyone can sign-up with email and password. 
@@ -88,12 +90,11 @@ INPUT: {email:'test'}
 
 
 
-
+-------------------------------
 
 
 
 ### <a name="players"></a>**Players**
--------------------------------
 
 #### Register
 User can register players.
@@ -144,12 +145,10 @@ METHOD: delete
 
 
 
-
+---------------------------------------
 
 
 ###<a name="seasons"></a> **Seasons**
----------------------------------------
-
 Season includes season number, name, teams, games.
 
 #### Create (Admin Only)
@@ -172,11 +171,10 @@ INPUT: {seasonId: seasonId, teamId: teamId}
 
 
 
-
+-----------------------------------------
 
 
 ### <a name="teams"></a>**Teams**
------------------------------------------
 
 #### Register
 Teams change every seasons. So, ``Season`` must be created before creating team.
@@ -229,11 +227,9 @@ METHOD: delete
 
 
 
-
-
-### <a name="games"></a>**Games**
 ----------------------------------------
 
+### <a name="games"></a>**Games**
 Multiple games in a season.
 So, a ``Season`` and two ``Teams`` must be created at least before creating a game.
 
@@ -251,11 +247,10 @@ INPUT: {seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test
 
 
 
-
+--------------------------------
 
 
 ### <a name="table"></a>**Table**
---------------------------------
 It shows data of teams, scores or all status.
 
 #### Teams
