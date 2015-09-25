@@ -1,8 +1,8 @@
 {
   "name": "CBL",
-  "version": "0.1.0",
-  "description": "Express + Authentication",
-  "main": "index.js",
+  "version": "1.0.0",
+  "description": "Custom Basketball Legue REST API",
+  "main": "server.js",
   "directories": {
     "test": "test"
   },
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/romangusev/Basic-Auth.git"
+    "url": "https://github.com/cbleague/cbl.git"
   },
   "author": "",
   "license": "ISC",
@@ -30,7 +30,7 @@
     "node": ">=0.10"
   },
   "bugs":{
-    "url": "https://github.com/romangusev/Basic-Auth/issues"
+    "url": "https://github.com/cbleague/cbl/issues"
   },
-  "homepage": "https://github.com/romangusev/Basic-Auth"
+  "homepage": "https://github.com/cbleague/cbl"
 }
