@@ -31,13 +31,13 @@ teamRouter.delete('/deleteteam/:name', isUser, function(req, res){
   });
 });
 
-teamRouter.put('/updateteam/:name', jsonParser, isUser, function(req, res){
+teamRouter.put('/updateteam/:name', jsonParser, /*isUser,*/ function(req, res){
   var field = req.body.field;
   var newVal = req.body.value;
   Team.findOne({name: req.params.name}, function(err, team){
-    if(field === 'isAdmin'){
-      return res.status(401).json({msg: 'Unauthorized'}); 
-    }
+    // if(field !== 'isAdmin'){
+    //   return res.status(401).json({msg: 'Unauthorized'}); 
+    // }
     team[field] = newVal;
     team.save(function(err){
       if(err) handleError(err, res);
