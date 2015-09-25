@@ -9,5 +9,5 @@ var scoreRouter = module.exports = exports = express.Router();
 
 //should receive {id1: _id, id2: _id, id1Score: score, id2Score:score, seasonNumber: number}
 scoreRouter.post('/', jsonParser, function(req, res) {
-  scoreEventEmitter.emit('addScoreToTeam', req, res);
+  scoreEventEmitter.emit('addScoreToGames', req, res);
 });

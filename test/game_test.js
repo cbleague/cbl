@@ -81,8 +81,6 @@ describe('Game routes', function(){
     });
   });
   
-
-
   it('should be able to create a game', function(done){
     var token = this.token;
     chai.request('localhost:3000/api/game')
@@ -99,8 +97,4 @@ describe('Game routes', function(){
       });
     });
   });
-
 });
-
-
-
