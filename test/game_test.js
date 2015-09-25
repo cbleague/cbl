@@ -88,17 +88,16 @@ describe('Game routes', function(){
     chai.request('localhost:3000/api/game')
     .post('/create')
     .set('token', token)
-    .send({seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test2', team2_diviion:'A', date:3456, location:'test'})
+    .send({seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test2', team2_division:'A', date:3456, location:'testlocation'})
     .end(function(err, res){
       Season.findOne({seasonNumber:1}, function(err, season){
+        console.log("FIXED SEASON: " + season);
         expect(season.games).to.exist;
-        console.log(season);
         expect(err).to.eql(null);
+        expect(season.games[0].location).to.eql('testlocation');
         done();
       });
     });
   });
+
 });
-
-
-
