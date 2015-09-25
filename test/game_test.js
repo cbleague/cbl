@@ -97,8 +97,4 @@ describe('Game routes', function(){
       });
     });
   });
-
 });
-
-
-
