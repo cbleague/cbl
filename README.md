@@ -9,7 +9,7 @@ Express + Authentication
 # CBL
 
 
-## List of Contents
+## List of Routes
 * [Users](#users)
   - SignUp
   - SignIn
@@ -35,6 +35,7 @@ Express + Authentication
 
 * [Games](#games)
   - Create
+  - Delete
 
 * [Table](#table)
   - Teams
@@ -50,8 +51,8 @@ Express + Authentication
 
 ##### Sign Up
 Anyone can sign-up with email and password. 
-Password will be encrypted.
-Duplicated email is not allowed.
+Password should be base64 encrypted.
+Duplicated emails are not allowed.
 
 ```
 API: /api/auth/signup/ 
@@ -65,6 +66,7 @@ INPUT: {email:'test', password: 'foobar123'}
 ##### Sign in
 User can sign-in with email and password.
 Incorrect emall or password will return error.
+You have to use Basic HTTP Authorisation Request.
 ```
 API: /api/auth/signin/ 
 METHOD: GET
@@ -85,14 +87,14 @@ INPUT: {email:'test5', password: 'ENCRYPTED'}
 
 ##### Administrator
 
-* Add admin role
+Admins could add admin role to another user
 ```
 API: /api/auth/addadmin/ 
 METHOD: POST 
 INPUT: {email:'test'}
 ```
 
-* Remove admin role
+Admins could remove admin role
 ```
 API: /api/auth/addadmin/ 
 METHOD: PUT 
@@ -107,46 +109,50 @@ INPUT: {email:'test'}
 ### <a name="players"></a>**Players**
 
 ##### Register
-User can register players. and email can't be duplicated.
+User can register players. No email duplicates.
 
-To register players, player's name(firstname, middlename, secondname), email, phone, date of birth, age, height, weight, position must be required.
-photo is optional.
+For registering players, player's name(firstname, middlename, secondname), email, phone, date of birth, age, height, weight, position must be required.
+Photo is optional.
 
 ```
 API: /api/player/register 
 METHOD: POST
-INPUT: {firstname: 'test1', middlename: 'test', secondname: 'test', email: 'test1@test.com', 
-              phone: 1234, dateOfBirth: 1234, age: 20, height: 7, weight: 7, number: 7, position: 'test'}
+INPUT: {firstname: 'test1', middlename: 'test', secondname: 'test', 
+          email: 'test1@test.com', phone: 1234, dateOfBirth: 1234, 
+          age: 20, height: 7, weight: 7, number: 7, position: 'test'}
 ```
 
 
 
 ##### Search
-Players information can be searched by email.
+Get player by email.
 
 ```
 API: /api/player/find/test@test.com
 METHOD: GET
-OUTPUT:  {firstname: 'test1', middlename: 'test', secondname: 'test', email: 'test1@test.com', 
-              phone: 1234, dateOfBirth: 1234, age: 20, height: 7, weight: 7, number: 7, position: 'test'}
+OUTPUT:  {firstname: 'test1', middlename: 'test', secondname: 'test', 
+          email: 'test1@test.com', phone: 1234, dateOfBirth: 1234, 
+          age: 20, height: 7, weight: 7, number: 7, position: 'test'}
 ```
 
 
 
 ##### Modify profile(update)
-Players information can be modified.
+Update player information.
 
 ```
 API: /api/player/update/test@test.com
 METHOD: PUT
 INPUT: {firstname: 'Albert'}
-OUTPUT:  {firstname: 'Albert', middlename: 'test', secondname: 'test', email: 'test1@test.com', 
-              phone: 1234, dateOfBirth: 1234, age: 20, height: 7, weight: 7, number: 7, position: 'test'}
+OUTPUT:  {firstname: 'Albert', middlename: 'test', secondname: 'test', 
+            email: 'test1@test.com', phone: 1234, dateOfBirth: 1234, 
+            age: 20, height: 7, weight: 7, number: 7, position: 'test'}
 ```
 
 
 
 ##### Delete
+Delete player by email.
 
 ```
 API: /api/player/delete/test@test.com
@@ -162,11 +168,11 @@ METHOD: delete
 
 
 ###<a name="seasons"></a> **Seasons**
-Season includes season number, name, teams, games.
+Season includes season number, name, teams array, games array.
 
 
 ##### Create (Admin Only)
-Season can be created.
+Create season.
 To create Season, name, season number must be required.
 ```
 API: /api/season/
@@ -278,15 +284,32 @@ INPUT: {seasonNumber:1, team1_name:'test1', team1_division:'A', team2_name:'test
 
 ### <a name="table"></a>**Table**
 It shows data of teams, scores or all status.
-
-
 ##### Teams
-
-
-
+```
+API: /api/table/teams
+METHOD: GET
+OUTPUT: {[teams array]}
+```
 ##### Score
-
-
-
+```
+API: /api/table/scores
+METHOD: GET
+OUTPUT: {[Array with scores for every team]}
+```
 ##### Allstats
+```
+API: /api/table/allstats
+METHOD: GET
+OUTPUT: {All season object}
+```
+
+
+
+
+
+
+
+
+
+
 
