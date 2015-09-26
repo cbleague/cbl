@@ -1,11 +1,11 @@
 
-# Ukrainian Christian Basketball League REST API
+# Ukrainian Basketball REST API
 =======
-## Demo
-[Heroku Demo](http://sleepy-shore-7853.herokuapp.com/)
+## [Heroku deployment](http://sleepy-shore-7853.herokuapp.com/)
 =======
 ##Features
 * Express 
+* MongoDB
 * Authentication
 
 ## List of Routes
