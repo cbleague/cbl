@@ -1,7 +1,6 @@
 
 # Ukrainian Basketball REST API
-=======
-## [Heroku deployment](http://sleepy-shore-7853.herokuapp.com/)
+### [Heroku deployment](http://sleepy-shore-7853.herokuapp.com/)
 =======
 ##Features
 * Express 
