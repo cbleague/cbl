@@ -1,13 +1,12 @@
 
-# Christian Basketball League
-Application for managing league 
+# Ukrainian Christian Basketball League REST API
 =======
-# Basic-Auth
-Express + Authentication
-=======
-
+## Demo
 [Heroku Demo](http://sleepy-shore-7853.herokuapp.com/)
-
+=======
+##Features
+* Express 
+* Authentication
 
 ## List of Routes
 * [Users](#users)
