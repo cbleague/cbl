@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href='css/style.css'>
+    <meta charset="UTF-8">
+    <title>CBL App</title>
+  </head>
+  <body data-ng-app="cblApp" class="container">
+    <header class="jumbotron" data-ng-controller="AuthController">
+      <form class="form-inline text-right ng-cloak" data-ng-if="!isLoggedIn" name="forms.loginForm">
+        <div class="form-group" ng-class="{'has-error': (forms.loginForm.email.$invalid && forms.loginForm.email.$dirty)}" >
+          <label class="sr-only" for="exampleInputEmail">Email address</label>
+          <input 
+            type="email" 
+            class="form-control input-sm"
+            name="email" 
+            id="exampleInputEmail" 
+            placeholder="Email" 
+            ng-model="user.email"
+            required>
+        </div>
+        <div class="form-group" ng-class="{'has-error': !passwordMatch()}">
+          <label class="sr-only" for="exampleInputPassword">Password</label>
+          <input 
+            type="password"
+            name="password"
+            class="form-control input-sm" 
+            id="exampleInputPassword" 
+            placeholder="Password" 
+            ng-model="user.password"
+            required>
+        </div>
+        <div class="form-group" data-ng-show="registerView" ng-cloak ng-class="{'has-error': !passwordMatch()}">
+          <label class="sr-only" for="confirmInputPassword">Password</label>
+          <input 
+            type="password"
+            name="confirmPassword"
+            class="form-control input-sm"
+            id="confirmInputPassword"
+            ng-model="user.confirmPassword"
+            placeholder="Confirm Password">
+        </div>
+        <button type="button" class="btn btn-default btn-xs" data-ng-if="!registerView" ng-click="login()" data-ng-disabled="forms.loginForm.$invalid">LogIn</button>
+        <button type="button" class="btn btn-default btn-xs" data-ng-if="registerView" ng-click="register()" data-ng-disabled="disableRegisterButton()">Register</button>
+        <a href data-ng-if="!registerView" data-ng-click="changeRegisterView()">Register</a>
+        <a href data-ng-if="registerView" data-ng-click="changeRegisterView()">LogIn</a>
+      </form>
+      <section class="ng-cloak text-right" data-ng-if="isLoggedIn">
+        <span>Hi, {{loggedUser}} </span>
+        <button type="button" class="btn btn-default btn-xs" data-ng-click="logOut()">LogOut</button>
+      </section>
+    </header>
+
+    <section class="jumbotron">
+      <h1>Some dummy data here</h1>
+      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body> 
+  <script src="bundle.js"></script>
