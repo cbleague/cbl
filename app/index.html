@@ -8,55 +8,81 @@
     <title>CBL App</title>
   </head>
   <body data-ng-app="cblApp" class="container">
-    <header class="jumbotron" data-ng-controller="AuthController">
-      <form class="form-inline text-right ng-cloak" data-ng-if="!isLoggedIn" name="forms.loginForm">
-        <div class="form-group" ng-class="{'has-error': (forms.loginForm.email.$invalid && forms.loginForm.email.$dirty)}" >
-          <label class="sr-only" for="exampleInputEmail">Email address</label>
-          <input 
-            type="email" 
-            class="form-control input-sm"
-            name="email" 
-            id="exampleInputEmail" 
-            placeholder="Email" 
-            ng-model="user.email"
-            required>
+    
+    <nav class="navbar navbar-default" data-ng-controller="AuthController">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">CBL</a>
         </div>
-        <div class="form-group" ng-class="{'has-error': !passwordMatch()}">
-          <label class="sr-only" for="exampleInputPassword">Password</label>
-          <input 
-            type="password"
-            name="password"
-            class="form-control input-sm" 
-            id="exampleInputPassword" 
-            placeholder="Password" 
-            ng-model="user.password"
-            required>
-        </div>
-        <div class="form-group" data-ng-show="registerView" ng-cloak ng-class="{'has-error': !passwordMatch()}">
-          <label class="sr-only" for="confirmInputPassword">Password</label>
-          <input 
-            type="password"
-            name="confirmPassword"
-            class="form-control input-sm"
-            id="confirmInputPassword"
-            ng-model="user.confirmPassword"
-            placeholder="Confirm Password">
-        </div>
-        <button type="button" class="btn btn-default btn-xs" data-ng-if="!registerView" ng-click="login()" data-ng-disabled="forms.loginForm.$invalid">LogIn</button>
-        <button type="button" class="btn btn-default btn-xs" data-ng-if="registerView" ng-click="register()" data-ng-disabled="disableRegisterButton()">Register</button>
-        <a href data-ng-if="!registerView" data-ng-click="changeRegisterView()">Register</a>
-        <a href data-ng-if="registerView" data-ng-click="changeRegisterView()">LogIn</a>
-      </form>
-      <section class="ng-cloak text-right" data-ng-if="isLoggedIn">
-        <span>Hi, {{loggedUser}} </span>
-        <button type="button" class="btn btn-default btn-xs" data-ng-click="logOut()">LogOut</button>
-      </section>
-    </header>
 
-    <section class="jumbotron">
-      <h1>Some dummy data here</h1>
-      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    </section>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="#/registerTeam">User</a></li>
+            <li><a href="#/admin">Admin</a></li> 
+          </ul>
+
+          <form class="navbar-form navbar-right ng-cloak" data-ng-if="!isLoggedIn" name="forms.loginForm">
+            <div class="form-group" ng-class="{'has-error': (forms.loginForm.email.$invalid && forms.loginForm.email.$dirty)}" >
+              <label class="sr-only" for="exampleInputEmail">Email address</label>
+              <input 
+                type="email" 
+                class="form-control"
+                name="email" 
+                id="exampleInputEmail" 
+                placeholder="Email" 
+                ng-model="user.email"
+                required>
+            </div>
+            <div class="form-group" ng-class="{'has-error': !passwordMatch()}">
+              <label class="sr-only" for="exampleInputPassword">Password</label>
+              <input 
+                type="password"
+                name="password"
+                class="form-control" 
+                id="exampleInputPassword" 
+                placeholder="Password" 
+                ng-model="user.password"
+                required>
+            </div>
+            <div class="form-group" data-ng-show="registerView" ng-cloak ng-class="{'has-error': !passwordMatch()}">
+              <label class="sr-only" for="confirmInputPassword">Password</label>
+              <input 
+                type="password"
+                name="confirmPassword"
+                class="form-control"
+                id="confirmInputPassword"
+                ng-model="user.confirmPassword"
+                placeholder="Confirm Password">
+            </div>
+            <button type="button" class="btn btn-default btn-xs" data-ng-if="!registerView" ng-click="login()" data-ng-disabled="forms.loginForm.$invalid">LogIn</button>
+            <button type="button" class="btn btn-default btn-xs" data-ng-if="registerView" ng-click="register()" data-ng-disabled="disableRegisterButton()">Register</button>
+            <a href data-ng-if="!registerView" data-ng-click="changeRegisterView()">Register</a>
+            <a href data-ng-if="registerView" data-ng-click="changeRegisterView()">LogIn</a>
+          </form>
+          
+          <form class="navbar-form navbar-right ng-cloak" data-ng-if="isLoggedIn">
+            <div class="form-group">
+              <span>Hi, {{loggedUser}} </span>
+              <button type="button" class="btn btn-default" data-ng-click="logOut()">LogOut</button>
+            </div>
+          </form>
+          
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  
+    <main data-ng-view>
+    
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body> 

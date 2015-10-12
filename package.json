@@ -35,6 +35,7 @@
     "angular": "^1.4.7",
     "angular-base64": "^2.0.5",
     "angular-cookies": "^1.4.7",
+    "angular-route": "^1.4.7",
     "chai": "^3.3.0",
     "chai-http": "^1.0.0",
     "gulp": "^3.9.0",
