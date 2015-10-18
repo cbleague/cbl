@@ -19,15 +19,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CBL</a>
+          <a class="navbar-brand">CBL</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#/">Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="#/registerTeam">User</a></li>
-            <li><a href="#/admin">Admin</a></li> 
+            <li><a href="#/">Home <span class="sr-only">(current)</span></a></li>
+            <li data-ng-if="isLoggedIn" ng-cloak><a href="#/team">Create Team</a></li>
+            <li data-ng-if="isAdmin" ng-cloak><a href="#/admin">Admin</a></li> 
           </ul>
 
           <form class="navbar-form navbar-right ng-cloak" data-ng-if="!isLoggedIn" name="forms.loginForm">
@@ -42,7 +42,7 @@
                 ng-model="user.email"
                 required>
             </div>
-            <div class="form-group" ng-class="{'has-error': !passwordMatch()}">
+            <div class="form-group" ng-class="{'has-error': (registerView && !passwordMatch()) }">
               <label class="sr-only" for="exampleInputPassword">Password</label>
               <input 
                 type="password"
@@ -75,14 +75,16 @@
               <button type="button" class="btn btn-default" data-ng-click="logOut()">LogOut</button>
             </div>
           </form>
-          
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
   
-    <main data-ng-view>
     
+
+    <main data-ng-view>
     </main>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body> 
