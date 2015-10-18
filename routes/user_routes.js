@@ -8,17 +8,17 @@ var isUser = require(__dirname + '/../lib/eat_authenticate');
 var isAdmin = require(__dirname + '/../lib/eat_authorize');
 
 
-var userRouter = module.exports = exports = express.Router();
+var userRouter = module.exports = express.Router();
  
 userRouter.post('/signup', jsonParser, function(req, res) {
   var newUser = new User();
   newUser.email = req.body.email;
-  //if (req.body.id) newUser.playerId = req.body.id;
   //saveUser event starts chain of events, generate password hash, save new user, return token.
   eventEmitter.emit('saveUser', newUser, req, res);
 });
 
 userRouter.get('/signin', httpBasic, function(req, res) {
+  console.log(req.auth);
   User.findOne({email: req.auth.email}, function(err, user) {
     if (err) return handleError.standart(err, res);
     if (!user) return handleError.userDoesNotExists('User Does Not Exists', res);
