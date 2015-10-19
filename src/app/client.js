@@ -2,7 +2,6 @@ require('angular/angular');
 require('angular-cookies');
 require('angular-base64');
 require('angular-route');
-require('angular-ui-bootstrap');
 require('angular-animate');
 
 var cblApp = angular.module('cblApp', ['ngCookies', 'base64', 'ngRoute', 'ui.bootstrap', 'ngAnimate']);
