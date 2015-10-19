@@ -4,3 +4,4 @@
 //To see an example go to public/js/packed.js and you will see this code has been included there
 var foo = "foo";
 console.log(foo);
+require('./app/client');

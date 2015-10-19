@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="cblApp">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -11,19 +11,21 @@
   </head>
   <body>
     <header>
-      <nav>
+      <nav class="header-nav">
         <ul>
-          <li><a href="">Home</a></li>
+          <li><a ui-sref="home">Home</a></li>
           <li><a href="">Calender</a></li>
           <li><a href="">News</a></li>
           <li><a href="">About</a></li>
           <li><a href=""></a></li>
           <li><a href=""></a></li>
-          <li><a href=""></a></li>
+          <li><a ui-sref="admin">Admin</a></li>
         </ul>
       </nav>
+      <a ui-sref="signin">SignIn</a>
+      <a ui-sref="signup">SignUp</a>
     </header>
-    <main>
+    <main ui-view>
     </main>
     <section class="contact">
       <div class="contact_info">
