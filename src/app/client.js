@@ -1,10 +1,10 @@
 require('angular/angular');
 require('angular-cookies');
 require('angular-base64');
-require('angular-route');
+require('angular-ui-router');
 require('angular-animate');
 
-var cblApp = angular.module('cblApp', ['ngCookies', 'base64', 'ngRoute', 'ui.bootstrap', 'ngAnimate']);
+var cblApp = angular.module('cblApp', ['ngCookies', 'base64', 'ui.router', 'ngAnimate']);
 
 require('./auth/users')(cblApp);
 require('./auth')(cblApp);
