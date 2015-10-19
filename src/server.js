@@ -3,6 +3,7 @@ var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/user_dev');
+
 process.env.APP_SECRET = process.env.APP_SECRET || 'gabaswillgetajob';
 var userRouter = require(__dirname + '/routes/user_routes');
 var playerRouter = require(__dirname + '/routes/player_routes');
