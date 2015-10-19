@@ -7,6 +7,4 @@ gulp.task('watch', function() {
   gulp.watch(config.html.src, ['html']);
 });
 
-// gulp.task('watch', function() {
-//   return gulp.watch(['index.js', 'app/**/*', 'build/**/*', 'test/**/*test.js', 'lib/**/*.js'], ['default']);
-// });
+

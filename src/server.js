@@ -23,7 +23,6 @@ app.use('/api/score', scoreRouter);
 app.use('/api/table', tableRouter);
 app.use('/api/game', gameRouter);
 app.use(express.static(__dirname + '/../public'));
-console.log(__dirname);
 
 app.listen(port, function() {
   console.log('Server up on port:' + port);

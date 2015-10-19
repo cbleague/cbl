@@ -2,10 +2,12 @@ var dest = "./public";
 var src = './src';
 
 module.exports = {
+
+   //if you create a folder not listed here that contains js files add the path here
   javascript: {
-    src: src + '/app/**/*.js',
+    src: src + '/app/*.js',
     dest: dest + '/js/',
-    entryPoint: src + '/app/entry.js',
+    entryPoint: src + '/entry.js',
     packedFile: 'packed.js'
   },
   sass: {
@@ -24,8 +26,9 @@ module.exports = {
     src: src + "/index.html",
     dest: dest
   },
+  //if you create a folder not listed here that contains html files add the path here
   html: {
-    src: src + "/app/**/*.html",
+    src: src + "/**/*.html",
     dest: dest + "/html/"
   },
   server: {
@@ -33,7 +36,7 @@ module.exports = {
     livereload: true,
     directoryListing: false,
     open: false,
-    port: 8080
+    port: 8000
   },
   production: {
     cssSrc: dest + '/styles/*.css',

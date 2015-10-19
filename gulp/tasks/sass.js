@@ -7,10 +7,10 @@ var config = require('../config').sass;
 gulp.task('sass', function () {
   return gulp.src(config.src)
     .pipe(sass(config.settings))
+    .on('error', handleErrors) 
     .pipe(autoprefixer({
         browsers: ['last 2 versions'],
           cascade: false
         }))
-    .on('error', handleErrors)
     .pipe(gulp.dest(config.dest));
 });
