@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/user_dev');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://cbl:GusevRoman1984@ds041154.mongolab.com:41154/heroku_trfk5s3f');
 process.env.APP_SECRET = process.env.APP_SECRET || 'gabaswillgetajob';
 var userRouter = require(__dirname + '/routes/user_routes');
 var playerRouter = require(__dirname + '/routes/player_routes');
