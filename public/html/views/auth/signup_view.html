@@ -1,8 +1,8 @@
 <section>
-    <form>
-    	<input type="email" name="email" value=""/>
-		  <input type="password" name="password" value=""/>
-      <input type="confirmpassword" name="confirmpassword" value=""/>
-      <input type="submit" name="signup" value="Sign-Up"/>
+    <form data-ng-submit="register()">
+    	<input type="email" name="email" value="" data-ng-model="user.email"/>
+		  <input type="password" name="password" value="" data-ng-model="user.password"/>
+      <input type="confirmpassword" name="confirmpassword" value="" data-ng-model="user.confirmPassword"/>
+      <input type="submit" name="signup" value="Sign-Up" data-ng-disabled="!passwordMatch()"/>
     </form> 
 </section>

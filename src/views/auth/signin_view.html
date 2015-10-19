@@ -1,8 +1,7 @@
 <section>
-    <form>
-    	<input type="email" name="email" value=""/>
-		<input type="password" name="password" value=""/>
-		<input type="confirmpassword" name="confirmpassword" value=""/>
-        <input type="submit" name="signin" value="Sign-In"/>
+    <form ng-submit="login()">
+    	<input type="email" name="email" value="" ng-model="user.email"/>
+		  <input type="password" name="password" value="" ng-model="user.password"/>
+		  <input type="submit" name="signin" value="Sign-In"/>
     </form> 
 </section>
