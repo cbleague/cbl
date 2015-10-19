@@ -16,7 +16,7 @@
     "eat": "^0.1.1",
     "express": "^4.13.3",
     "lodash": "^3.10.1",
-    "mongoose": "^4.1.7",
+    "mongoose": "^4.1.11",
     "mongoose-unique-validator": "^0.4.1",
     "qs": "^1.2.0",
     "socket.io": "^1.3.7",
@@ -28,14 +28,13 @@
     "gulp-run": "^1.6.11",
     "gulp-webserver": "^0.9.1",
     "karma": "^0.13.10",
-    "mongoose": "^4.1.11",
     "ms": "^0.7.1",
     "require-dir": "^0.3.0",
     "stringify": "^3.1.0",
     "unpipe": "^1.0.0",
     "vinyl-fs": "^2.2.0",
     "webpack-stream": "^2.1.1",
-     "ee-first": "^1.1.1"
+    "ee-first": "^1.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -59,8 +58,9 @@
     "angular-animate": "^1.4.7",
     "angular-base64": "^2.0.5",
     "angular-cookies": "^1.4.7",
-    "angular-route": "^1.4.7",
+    "angular-ui-router": "^0.2.15",
     "chai": "^3.3.0",
-    "chai-http": "^1.0.0"
+    "chai-http": "^1.0.0",
+    "gulp-sass": "^2.0.4"
   }
 }
