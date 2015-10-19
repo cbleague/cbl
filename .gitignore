@@ -33,4 +33,4 @@ build
 # Compiled Public Directory
 public/js/
 public/styles/
-public/views/
+public/html/views/

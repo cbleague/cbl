@@ -1,5 +1,7 @@
 module.exports = function(app) {
   app.run(['$rootScope', '$cookies', function($scope, $cookies) {
+    console.log('--->>>');
+
     $scope.isLoggedIn = false;
     $scope.isAdmin = false;
     $scope.loggedUser = '';
