@@ -1,3 +1,6 @@
+Final Project at Code Fellows 10/2015
+Authors: Roman Gusev, Sredna Kunowski, Benton Green, and David Sheffield
+
 
 # Ukrainian Basketball REST API
 ### [Heroku deployment](http://sleepy-shore-7853.herokuapp.com/)
