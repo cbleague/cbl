@@ -29,5 +29,8 @@ db
 .env
 build
 
-#compiled main.css
-public/styles/main.css
+
+# Compiled Public Directory
+public/js/
+public/styles/
+public/views/
