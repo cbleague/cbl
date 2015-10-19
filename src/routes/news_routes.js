@@ -1,5 +1,3 @@
-'use strict';
-
 var express = require('express');
 var News = require(__dirname + '/../models/news');
 var jsonParser = require('body-parser').json();
@@ -18,7 +16,7 @@ newsRouter.post('/post', jsonParser, isAdmin, function(req, res) {
     newNews.contents = req.body.contents;
     newNews.save(function (err, data) {
     if(err) return handleError.standard(err, res);
-    res.json(data);   
+    res.json(data);
   });
 });
 
