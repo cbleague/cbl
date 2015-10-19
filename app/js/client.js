@@ -13,3 +13,4 @@ require('./router')(cblApp);
 require('./services/services')(cblApp);
 require('./home/controllers/home_controller')(cblApp);
 require('./team/controllers/register_team_controller')(cblApp);
+require('./admin/controllers/admin_controller')(cblApp);
