@@ -1,3 +1,26 @@
 
-//colors
+//background colors
 $main-bk-color: #dee5e8;
+
+//font colors
+$primary-font-color: #798ca7;
+
+//button color & basketball icon color
+$highlight: #9aca40;
+
+//font size default
+$browser-context: 16; // Default
+
+//fonts
+@font-face {
+    font-family: Roboto-regular;
+    src: url(fonts/fonts-roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: Roboto-thin;
+    src: url(fonts/fonts-roboto/Roboto-Thin.ttf);
+}
+@font-face {
+    font-family: Roboto-bold;
+    src: url(fonts/fonts-roboto/Roboto-Bold.ttf);
+}
