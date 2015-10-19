@@ -1,8 +1,9 @@
 header {
 	background-color: white;
-	padding-bottom: 1em;
+	padding-bottom: 2em;
 	h1 {
 		color: $primary-font-color;
+		margin: 0;
 	}
 
 }
@@ -28,4 +29,8 @@ header {
 		width: 2em;
 		fill: $highlight;
 	}
+}
+.logo-header {
+	@extend %flex-box;
+	justify-content: flex-start;
 }
