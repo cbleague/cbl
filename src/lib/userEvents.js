@@ -30,7 +30,7 @@ ee.on('saveUserToDb', function(newUser, req, res) {
 ee.on('generateToken', function(user, req, res) {
   user.generateToken(function(err, token) {
     if (err) return handleError.standard(err, res);
-    res.json({token: token});
+    res.json({token: token, role: user.role});
   });
 });
 

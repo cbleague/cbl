@@ -1,6 +1,5 @@
 module.exports = function(app) {
   app.run(['$rootScope', '$cookies', function($scope, $cookies) {
-    console.log('--->>>');
 
     $scope.isLoggedIn = false;
     $scope.isAdmin = false;
@@ -12,6 +11,13 @@ module.exports = function(app) {
       $scope.loggedUser = $cookies.get('email');
       $scope.isLoggedIn = (!!token && !!token.length)? true: false;
       $scope.isAdmin = (role === 'admin')? true: false;
+    };
+
+    $scope.logOut = function() {
+      $cookies.remove('token');
+      $cookies.remove('email');
+      $cookies.remove('role');
+      $scope.loggedIn();
     };
 
     $scope.loggedIn();
