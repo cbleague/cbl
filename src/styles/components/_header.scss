@@ -1,3 +1,31 @@
 header {
 	background-color: white;
+	padding-bottom: 1em;
+	h1 {
+		color: $primary-font-color;
+	}
+
+}
+
+.header-nav ul {
+	display: inline;
+	li {
+		display: inline;
+	}
+	a {
+		text-decoration: none;
+		font-size: em(16);
+		font-family: Roboto-bold;
+		padding-right: 1em;
+		color: $primary-font-color;
+
+	}
+}
+.header-section {
+	@extend %flex-box;
+	font-size: em(36);
+	img {
+		width: 2em;
+		fill: $highlight;
+	}
 }
