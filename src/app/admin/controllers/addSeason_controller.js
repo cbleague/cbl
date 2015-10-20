@@ -11,7 +11,7 @@ module.exports = function(app){
     var seasonResource = Resource('season'); // may need to change this
 
     $scope.createSeason = function(){
-      seasonResource.create(season, function(err, data){
+      seasonResource.create(newSeason, function(err, data){
         if (err) return console.log('AddSeasonController create err ' + err);
         $scope.newSeason = {
           name: String,
