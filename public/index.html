@@ -29,10 +29,9 @@
     </section>
   </section>
     </header>
-   <section>
-      <p ></p>
-      <a ui-sref="signin" data-ng-if="!isLoggedIn">SignIn</a>
-      <a ui-sref="signup" data-ng-if="!isLoggedIn">SignUp</a>
+   <section class="home-button">
+      <a class="green-button home-button-layout" ui-sref="signin" data-ng-if="!isLoggedIn">Sign In</a>
+      <a class="green-button home-button-layout" ui-sref="signup" data-ng-if="!isLoggedIn">Sign Up</a>
       <p data-ng-if="isLoggedIn">Hi, {{loggedUser}} </p>
       <a href="" ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
     </section>
