@@ -1,4 +1,3 @@
-'use strict';
 var mongoose = require('mongoose');
 //var Player = require(__dirname + '/player');
 var ObjectId = mongoose.Schema.Types.ObjectId;
