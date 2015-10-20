@@ -56,7 +56,4 @@ ee.on('removeTeamFromExectDivision', function(team, req, res) {
   });
 });
 
-
-
-
 module.exports = exports = ee;

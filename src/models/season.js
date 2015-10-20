@@ -1,11 +1,11 @@
-'use strict';
 var mongoose = require('mongoose');
 var Team = require(__dirname + '/team');
 
 var seasonSchema = new mongoose.Schema({
   seasonNumber: {type: Number, unique: true, required:true},
   name: {type: String, unique: true, required: true},
-  
+  current: {type: Boolean, default: false},
+
   teams: [{
     team: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
     name: {type: String, required: true},
@@ -25,7 +25,7 @@ var seasonSchema = new mongoose.Schema({
     teams: [{
       name: String,
       id: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
-      score: {type: Number, default: 0}  
+      score: {type: Number, default: 0}
     }],
     date: Date,
     location: String
