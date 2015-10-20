@@ -1,5 +1,3 @@
-var Season = require(__dirname + '/../../../models/season');
-
 module.exports = function(app){
   app.controller('AddSeasonController', ['$scope', 'Resource', '$http', '$cookies', '$location', function($scope, Resource, $http, $cookies, $location){
 
@@ -8,7 +6,8 @@ module.exports = function(app){
       $location.path('/signup');
 
     $http.defaults.headers.common.token = token;
-    $scope.newSeason = new Season();
+    $scope.season = {};
+    $scope.newSeason = {};
     var seasonResource = Resource('season'); // may need to change this
 
     $scope.createSeason = function(){
