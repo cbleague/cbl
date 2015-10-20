@@ -34,6 +34,13 @@ playerRouter.get('/find/:email', isUser, function(req, res) {
   });
 });
 
+playerRouter.post('/findbyid', jsonParser, isUser, function(req, res) {
+  Player.find({'_id': { $in: req.body.array}}, function(err, players) {
+    if (err) return handleError.standard(err, res);
+    res.json(players);
+  });
+});
+
 
 playerRouter.delete('/delete/:email', isUser, function(req,res) {
   Player.remove({email: req.params.email}, function(err){
