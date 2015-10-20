@@ -54,7 +54,7 @@ teamRouter.get('/getteam/:name', function(req,res){
 });
 
 teamRouter.get('/getteamsnotinseason/:season', function(req,res){
-  Team.find({_id: req.body.seasonNumber: 1, req.body.inSeason: false}, function(err, teams){
+  Team.find({season: req.body.seasonNumber, inSeason: false}, function(err, teams){
     if(err) return handleError(err, res);
     res.json(teams);
   });
