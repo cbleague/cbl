@@ -1,0 +1,7 @@
+.green-button {
+	@extend %main-button;
+}
+.green-button:hover {
+	background-color: $dark-highlight;
+	border-color: $dark-highlight;
+}

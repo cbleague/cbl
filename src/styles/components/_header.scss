@@ -4,8 +4,12 @@ header {
 		color: $primary-font-color;
 		margin: 0;
 		text-shadow: 1px 1px 1px #CCCCCC;
+		margin-left: .25em;
 	}
 
+}
+.header-nav {
+	@extend %right-padding;
 }
 
 .header-nav ul {
@@ -17,7 +21,7 @@ header {
 		text-decoration: none;
 		font-size: em(16);
 		font-family: Roboto-bold;
-		margin-right: 1em;
+		margin-left: 1em;
 		color: $primary-font-color;
 		text-shadow: 1px 1px 1px #CCCCCC;
 
@@ -46,4 +50,5 @@ header {
 	@extend %flex-box;
 	align-items: center;
 	height: 4em;
+	@extend %left-padding;
 }
