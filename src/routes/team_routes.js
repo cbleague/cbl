@@ -47,7 +47,7 @@ teamRouter.put('/updateteam/:name', jsonParser, /*isUser,*/ function(req, res){
 });
 
 teamRouter.get('/getteam/:name', function(req,res){
-  Team.find({name: req.params.name}, function(err, team){
+  Team.find({creator: req.params.name}, function(err, team){
     if(err) return handleError(err, res);
     res.json(team);
   });
@@ -56,7 +56,7 @@ teamRouter.get('/getteam/:name', function(req,res){
 
 
 teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){
-  Team.update({name: req.body.name}, {$push: {players: req.body.playerId}}, {upsert: true}, function(err){
+  Team.update({_id: req.body.teamId}, {$push: {players: req.body.playerId}}, {upsert: true}, function(err){
     if(err) handleError(err, res);
     res.end();
   }); 

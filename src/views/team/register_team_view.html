@@ -1,10 +1,15 @@
 <section>
   
-  <section data-ng-repeat="t in teams">
-    <label>{{t.name}}</label>
-    <span ng-click="edit(t)">edit-icon</span>
-    <span ng-click="delete(t)">del-icon</span>
-  </section>
+  <list>
+    <li data-ng-repeat="t in teams">
+      <label>{{t.name}}</label>
+      <span ng-click="edit(t)">edit-icon</span>
+      <span ng-click="delete(t)">del-icon</span>
+        <list data-ng-repeat="player in t.players">
+          <li>{{player.firstname}} {{player.lastname}}</li>
+        </list>
+    </li>
+  </list>
 
 
   <form data-ng-submit="createTeam()">
@@ -35,21 +40,25 @@
     <input type="submit" name="submitTeam" value="Create Team">
   </form>
 
-  <form>
-    <input type="text" name="firstname" data-ng-model="player.fname">
-    <input type="text" name="middlename" data-ng-model="player.mname">
-    <input type="text" name="lastname" data-ng-model="player.lname">
-    <input type="email" name="email" data-ng-model="player.email">
-    <input type="phone" name="phone" data-ng-model="player.phone">
-    <input type="date" name="dob" data-ng-model="player.dob">
-    <input type="text" name="age" data-ng-model="player.age">
-    <input type="text" name="height" data-ng-model="player.height">
-    <input type="text" name="weight" data-ng-model="player.weight">
-    <input type="text" name="number" data-ng-model="player.number">
-    <input type="text" name="position" data-ng-model="player.position">
-    <input type="file" name="playerpic" accept="image/*">
+  <form data-ng-submit="createPlayer()">
+    <select name="team" data-ng-model="player.team">
+      <option value="{{teamId._id}}" data-ng-repeat="teamId in teams">{{teamId.name}}</option>
+    </select>
+
+    frst<input type="text" name="firstname" data-ng-model="player.firstname">
+    mdl<input type="text" name="middlename" data-ng-model="player.middlename">
+    lst<input type="text" name="lastname" data-ng-model="player.secondname">
+    email<input type="email" name="email" data-ng-model="player.email">
+    phone<input type="phone" name="phone" data-ng-model="player.phone">
+    dob<input type="date" name="dob" data-ng-model="player.dob">
+    age<input type="text" name="age" data-ng-model="player.age">
+    h<input type="text" name="height" data-ng-model="player.height">
+    w<input type="text" name="weight" data-ng-model="player.weight">
+    num<input type="text" name="number" data-ng-model="player.number">
+    pos<input type="text" name="position" data-ng-model="player.position">
+    img<input type="file" name="playerpic" accept="image/*">
     <button type="button" name="delete" value="Delete">
     <button type="button" name="edit" value="Edit">
-    <input type="submit" name="submitPlayer" value="Submit Player Info.">
+    <input type="submit" name="submitPlayer" value="Add player">
   </form>
 </section>
