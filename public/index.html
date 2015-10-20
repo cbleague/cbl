@@ -12,8 +12,11 @@
   <body>
     <header>
       <section class="header-section">
-      <img src="styles/fonts/icomoon/basketball-logo/svg/basketball.svg" alt="basketball logo"></img>
-      <h1>CB League</h1>
+        <section class="logo-header">
+          <img src="styles/fonts/icomoon/basketball-logo/svg/basketball.svg" alt="basketball logo"></img>
+          <h1>CB League</h1>
+        </section>
+      <section class="nav-section">    
       <nav class="header-nav">
         <ul>
           <li><a ui-sref="home">Home</a></li>
@@ -23,13 +26,16 @@
           <li data-ng-if="isAdmin"><a ui-sref="admin">Admin</a></li>
         </ul>
       </nav>
-      <section>
-        <a ui-sref="signin" data-ng-if="!isLoggedIn">SignIn</a>
-        <a ui-sref="signup" data-ng-if="!isLoggedIn">SignUp</a>
-        <p data-ng-if="isLoggedIn">Hi, {{loggedUser}} </p>
-        <a href ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>
-      </section>
+    </section>
+  </section>
     </header>
+   <section>
+      <p ></p>
+      <a ui-sref="signin" data-ng-if="!isLoggedIn">SignIn</a>
+      <a ui-sref="signup" data-ng-if="!isLoggedIn">SignUp</a>
+      <p data-ng-if="isLoggedIn">Hi, {{loggedUser}} </p>
+      <a href ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
+    </section>
     <main ui-view>
     </main>
     <section class="contact">
@@ -39,13 +45,15 @@
         <a href="tel:380936522322" class="contact_phone">(+38) 093 652 23 22</a>
         <a href="mailto:chbl.org@gmail.com" class="contact_email">chbl.org@gmail.com</a>
       </div>
-      <ul class="links_media">
-        <li class="svg_twitter"><a href="" class="links_media_item">Follow Us</a></li>
-        <li class="svg_facebook"><a href="" class="links_media_item ">Like Us</a></li>
-        <li class="svg_googleplus"><a href="" class="links_media_item">Connect</a></li>
-        <li class="svg_dribble"><a href="" class="links_media_item">Follow Us</a></li>
-        <li class="svg_pintrest"><a href="" class="links_media_item">Pin It</a></li>
-      </ul>
+      <nav>
+        <ul class="links_media">
+          <li class="svg_twitter"><a href="" class="links_media_item">Follow Us</a></li>
+          <li class="svg_facebook"><a href="" class="links_media_item ">Like Us</a></li>
+          <li class="svg_googleplus"><a href="" class="links_media_item">Connect</a></li>
+          <li class="svg_dribble"><a href="" class="links_media_item">Follow Us</a></li>
+          <li class="svg_pintrest"><a href="" class="links_media_item">Pin It</a></li>
+        </ul>
+       </nav> 
     </section>
     <footer>
       <p>&#169; 2014 ХБЛ </p>
