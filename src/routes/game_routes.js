@@ -1,4 +1,3 @@
-'use strict';
 var express = require('express');
 var gameEvents = require(__dirname+'/../lib/gameEvents');
 var jsonParser = require('body-parser').json();
@@ -9,7 +8,7 @@ var Team = require(__dirname + '/../models/team');
 var gameRouter = module.exports = exports = express.Router();
 
 
-//create Game with req.seasonNumber, req.team1.name, req.team1.division, 
+//create Game with req.seasonNumber, req.team1.name, req.team1.division,
 //req.team2.division, req.team2.name, req.date, req.location
 gameRouter.post('/create', jsonParser, isAdmin, function(req, res, err){
 
