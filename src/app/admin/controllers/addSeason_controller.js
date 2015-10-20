@@ -1,6 +1,7 @@
 module.exports = function(app){
-  app.controller('AddSeasonController', ['$scope', 'Resource', '$http', '$cookies', '$location', function($scope, Resource, $http, $cookies, $location){
+  app.controller('AddSeasonController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
 
+    $scope.season = {};
     var token = $cookies.get('token');
     if (!($cookies.get('token').length))
       $location.path('/signup');
