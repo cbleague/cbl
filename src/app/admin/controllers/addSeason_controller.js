@@ -1,44 +1,60 @@
 module.exports = function(app){
   app.controller('AddSeasonController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
 
-    $scope.season = {};
-    var token = $cookies.get('token');
-    if (!($cookies.get('token').length))
-      $location.path('/signup');
-
-    var season = {
-      seasonName: String,
-      seasonNumber: Number
+    $scope.createSeasonForm = {
+      'seasonNumber': '',
+      'seasonName': ''
     };
-
-    $http.defaults.headers.common.token = token;
-    $http.req.body.name = seasonName;
-    $http.req.body.seasonNumber = seasonNumber;
     $scope.season = {};
-
-    var seasonResource = Resource('season'); // may need to change this
+    $scope.season.admin = {};
+    $scope.season.creator = $scope.loggedUser;
+    $scope.seasons = [];
 
     $scope.createSeason = function(){
-      seasonResource.create(newSeason, function(err, data){
-        if (err) return console.log('AddSeasonController create err ' + err);
-
-        $scope.season.push(data);
+      $http({
+        method: 'POST',
+        url: 'api/season/createseason',
+        headers: {
+          'token': $cookies.get('token')
+        },
+        data: $scope.season
+      }).then(function(res) {
+         console.log(res);
+         $scope.season = {};
+      }, function(res){
+        console.log('AddSeasonController create error ' + res);
       });
     };
 
+
     // need to add server routes for future functionality
     $scope.updateSeason = function(){
-      seasonResource.update(season, function(err){
-        season.editing = false;
-        if (err) return console.log('AddSeasonController update err ' + err);
+     $http({
+        method: 'PUT',
+        url: 'api/season/updateseason',
+        headers: {
+          'token': $cookies.get('token')
+        },
+        data: $scope.season
+      }).then(function(res){
+        // overwrite what is already in MongoDB
+      }, function(res){
+        console.log('AddSeasonController update error ' + res);
       });
     };
 
     // need to add server routes for future functionality
     $scope.removeSeason = function(){
-      seasonResource.remove(season, function(err){
-        if (err) return console.log('AddSeasonController remove err ' + err);
-        $scope.season.splice($scope.season.indexOf(season), 1);
+      $http({
+        method: 'DELETE',
+        url: 'api/season/deleteseason',
+        headers: {
+          'token': $cookies.get('token')
+        }
+      }).then(function(res){
+        // remove what is already in MongoDB
+      }, function(res){
+        console.log('AddSeasonController remove error ' + res);
       });
     };
   }]);
