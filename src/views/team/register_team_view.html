@@ -9,44 +9,44 @@
 
   <form data-ng-submit="createTeam()">
     <h1>Team</h1>
-    name<input type="text" name="teamname" ng-model="team.name">
-    div<input type="text" name="division" ng-model="team.division">
-    season<input type="text" name="season" ng-model="team.season">
+    name<input type="text" name="teamname" data-ng-model="team.name">
+    div<input type="text" name="division" data-ng-model="team.division">
+    season<input type="text" name="season" data-ng-model="team.season">
     image<input type="file" name="pic" accept="image/*">
     <h2>Administrator</h2>
-    frst<input type="text" name="adminFirstname" ng-model="team.admin.firstName">
-    mid<input type="text" name="adminMiddlename" ng-model="team.admin.middleName">
-    lst<input type="text" name="adminLastname" ng-model="team.admin.lastName">
-    email<input type="email" name="adminEmail" ng-model="team.admin.email">
-    phone<input type="phone" name="adminPhone" ng-model="team.admin.phone">
+    frst<input type="text" name="adminFirstname" data-ng-model="team.admin.firstName">
+    mid<input type="text" name="adminMiddlename" data-ng-model="team.admin.middleName">
+    lst<input type="text" name="adminLastname" data-ng-model="team.admin.lastName">
+    email<input type="email" name="adminEmail" data-ng-model="team.admin.email">
+    phone<input type="phone" name="adminPhone" data-ng-model="team.admin.phone">
     <h2>Captain</h2>
-    frst<input type="text" name="capFirstname" ng-model="team.cap.firstName">
-    mid<input type="text" name="capMiddlename" ng-model="team.cap.middleName">
-    lst<input type="text" name="capLastname" ng-model="team.cap.lastName">
-    email<input type="email" name="capEmail" ng-model="team.cap.email">
-    phone<input type="phone" name="capPhone" ng-model="team.cap.phone">
+    frst<input type="text" name="capFirstname" data-ng-model="team.cap.firstName">
+    mid<input type="text" name="capMiddlename" data-ng-model="team.cap.middleName">
+    lst<input type="text" name="capLastname" data-ng-model="team.cap.lastName">
+    email<input type="email" name="capEmail" data-ng-model="team.cap.email">
+    phone<input type="phone" name="capPhone" data-ng-model="team.cap.phone">
     <h2>Coach</h2>
-    frst<input type="text" name="coachFirstname" ng-model="team.coach.firstName">
-    mid<input type="text" name="coachMiddlename" ng-model="team.coach.middleName">
-    lst<input type="text" name="coachLastname" ng-model="team.coach.lastName">
-    email<input type="email" name="coachEmail" ng-model="team.coach.email">
-    phone<input type="phone" name="coachPhone" ng-model="team.coach.phone">
+    frst<input type="text" name="coachFirstname" data-ng-model="team.coach.firstName">
+    mid<input type="text" name="coachMiddlename" data-ng-model="team.coach.middleName">
+    lst<input type="text" name="coachLastname" data-ng-model="team.coach.lastName">
+    email<input type="email" name="coachEmail" data-ng-model="team.coach.email">
+    phone<input type="phone" name="coachPhone" data-ng-model="team.coach.phone">
     team_pic<input type="file" name="teampic" accept="image/*">
     <input type="submit" name="submitTeam" value="Create Team">
   </form>
 
   <form>
-    <input type="text" name="firstname" ng-model="player.fname">
-    <input type="text" name="middlename" ng-model="player.mname">
-    <input type="text" name="lastname" ng-model="player.lname">
-    <input type="email" name="email" ng-model="player.email">
-    <input type="phone" name="phone" ng-model="player.phone">
-    <input type="date" name="dob" ng-model="player.dob">
-    <input type="text" name="age" ng-model="player.age">
-    <input type="text" name="height" ng-model="player.height">
-    <input type="text" name="weight" ng-model="player.weight">
-    <input type="text" name="number" ng-model="player.number">
-    <input type="text" name="position" ng-model="player.position">
+    <input type="text" name="firstname" data-ng-model="player.fname">
+    <input type="text" name="middlename" data-ng-model="player.mname">
+    <input type="text" name="lastname" data-ng-model="player.lname">
+    <input type="email" name="email" data-ng-model="player.email">
+    <input type="phone" name="phone" data-ng-model="player.phone">
+    <input type="date" name="dob" data-ng-model="player.dob">
+    <input type="text" name="age" data-ng-model="player.age">
+    <input type="text" name="height" data-ng-model="player.height">
+    <input type="text" name="weight" data-ng-model="player.weight">
+    <input type="text" name="number" data-ng-model="player.number">
+    <input type="text" name="position" data-ng-model="player.position">
     <input type="file" name="playerpic" accept="image/*">
     <button type="button" name="delete" value="Delete">
     <button type="button" name="edit" value="Edit">
