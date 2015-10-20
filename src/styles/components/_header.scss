@@ -36,6 +36,7 @@ header {
 	@extend %flex-box;
 	align-items: center;
 	font-size: em(36);
+	height: 3em;
 	img {
 		width: 2em;
 		fill: $highlight;
