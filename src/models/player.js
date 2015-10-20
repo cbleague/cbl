@@ -1,7 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
 // var Team = require(__dirname + '/team');
-var uniqueValidator = require('mongoose-unique-validator');
 
 var playerSchema = new mongoose.Schema({
 
@@ -11,7 +10,7 @@ var playerSchema = new mongoose.Schema({
 
 	secondname: {type: String, required: true},
 
-  email: {type: String, required: true, unique: true, dropDups: true},
+  email: {type: String, required: true},
 
   phone: {type: Number, required: true},
 
@@ -19,20 +18,18 @@ var playerSchema = new mongoose.Schema({
 
   age: {type: Number, required: true},
 
-  height: {type: Number, required: true},
+  height: Number,
 
-  weight: {type: Number, required: true},
+  weight: Number,
 
   number: Number,
 
-  position: {type: String, required: true},
+  position: String,
 
 	photo: String,
 
 	teamID: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'}
 
-},{collection: 'players'});
-
-playerSchema.plugin(uniqueValidator);
+},{collection: 'player'});
 
 module.exports = exports = mongoose.model('Player', playerSchema);
