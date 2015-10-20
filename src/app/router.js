@@ -44,6 +44,11 @@ module.exports = function(app) {
         url: '/signup',
         templateUrl: '/html/views/auth/signup_view.html',
         controller: 'SignUpController'
+      })
+      .state('registerTeam', {
+        url: '/registerteam',
+        templateUrl: '/html/views/team/register_team_view.html',
+        controller: 'RegisterTeamController'
       });
   });
 };
