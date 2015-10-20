@@ -4,9 +4,10 @@ var handleError = require(__dirname + '/handleError'); //same directory
 
 ee.on('saveTeam', function(newTeam, req, res){
   newTeam.save(function(err){
-    if(err) console.log(err);
+    if(err) return handleError.standard(err, res);
+    res.json(newTeam);
   });
-  res.json(newTeam);
+  
 });
 
 
