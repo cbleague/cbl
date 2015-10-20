@@ -12,7 +12,7 @@ var teamRouter = module.exports = exports = express.Router();
 
 teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
   var newTeam = new Team();
-  newTeam.name = req.body.name; 
+  newTeam.name = req.body.name;
   newTeam.division = req.body.division;
   newTeam.season = req.body.season;
   newTeam.logo = req.body.logo;
@@ -56,15 +56,19 @@ teamRouter.get('/getteam/:name', function(req,res){
   });
 });
 
-
+teamRouter.get('/getteamsnotinseason/:season', function(req,res){
+  Team.find({season: req.body.seasonNumber, inSeason: false}, function(err, teams){
+    if(err) return handleError(err, res);
+    res.json(teams);
+  });
+});
 
 teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){
   Team.update({_id: req.body.teamId}, {$push: {players: req.body.playerId}}, {upsert: true}, function(err){
     if(err) return handleError.standard(err, res);
     res.end();
-  }); 
+  });
 });
-
 
 teamRouter.put('/removeplayer', jsonParser, isUser, function(req, res){
   Team.update({name: req.body.name}, {$pull: {players: req.body.playerId}}, function(err, data){

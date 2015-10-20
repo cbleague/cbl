@@ -4,7 +4,6 @@ var jsonParser = require('body-parser').json();
 var handleError = require(__dirname + '/../lib/handleError');
 var isUser = require(__dirname + '/../lib/eat_authenticate');
 
-
 var playerRouter = module.exports = exports = express.Router();
 
 playerRouter.post('/register', jsonParser, isUser, function(req, res) {
