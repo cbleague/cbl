@@ -9,8 +9,9 @@ var teamSchema = new mongoose.Schema({
   name: {type: String, required: true},
   division: {type: String, required: true},
   season: {type: Number, required: true},
+  inSeason: {type: Boolean, default: false},
   players: [{type: ObjectId, ref: 'Player'}],
-  logo: String, // img url 
+  logo: String, // img url
   administrator: {
     firstName: String,
     lastName: String,

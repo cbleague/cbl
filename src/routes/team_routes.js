@@ -12,7 +12,7 @@ var teamRouter = module.exports = exports = express.Router();
 
 teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
   var newTeam = new Team();
-  newTeam.name = req.body.name; 
+  newTeam.name = req.body.name;
   newTeam.division = req.body.division;
   newTeam.season = req.body.season;
   newTeam.logo = req.body.logo;
@@ -36,7 +36,7 @@ teamRouter.put('/updateteam/:name', jsonParser, /*isUser,*/ function(req, res){
   var newVal = req.body.value;
   Team.findOne({name: req.params.name}, function(err, team){
     // if(field !== 'isAdmin'){
-    //   return res.status(401).json({msg: 'Unauthorized'}); 
+    //   return res.status(401).json({msg: 'Unauthorized'});
     // }
     team[field] = newVal;
     team.save(function(err){
@@ -53,15 +53,19 @@ teamRouter.get('/getteam/:name', function(req,res){
   });
 });
 
-
+teamRouter.get('/getteamsnotinseason/:season', function(req,res){
+  Team.find({inSeason: false }, function(err, teams){
+    if(err) return handleError(err, res);
+    res.json(teams);
+  });
+});
 
 teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){
   Team.update({_id: req.body.teamId}, {$push: {players: req.body.playerId}}, {upsert: true}, function(err){
     if(err) handleError(err, res);
     res.end();
-  }); 
+  });
 });
-
 
 teamRouter.put('/removeplayer', jsonParser, isUser, function(req, res){
   Team.update({name: req.body.name}, {$pull: {players: req.body.playerId}}, function(err, data){
