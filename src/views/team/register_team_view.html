@@ -1,46 +1,52 @@
 <section>
   
-  <form>
+  <section data-ng-repeat="t in teams">
+    <label>{{t.name}}</label>
+    <span ng-click="edit(t)">edit-icon</span>
+    <span ng-click="delete(t)">del-icon</span>
+  </section>
+
+
+  <form data-ng-submit="createTeam()">
     <h1>Team</h1>
-    <input type="text" name="teamname" value="">
-    <input type="text" name="division" value="">
-    <input type="text" name="season" value="">
-    <input type="text" name="players" value="">
-    <input type="file" name="pic" accept="image/*">
+    name<input type="text" name="teamname" ng-model="team.name">
+    div<input type="text" name="division" ng-model="team.division">
+    season<input type="text" name="season" ng-model="team.season">
+    image<input type="file" name="pic" accept="image/*">
     <h2>Administrator</h2>
-    <input type="text" name="adminFirstname" value="">
-    <input type="text" name="adminMiddlename" value="">
-    <input type="text" name="adminLastname" value="">
-    <input type="email" name="adminEmail" value="">
-    <input type="phone" name="adminPhone" value="">
+    frst<input type="text" name="adminFirstname" ng-model="team.admin.firstName">
+    mid<input type="text" name="adminMiddlename" ng-model="team.admin.middleName">
+    lst<input type="text" name="adminLastname" ng-model="team.admin.lastName">
+    email<input type="email" name="adminEmail" ng-model="team.admin.email">
+    phone<input type="phone" name="adminPhone" ng-model="team.admin.phone">
     <h2>Captain</h2>
-    <input type="text" name="capFirstname" value="">
-    <input type="text" name="capMiddlename" value="">
-    <input type="text" name="capLastname" value="">
-    <input type="email" name="capEmail" value="">
-    <input type="phone" name="capPhone" value="">
+    frst<input type="text" name="capFirstname" ng-model="team.cap.firstName">
+    mid<input type="text" name="capMiddlename" ng-model="team.cap.middleName">
+    lst<input type="text" name="capLastname" ng-model="team.cap.lastName">
+    email<input type="email" name="capEmail" ng-model="team.cap.email">
+    phone<input type="phone" name="capPhone" ng-model="team.cap.phone">
     <h2>Coach</h2>
-    <input type="text" name="coachFirstname" value="">
-    <input type="text" name="coachMiddlename" value="">
-    <input type="text" name="coachLastname" value="">
-    <input type="email" name="coachEmail" value="">
-    <input type="phone" name="coachPhone" value="">
-    <input type="file" name="teampic" accept="image/*">
-    <input type="submit" name="submitTeam" value="Submit Team Info.">
+    frst<input type="text" name="coachFirstname" ng-model="team.coach.firstName">
+    mid<input type="text" name="coachMiddlename" ng-model="team.coach.middleName">
+    lst<input type="text" name="coachLastname" ng-model="team.coach.lastName">
+    email<input type="email" name="coachEmail" ng-model="team.coach.email">
+    phone<input type="phone" name="coachPhone" ng-model="team.coach.phone">
+    team_pic<input type="file" name="teampic" accept="image/*">
+    <input type="submit" name="submitTeam" value="Create Team">
   </form>
 
   <form>
-    <input type="text" name="firstname" value="">
-    <input type="text" name="middlename" value="">
-    <input type="text" name="lastname" value="">
-    <input type="email" name="firstname" value="">
-    <input type="phone" name="phone" value="">
-    <input type="date" name="dob" value="">
-    <input type="text" name="age" value="">
-    <input type="text" name="height" value="">
-    <input type="text" name="weight" value="">
-    <input type="text" name="number" value="">
-    <input type="text" name="position" value="">
+    <input type="text" name="firstname" ng-model="player.fname">
+    <input type="text" name="middlename" ng-model="player.mname">
+    <input type="text" name="lastname" ng-model="player.lname">
+    <input type="email" name="email" ng-model="player.email">
+    <input type="phone" name="phone" ng-model="player.phone">
+    <input type="date" name="dob" ng-model="player.dob">
+    <input type="text" name="age" ng-model="player.age">
+    <input type="text" name="height" ng-model="player.height">
+    <input type="text" name="weight" ng-model="player.weight">
+    <input type="text" name="number" ng-model="player.number">
+    <input type="text" name="position" ng-model="player.position">
     <input type="file" name="playerpic" accept="image/*">
     <button type="button" name="delete" value="Delete">
     <button type="button" name="edit" value="Edit">

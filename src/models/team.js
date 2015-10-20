@@ -8,32 +8,32 @@ var User = require(__dirname + '/user');
 var teamSchema = new mongoose.Schema({
   name: {type: String, required: true},
   division: {type: String, required: true},
-  season: {type: ObjectId, ref: 'Season', required: true},
+  season: {type: Number, required: true},
   players: [{type: ObjectId, ref: 'Player'}],
   logo: String, // img url 
   administrator: {
     firstName: String,
-    secondName: String,
+    lastName: String,
     middleName: String,
     email: String,
     phone: String
   },
   captain: {
     firstName: String,
-    secondName: String,
+    lastName: String,
     middleName: String,
     email: String,
     phone: String
   },
   coach: {
     firstName: String,
-    secondName: String,
+    lastName: String,
     middleName: String,
     email: String,
     phone: String
   },
   teamPhoto: String,
-  creator: [{type: ObjectId, ref: 'User'}]
+  creator: String
 });
 
 teamSchema.plugin(uniqueValidator);
