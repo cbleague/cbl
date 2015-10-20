@@ -1,0 +1,41 @@
+.standings-container {
+	@extend %flex-box;
+	justify-content: space-around;
+	align-items: center;
+	height: 35em;
+
+}
+.standings-section {
+	background-color: white;
+	margin: 0;
+	width: 40em;
+	border: 1px solid black;
+	h1 {
+		color: $darkest-color;
+		margin: 0;
+		font-size: em(36);
+		margin: 0;
+	}
+	h2 {
+		margin-bottom: 1em;
+	}
+}
+.standings-only-table {
+	table-layout: fixed;
+	width: 100%;
+}
+.standings-only-table, th, td {
+   border-bottom: 1px solid black;
+   text-align:center; 
+   vertical-align:middle;
+}
+
+.standings-only-table td:nth-child(2), .standings-only-table th:nth-child(2) {
+	text-align: left;
+	width: 10em;
+}
+.standings-only-table td:nth-child(1), .standings-only-table th:nth-child(1) {
+	padding-right: 1em;
+}
+
+
