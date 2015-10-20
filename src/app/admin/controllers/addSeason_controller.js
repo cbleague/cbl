@@ -29,14 +29,14 @@ module.exports = function(app){
     $scope.getSome = function(){
       $http({
         method: 'GET',
-        url: 'api/season',
+        url: '/getteamsnotinseason/:season',
         headers: {
           'token': $cookies.get('token')
         },
         seasonNumber: 1,
         inSeason: false
       }).then(function(res, data){
-        $scope.seasons = data;
+        $scope.teamText = data;
       }, function(res){
         console.log('AddSeasonController getSome error ' + res);
       });
