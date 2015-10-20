@@ -6,18 +6,22 @@ module.exports = function(app){
       $location.path('/signup');
 
     $http.defaults.headers.common.token = token;
+
+    var season = {
+      seasonName: String,
+      seasonNumber: Number
+    };
+    season.seasonName = req.body.name;
+    season.seasonNumber = req.body.seasonNumber;
     $scope.season = {};
-    $scope.newSeason = {};
+
     var seasonResource = Resource('season'); // may need to change this
 
     $scope.createSeason = function(){
       seasonResource.create(newSeason, function(err, data){
         if (err) return console.log('AddSeasonController create err ' + err);
-        $scope.newSeason = {
-          name: String,
-          seasonNumber: Number
-        };
-        $scope.newSeason.push(data);
+
+        $scope.season.push(data);
       });
     };
 
