@@ -5,14 +5,14 @@ module.exports = function(app){
     if (!($cookies.get('token').length))
       $location.path('/signup');
 
-    $http.defaults.headers.common.token = token;
-
     var season = {
       seasonName: String,
       seasonNumber: Number
     };
-    season.seasonName = req.body.name;
-    season.seasonNumber = req.body.seasonNumber;
+
+    $http.defaults.headers.common.token = token;
+    $http.req.body.name = seasonName;
+    $http.req.body.seasonNumber = seasonNumber;
     $scope.season = {};
 
     var seasonResource = Resource('season'); // may need to change this
