@@ -22,6 +22,7 @@
           <li><a href="">Calender</a></li>
           <li><a href="">News</a></li>
           <li><a href="">About</a></li>
+          <li data-ng-if="isLoggedIn"><a ui-sref="registerTeam">R.T.</a></li>
           <li data-ng-if="isAdmin"><a ui-sref="admin">Admin</a></li>
         </ul>
       </nav>

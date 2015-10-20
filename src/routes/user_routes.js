@@ -20,7 +20,7 @@ userRouter.post('/signup', jsonParser, function(req, res) {
 userRouter.get('/signin', httpBasic, function(req, res) {
   console.log(req.auth);
   User.findOne({email: req.auth.email}, function(err, user) {
-    if (err) return handleError.standart(err, res);
+    if (err) return handleError.standard(err, res);
     if (!user) return handleError.userDoesNotExists('User Does Not Exists', res);
     //check password and return token
     eventEmitter.emit('authenticate', user, req.auth.password, req, res);

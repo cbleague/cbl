@@ -10,17 +10,17 @@ var isAdmin = require(__dirname + '/../lib/eat_authorize');
 
 var teamRouter = module.exports = exports = express.Router();
 
-teamRouter.post('/registerteam', jsonParser, /*isUser,*/ function(req, res){
+teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
   var newTeam = new Team();
   newTeam.name = req.body.name; 
   newTeam.division = req.body.division;
   newTeam.season = req.body.season;
-  newTeam.players = req.body.players;
   newTeam.logo = req.body.logo;
-  newTeam.administrator = req.body.administrator;
-  newTeam.captain = req.body.captain;
+  newTeam.administrator = req.body.admin;
+  newTeam.captain = req.body.cap;
   newTeam.coach = req.body.coach;
   newTeam.photo = req.body.photo;
+  newTeam.creator = req.body.creator;
   teamEvents.emit('saveTeam', newTeam, req, res);
 });
 
@@ -46,9 +46,9 @@ teamRouter.put('/updateteam/:name', jsonParser, /*isUser,*/ function(req, res){
   });
 });
 
-teamRouter.get('/seeteam/:name', function(req,res){
-  Team.findOne({name: req.params.name}, function(err, team){
-    if(err) handleError(err, res);
+teamRouter.get('/getteam/:name', function(req,res){
+  Team.find({name: req.params.name}, function(err, team){
+    if(err) return handleError(err, res);
     res.json(team);
   });
 });

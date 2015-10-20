@@ -13,19 +13,23 @@ module.exports = function(app) {
       })
       .state('admin.addSeason', {
         url: '/admin/addseason',
-        templateUrl: '/html/views/admin/addSeason/addSeason_view.html'
+        templateUrl: '/html/views/admin/addSeason/addSeason_view.html',
+        controller: 'AddSeasonController'
       })
       .state('admin.addScore', {
         url: '/admin/addscore',
-        templateUrl: '/html/views/admin/addScore/addScore_view.html'
+        templateUrl: '/html/views/admin/addScore/addScore_view.html',
+        controller: 'AddScoreController'
       })
       .state('admin.addGame', {
         url: '/admin/addgame',
-        templateUrl: '/html/views/admin/addGame/addGame_view.html'
+        templateUrl: '/html/views/admin/addGame/addGame_view.html',
+        controller: 'AddGameController'
       })
       .state('admin.addTeam', {
         url: '/admin/addTeam',
-        templateUrl: '/html/views/admin/addTeam/addTeam_view.html'
+        templateUrl: '/html/views/admin/addTeam/addTeam_view.html',
+        controller: 'AddTeamController'
       })
       .state('admin.changeTable', {
         url: '/admin/changetable',
@@ -40,6 +44,11 @@ module.exports = function(app) {
         url: '/signup',
         templateUrl: '/html/views/auth/signup_view.html',
         controller: 'SignUpController'
+      })
+      .state('registerTeam', {
+        url: '/registerteam',
+        templateUrl: '/html/views/team/register_team_view.html',
+        controller: 'RegisterTeamController'
       });
   });
 };

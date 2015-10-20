@@ -9,6 +9,7 @@ var cblApp = angular.module('cblApp', ['ngCookies', 'base64', 'ui.router', 'ngAn
 require('./auth/users')(cblApp);
 require('./auth')(cblApp);
 require('./router')(cblApp);
+require('./admin/admin')(cblApp);
 require('./services/services')(cblApp);
 require('./home/controllers/home_controller')(cblApp);
 require('./team/controllers/register_team_controller')(cblApp);

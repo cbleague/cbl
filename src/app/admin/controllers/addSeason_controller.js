@@ -1,33 +1,27 @@
 module.exports = function(app){
-  app.controller('AddSeasonController', ['$scope', 'Resource', '$http', '$location', '$cookies', function($scope, Resource, $http, $location, $cookies){
+  app.controller('AddSeasonController', ['$scope', 'Resource', '$http', '$cookies', '$location', function($scope, Resource, $http, $cookies, $location){
 
-    var eat = $cookies.get('eat', {secure: true});
-    if (!($cookies.get('eat').length))
+    var token = $cookies.get('token');
+    if (!($cookies.get('token').length))
       $location.path('/signup');
 
-    $http.defaults.headers.common.token = eat;
-    $scope.season = [];
+    $http.defaults.headers.common.token = token;
+    $scope.season = {};
     $scope.newSeason = {};
     var seasonResource = Resource('season'); // may need to change this
 
-    $scope.getAll = function(){
-      seasonResource.getAll(function(err, data){
-        if (err) return console.log('AddSeasonController getAll err ' + err);
-        $scope.season = data;
-      });
-    };
-
     $scope.createSeason = function(){
-      seasonResource.create(season, function(err, data){
+      seasonResource.create(newSeason, function(err, data){
         if (err) return console.log('AddSeasonController create err ' + err);
         $scope.newSeason = {
-          seasonNumber: Number,
-          seasonName: String
+          name: String,
+          seasonNumber: Number
         };
-        $scope.season.push(data);
+        $scope.newSeason.push(data);
       });
     };
 
+    // need to add server routes for future functionality
     $scope.updateSeason = function(){
       seasonResource.update(season, function(err){
         season.editing = false;
@@ -35,6 +29,7 @@ module.exports = function(app){
       });
     };
 
+    // need to add server routes for future functionality
     $scope.removeSeason = function(){
       seasonResource.remove(season, function(err){
         if (err) return console.log('AddSeasonController remove err ' + err);
