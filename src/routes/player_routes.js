@@ -14,7 +14,7 @@ playerRouter.post('/register', jsonParser, isUser, function(req, res) {
   newPlayer.secondname = req.body.secondname;
   newPlayer.email = req.body.email;
   newPlayer.phone = req.body.phone;
-  newPlayer.dateOfBirth = req.body.dateOfBirth;
+  newPlayer.dateOfBirth = req.body.dob;
   newPlayer.age = req.body.age;
   newPlayer.height = req.body.height;
   newPlayer.weight = req.body.weight;

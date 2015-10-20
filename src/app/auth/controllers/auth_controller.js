@@ -39,17 +39,7 @@ module.exports = function(app) {
         $scope.loggedIn();
       }, function(res) {
         $scope.error = res.data.msg;
-        
-        setTimeout(function() {
-          console.log(res);
-          $scope.error = '';
-        }, 2000);
-
-        
-
-        // setTimeout(function() {
-        //   $scope.error = '';
-        // }, 1000);
+        console.log(res.data.msg);
       });
     };
 

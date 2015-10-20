@@ -1,8 +1,18 @@
 <section data-ng-controller="AddSeasonController">
-    <form ng-submit="createSeason(season)">
-		  <input type="text" name="seasonNumber" value=""/>
-		  <input type="text" name="seasonName" value=""/>
-      <input type="submit" name="submitseason" value="Submit"/>
+    <form name="createSeasonForm" data-ng-submit="createSeason()" role="form">
+		  Season Number<input name="seasonNumber"
+                          data-ng-model="season.seasonNumber"
+                          type="number"
+                          placeholder="10"
+                          value=""
+                          required>
+		  Season Name<input name="seasonName"
+                        data-ng-model="season.name"
+                        type="text"
+                        placeholder="SeasonName"
+                        value=""
+                        required>
+      <input type="submit" name="submitSeason" value="Submit">
     </form>
 </section>
 
