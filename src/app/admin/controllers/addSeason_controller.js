@@ -29,7 +29,7 @@ module.exports = function(app){
     $scope.getSome = function(){
       $http({
         method: 'GET',
-        url: '/getteamsnotinseason/:season',
+        url: 'api/team/getteamsnotinseason/:season',
         headers: {
           'token': $cookies.get('token')
         },
