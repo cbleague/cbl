@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
+    <title>CB League</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Ubuntu:400,300,500,700,300italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
     <header>
       <section class="header-section">
         <section class="logo-header">
-          <img src="styles/fonts/icomoon/basketball-logo/svg/basketball.svg" alt="basketball logo"></img>
+          <img src="styles/fonts/icomoon/basketball-logo/svg/basketball.svg" alt="basketball logo"/>
           <h1>CB League</h1>
         </section>
       <section class="nav-section">    
@@ -34,48 +33,53 @@
       <a ui-sref="signin" data-ng-if="!isLoggedIn">SignIn</a>
       <a ui-sref="signup" data-ng-if="!isLoggedIn">SignUp</a>
       <p data-ng-if="isLoggedIn">Hi, {{loggedUser}} </p>
-      <a href ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
+      <a href="" ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
     </section>
     <main ui-view>
     </main>
-    <section class="contact">
-      <div class="contact_info">
-        <h1>Контактная информация</h1>
-        <p>Координатор ХБЛ: Марина Тьян</p>
-        <a href="tel:380936522322" class="contact_phone">(+38) 093 652 23 22</a>
-        <a href="mailto:chbl.org@gmail.com" class="contact_email">chbl.org@gmail.com</a>
-      </div>
-      <nav>
-        <ul class="links_media">
-          <li class="svg_twitter"><a href="" class="links_media_item">Follow Us</a></li>
-          <li class="svg_facebook"><a href="" class="links_media_item ">Like Us</a></li>
-          <li class="svg_googleplus"><a href="" class="links_media_item">Connect</a></li>
-          <li class="svg_dribble"><a href="" class="links_media_item">Follow Us</a></li>
-          <li class="svg_pintrest"><a href="" class="links_media_item">Pin It</a></li>
-        </ul>
-       </nav> 
-    </section>
     <footer>
-      <p>&#169; 2014 ХБЛ </p>
-      <ul>
-        <li>
-          <a href="">ГЛАВНАЯ</a>
-        </li>
-        <li>
-          <a href="">РЕЗУЛЬТАТЫ И СТАТИСТИКА</a>
-        </li>
-        <li>
-          <a href="">КАЛЕНДАРЬ</a>
-        </li>
-        <li>
-          <a href="">О НАС</a>
-        </li>
-        <li>
-          <a href="">КОНТАКТЫ</a>
-        </li>
-      </ul>
+      <!-- <section class="contact">
+      <div class="contact_info">
+        <p>Phone Number: (111)-111-1111</p>
+        <a href="tel:380936522322" class="contact_phone"></a>
+        <p></p>
+        <a href="mailto:chbl.org@gmail.com" class="contact_email"></a>
+      </div>
+      </section> -->
+      <section class="social-footer-section">
+      <nav class="social-nav">
+        <ul>
+          <li><a href="https://twitter.com/" target="blank" class="links_media_item"><img class="social-img" src="styles/fonts/social-icons/twitter2.svg"></a></li>
+          <li><a href="https://facebook.com/" target="blank" class="links_media_item "><img class="social-img"src="styles/fonts/social-icons/facebook2.svg"></a></li>
+          <li><a href="https://plus.google.com/" target="blank" class="links_media_item"><img class="social-img"src="styles/fonts/social-icons/google-plus2.svg"></a></li>
+          <li><a href="https://dribbble.com/" target="blank" class="links_media_item"><img class="social-img"src="styles/fonts/social-icons/dribbble2.svg"></a></li>
+          <li><a href="https://www.pinterest.com/" target="blank" class="links_media_item"><img class="social-img"src="styles/fonts/social-icons/pinterest2.svg"></a></li>
+        </ul>  
+      </nav>
+      <!-- <ul class="social-text">
+        <li><a href="https://twitter.com/" target="blank" class="links_media_item">Follow Us</a></li>
+        <li><a href="https://facebook.com/" target="blank" class="links_media_item ">Like Us</a></li>
+        <li><a href="https://plus.google.com/" target="blank" class="links_media_item">Connect</a></li>
+        <li><a href="https://dribbble.com/" target="blank" class="links_media_item">Follow Us</a></li>
+        <li><a href="https://www.pinterest.com/" target="blank" class="links_media_item">Pin It</a></li>
+      </ul>  -->
+      <nav class="header-nav footer-nav">
+        <ul>
+          <li><strong><span class="contact-info">Phone Number :</strong> (111)-111-1111</span></li>
+          <li><strong><span class="contact-info">Email address :</strong> cbleague@gmail.com</span></li>
+        </ul>
+      </nav>
+      <nav class="header-nav footer-nav">
+        <ul>
+          <li><a ui-sref="home">Home</a></li>
+          <li><a href="">Calender</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="">About</a></li>
+          <li data-ng-if="isAdmin"><a ui-sref="admin">Admin</a></li>
+        </ul>
+      </nav>
+    </section>
     </footer>
     <script src="/js/packed.js"></script>
   </body>
 </html>
-a
