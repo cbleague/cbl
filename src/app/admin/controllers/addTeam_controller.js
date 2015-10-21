@@ -1,13 +1,12 @@
 module.exports = function(app){
   app.controller('AddTeamController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
 
+  $http.defaults.headers.common.token = $cookies.get('token');
+
   $scope.getSome = function(){
     $http({
       method: 'POST',
       url: 'api/team/getteamsnotinseason/:season',
-      headers: {
-        'token': $cookies.get('token')
-      },
       data: {
         'seasonNumber': 10,
         'inSeason': false
@@ -24,16 +23,14 @@ module.exports = function(app){
     $http({
       method: 'POST',
       url: 'api/season/addteam',
-      headers: {
-        'token': $cookies.get('token')
-      },
       data: {
         teamId: id,
         seasonId: '5626d12643d81a6c6e311556'
       }
     }).then(function(res){
-      $scope.changeInSeason();
+      $scope.changeInSeason(id);
       console.log('response is: ' + res.data);
+      // team.id slice()
     }, function(res){
       console.log('AddTeamController add2season error ' + res);
     });
@@ -42,14 +39,7 @@ module.exports = function(app){
   $scope.changeInSeason = function(id){
     $http({
       method: 'PUT',
-      url: 'api/team/updateteam/:id',
-      headers: {
-        'token': $cookies.get('token')
-      },
-      data: {
-        teamId: id,
-        inSeason: true
-      }
+      url: 'api/team/changeinseason/' + id
     }).then(function(res){
       console.log('In Season is now true ' + res.data);
     }, function(res){
@@ -60,10 +50,7 @@ module.exports = function(app){
   $scope.updateTeam = function(){
     $http({
       method: 'PUT',
-      url: 'api/team/updateteam/:id',
-      headers: {
-        'token': $cookies.get('token')
-      }
+      url: 'api/team/updateteam/:id'
     }).then(function(res){
       $scope.teamArray._id = res.data;
       console.log('we got data ' + res.data);

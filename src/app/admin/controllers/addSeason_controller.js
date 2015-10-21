@@ -10,7 +10,9 @@ module.exports = function(app){
     $scope.season.creator = $scope.loggedUser;
     $scope.seasons = [];
 
+    // need to change the old seaon current to false
     $scope.createSeason = function(){
+      // call another function() -> current season set to false
       $http({
         method: 'POST',
         url: 'api/season/createseason',

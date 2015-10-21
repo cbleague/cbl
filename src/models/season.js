@@ -4,7 +4,7 @@ var Team = require(__dirname + '/team');
 var seasonSchema = new mongoose.Schema({
   seasonNumber: {type: Number, unique: true, required:true},
   name: {type: String, unique: true, required: true},
-  current: {type: Boolean, default: false},
+  current: {type: Boolean, default: true},
 
   teams: [{
     team: {type: mongoose.Schema.Types.ObjectId, ref: 'Team'},
