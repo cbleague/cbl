@@ -2,7 +2,7 @@
     <form data-ng-submit="register()">
     	<p>Email: <input type="email" name="email" value="" data-ng-model="user.email"/></p>
 		<p>Password: <input type="password" name="password" value="" data-ng-model="user.password"/></p>
-      <p>Confirm Password: <input type="confirmpassword" name="confirmpassword" value="" data-ng-model="user.confirmPassword"/></p>
+      <p>Confirm Password: <input type="password" name="confirmpassword" value="" data-ng-model="user.confirmPassword"/></p>
       <input class="submit-btn" type="submit" name="signup" value="Sign-Up" data-ng-disabled="!passwordMatch()"/>
     </form> 
 </section>
