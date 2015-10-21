@@ -49,6 +49,11 @@ module.exports = function(app) {
         url: '/registerteam',
         templateUrl: '/html/views/team/register_team_view.html',
         controller: 'RegisterTeamController'
+      })
+      .state('contact', {
+        url: '/contact',
+        templateUrl: '/html/views/contact/contact_view.html',
+        controller: 'contactController'
       });
   });
 };

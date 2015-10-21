@@ -19,9 +19,9 @@
       <nav class="header-nav">
         <ul>
           <li><a ui-sref="home">Home</a></li>
-          <li><a href="">Calender</a></li>
+          <li><a href="">Calendar</a></li>
           <li><a href="">News</a></li>
-          <li><a href="">About</a></li>
+          <li><a ui-sref="contact">Contact</a></li>
           <li data-ng-if="isLoggedIn"><a ui-sref="registerTeam">R.T.</a></li>
           <li data-ng-if="isAdmin"><a ui-sref="admin">Admin</a></li>
         </ul>
@@ -65,16 +65,16 @@
       </ul>  -->
       <nav class="header-nav footer-nav">
         <ul>
-          <li><strong><span class="contact-info">Phone Number :</strong> (+38) 0936-522-322</span></li>
-          <li><strong><span class="contact-info">Email address :</strong> chbl.org@gmail.com</span></li>
+          <li><strong><span class="contact-info">Phone Number :</strong> <a href="tel:380936522322">(+38) 093 652 23 22</a></span></li>
+          <li><strong><span class="contact-info">Email address :</strong><a href="mailto:chbl.org@gmail.com">chbl.org@gmail.com</a></span></li>
         </ul>
       </nav>
       <nav class="header-nav footer-nav">
         <ul>
           <li><a ui-sref="home">Home</a></li>
-          <li><a href="">Calender</a></li>
+          <li><a href="">Calendar</a></li>
           <li><a href="">News</a></li>
-          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
           <li data-ng-if="isAdmin"><a ui-sref="admin">Admin</a></li>
         </ul>
       </nav>
