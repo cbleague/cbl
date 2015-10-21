@@ -1,7 +1,18 @@
 .green-button {
 	@extend %main-button;
+	background-color: $highlight;
+	border: .5em solid $highlight;
 }
 .green-button:hover {
 	background-color: $dark-highlight;
 	border-color: $dark-highlight;
+}
+.blue-button {
+	@extend %main-button;
+	background-color: $btn-hover-light;
+	border: .5em solid $btn-hover-light;
+}
+.blue-button:hover {
+	background-color: $btn-hover-color;
+	border-color: $btn-hover-color;
 }
