@@ -9,9 +9,21 @@ module.exports = function(app){
     $scope.seasons = [];
     $http.defaults.headers.common.token = $cookies.get('token');
 
-    // need to change the old seaon current to false
+
+    // when new season created changes the prior season current to false
+    $scope.changeCurrentSeason = function(){
+      $http({
+        method: 'PUT',
+        url: 'api/season/changecurrentseason/' + $scope.currentSeason._id
+      }).then(function(res){
+        console.log('Prior season is now false ' + res.data);
+        $scope.getCurrentSeason();
+      }, function(res){
+        console.log('AddSeasonController changeCurrent error ' + res);
+      });
+    };
+
     $scope.createSeason = function(){
-      // call another function() -> current season set to false
       $http({
         method: 'POST',
         url: 'api/season/createseason',
@@ -19,6 +31,7 @@ module.exports = function(app){
       }).then(function(res){
          console.log(res);
          $scope.season = {};
+         $scope.changeCurrentSeason();
       }, function(res){
         console.log('AddSeasonController create error ' + res);
       });
