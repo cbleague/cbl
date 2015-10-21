@@ -11,8 +11,6 @@ var gameRouter = module.exports = exports = express.Router();
 // create Game with req.seasonNumber, req.team1.name, req.team1.division,
 // req.team2.division, req.team2.name, req.date, req.location
 gameRouter.post('/addgame', jsonParser, isAdmin, function(req, res, err){
-
-
   gameEvents.emit('verifyTeam', req,res,err);
 });
 

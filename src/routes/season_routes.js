@@ -29,3 +29,10 @@ seasonRouter.post('/addteam', jsonParser, isAdmin, function(req, res) {
 seasonRouter.delete('/removeteam', jsonParser, isAdmin, function(req, res) {
   ee.emit('removeTeamFromSeason', req, res);
 });
+
+seasonRouter.get('/getcurrentseason', jsonParser, function(req, res) {
+  Season.findOne({current: true}, function(err, season) {
+    if (err) return handleError.standard(err);
+    res.json({seasonId: season._id, seasonNumber: season.seasonNumber});
+  });
+});
