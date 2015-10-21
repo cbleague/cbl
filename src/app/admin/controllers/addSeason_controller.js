@@ -6,9 +6,8 @@ module.exports = function(app){
       'seasonName': ''
     };
     $scope.season = {};
-    $scope.season.admin = {};
-    $scope.season.creator = $scope.loggedUser;
     $scope.seasons = [];
+    $http.defaults.headers.common.token = $cookies.get('token');
 
     // need to change the old seaon current to false
     $scope.createSeason = function(){
@@ -16,9 +15,6 @@ module.exports = function(app){
       $http({
         method: 'POST',
         url: 'api/season/createseason',
-        headers: {
-          'token': $cookies.get('token')
-        },
         data: $scope.season
       }).then(function(res){
          console.log(res);
@@ -33,9 +29,6 @@ module.exports = function(app){
      $http({
         method: 'PUT',
         url: 'api/season/updateseason',
-        headers: {
-          'token': $cookies.get('token')
-        },
         data: $scope.season
       }).then(function(res){
         $scope.season._id = res.data;
@@ -49,9 +42,6 @@ module.exports = function(app){
       $http({
         method: 'DELETE',
         url: 'api/season/deleteseason',
-        headers: {
-          'token': $cookies.get('token')
-        },
         data: $scope.season
       }).then(function(res){
         // remove what is already in MongoDB
