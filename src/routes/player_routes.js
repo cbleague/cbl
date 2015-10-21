@@ -4,7 +4,6 @@ var jsonParser = require('body-parser').json();
 var handleError = require(__dirname + '/../lib/handleError');
 var isUser = require(__dirname + '/../lib/eat_authenticate');
 
-
 var playerRouter = module.exports = exports = express.Router();
 
 playerRouter.post('/register', jsonParser, isUser, function(req, res) {
@@ -32,6 +31,13 @@ playerRouter.get('/find/:email', isUser, function(req, res) {
   Player.findOne({'email': req.params.email}, function(err, player) {
     if (err) return handleError.standard(err, res);
     console.log(player);
+  });
+});
+
+playerRouter.post('/findbyid', jsonParser, isUser, function(req, res) {
+  Player.find({'_id': { $in: req.body.array}}, function(err, players) {
+    if (err) return handleError.standard(err, res);
+    res.json(players);
   });
 });
 

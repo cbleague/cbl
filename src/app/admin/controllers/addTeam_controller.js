@@ -1,10 +1,20 @@
 module.exports = function(app){
-  app.controller('AddTeamController', ['$scope', 'Resource', '$http', '$location', function($scope, Resource, $http, $location){
+  app.controller('AddTeamController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
 
   $scope.team = {};
   $scope.newTeam = {};
-  var teamResource = Resource('team');
 
+  $scope.addTeamToSeason = function(){
+
+  };
+
+  $scope.updateTeam = function(){
+
+  };
+
+  $scope.removeTeamFromSeason = function(){
+
+  };
 
   }]);
 };

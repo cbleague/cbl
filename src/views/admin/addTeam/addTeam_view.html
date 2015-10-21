@@ -1,5 +1,5 @@
-<section>
-  <form>
+<section data-ng-controller="AddSeasonController">
+  <form name="createTeamForm" data-ng-submit="createTeam()" role="form">
     <select>
       <option value="team1">Team 1</option>
       <option value="team2">Team 2</option>
@@ -9,6 +9,6 @@
     <button type="closeteam">Close Team</button>
       <div>
       </div>
-    <input type="submit" name="addteamtoseason" value="Add Team to Season"/>
-  </form> 
+    <input type="submit" name="addteamtoseason" value="Add Team to Season">
+  </form>
 </section>

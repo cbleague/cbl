@@ -12,7 +12,7 @@ var teamRouter = module.exports = exports = express.Router();
 
 teamRouter.post('/registerteam', jsonParser, isUser, function(req, res){
   var newTeam = new Team();
-  newTeam.name = req.body.name; 
+  newTeam.name = req.body.name;
   newTeam.division = req.body.division;
   newTeam.season = req.body.season;
   newTeam.logo = req.body.logo;
@@ -31,44 +31,50 @@ teamRouter.delete('/deleteteam/:name', isUser, function(req, res){
   });
 });
 
-teamRouter.put('/updateteam/:name', jsonParser, /*isUser,*/ function(req, res){
-  var field = req.body.field;
-  var newVal = req.body.value;
-  Team.findOne({name: req.params.name}, function(err, team){
-    // if(field !== 'isAdmin'){
-    //   return res.status(401).json({msg: 'Unauthorized'}); 
-    // }
-    team[field] = newVal;
+teamRouter.put('/updateteam/:id', jsonParser, isUser, function(req, res){
+  Team.findOne({_id: req.params.id}, function(err, team){
+    team.name = req.body.name; 
+    team.division = req.body.division;
+    team.season = req.body.season;
+    team.logo = req.body.logo;
+    team.administrator = req.body.admin;
+    team.captain = req.body.cap;
+    team.coach = req.body.coach;
+    team.photo = req.body.photo;
+    team.creator = req.body.creator;
     team.save(function(err){
-      if(err) handleError(err, res);
+      if(err) return handleError.standard(err, res);
+      res.json({"msg": "success"});
     });
-    res.json(team);
   });
 });
 
 teamRouter.get('/getteam/:name', function(req,res){
   Team.find({creator: req.params.name}, function(err, team){
-    if(err) return handleError(err, res);
+    if(err) return handleError.standard(err, res);
     res.json(team);
   });
 });
 
-
+teamRouter.get('/getteamsnotinseason/:season', function(req,res){
+  Team.find({season: req.body.seasonNumber, inSeason: false}, function(err, teams){
+    if(err) return handleError(err, res);
+    res.json(teams);
+  });
+});
 
 teamRouter.put('/addplayer', jsonParser, isUser, function(req, res){
   Team.update({_id: req.body.teamId}, {$push: {players: req.body.playerId}}, {upsert: true}, function(err){
-    if(err) handleError(err, res);
+    if(err) return handleError.standard(err, res);
     res.end();
-  }); 
+  });
 });
-
 
 teamRouter.put('/removeplayer', jsonParser, isUser, function(req, res){
   Team.update({name: req.body.name}, {$pull: {players: req.body.playerId}}, function(err, data){
     if(err){
       return res.status(500).json({'error' : 'error in deleting player'});
     }
-    console.log(res.status);
     res.end();
   });
 });
