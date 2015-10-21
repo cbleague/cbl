@@ -30,7 +30,6 @@ module.exports = function(app){
     }).then(function(res){
       $scope.changeInSeason(id);
       console.log('response is: ' + res.data);
-      // team.id slice()
     }, function(res){
       console.log('AddTeamController add2season error ' + res);
     });
@@ -41,6 +40,8 @@ module.exports = function(app){
       method: 'PUT',
       url: 'api/team/changeinseason/' + id
     }).then(function(res){
+      // team.id slice()
+      $scope.teamArray.splice($scope.teamArray.indexOf(id));
       console.log('In Season is now true ' + res.data);
     }, function(res){
       console.log('AddTeamController change error ' + res);
@@ -59,10 +60,7 @@ module.exports = function(app){
     });
   };
 
-  $scope.removeTeamFromAngular = function(){
-
-  };
-
+  // add this functionality
   $scope.removeTeamFromSeason = function(){
 
   };
