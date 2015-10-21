@@ -1,9 +1,6 @@
 module.exports = function(app){
   app.controller('AddTeamController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
 
-  $scope.team = {};
-  $scope.newTeam = {};
-
   $scope.getSome = function(){
     $http({
       method: 'POST',
@@ -23,22 +20,27 @@ module.exports = function(app){
     });
   };
 
-  $scope.addTeamToSeason = function(){
+  $scope.addTeamToSeason = function(id){
     $http({
-      method: 'PUT',
-      url: 'api/team/updateteam/:id',
+      method: 'POST',
+      url: 'api/season/addteam',
       headers: {
         'token': $cookies.get('token')
       },
       data: {
-        'inSeason': true
+        teamID: id,
+        seasonID: '5626d12643d81a6c6e311556'
       }
     }).then(function(res){
-      $scope.teamArray._id = res.data;
-      console.log('we got data ' + res.data);
+      // call team put function
+      console.log('response is: ' + res.data);
     }, function(res){
       console.log('AddTeamController add2season error ' + res);
     });
+  };
+
+  $scope.thinkOfSomething = function(id){
+  // $http PUT inSeason = true
   };
 
   $scope.updateTeam = function(){
