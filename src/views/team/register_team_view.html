@@ -1,6 +1,5 @@
 <section>
-  
-  <list>
+  <ul>
     <li data-ng-repeat="t in teams" ng-init="getPlayers(t); t.show = false">
       <label>{{t.name}}</label>
       <span ng-click="editTeam(t)">edit-icon</span>
@@ -21,28 +20,28 @@
           <p>Picture: {{player.img}}</p>
         </span>  
     </li>
-  </list>
+  </ul>
 
-
+  <section class="rt-team">
   <form>
-    <h1>Register Team</h1>
+    <h1 class="rt-header">Register Team</h1>
     <input placeholder="Team Name" type="text" name="teamname" data-ng-model="team.name">
     <input placeholder="Division" type="text" name="division" data-ng-model="team.division">
     <input placeholder="Season" type="text" name="season" data-ng-model="team.season">
     Choose a Team image<input type="file" name="teampic" accept="image/*">
-    <h2>Administrator</h2>
+    <h2 class="rt-subheader">Administrator</h2>
     <input placeholder="First Name" type="text" name="adminFirstname" data-ng-model="team.admin.firstName">
     <input placeholder="Middle Name or Inital" type="text" name="adminMiddlename" data-ng-model="team.admin.middleName">
     <input placeholder="Last Name" type="text" name="adminLastname" data-ng-model="team.admin.lastName">
     <input placeholder="Email" type="email" name="adminEmail" data-ng-model="team.admin.email">
     <input  placeholder="Phone Number" type="phone" name="adminPhone" data-ng-model="team.admin.phone">
-    <h2>Captain</h2>
+    <h2 class="rt-subheader">Captain</h2>
     <input placeholder="First Name" type="text" name="capFirstname" data-ng-model="team.cap.firstName">
     <input placeholder="Middle Name or Initial" type="text" name="capMiddlename" data-ng-model="team.cap.middleName">
     <input placeholder="Last name" type="text" name="capLastname" data-ng-model="team.cap.lastName">
     <input placeholder="Email" type="email" name="capEmail" data-ng-model="team.cap.email">
     <input placeholder="Phone Number" type="phone" name="capPhone" data-ng-model="team.cap.phone">
-    <h2>Coach</h2>
+    <h2 class="rt-subheader">Coach</h2>
     <input placeholder="First Name" type="text" name="coachFirstname" data-ng-model="team.coach.firstName">
     <input placeholder="Middle Name or Initial" type="text" name="coachMiddlename" data-ng-model="team.coach.middleName">
     <input placeholder="Last name" type="text" name="coachLastname" data-ng-model="team.coach.lastName">
@@ -52,10 +51,12 @@
     <input type="button" name="updateTeam" value="Update Team" data-ng-click="updateTeam()" data-ng-show="teamFormatting">
     <input type="button" name="cancelTeamEditing" value="Cancel" data-ng-click="cancelEditing()" data-ng-show="teamFormatting">
   </form>
+</section>
 
-
-  <h1>Register Player</h1>
+  <section class="rt-player">
   <form>
+  <h1 class="rt-header">Register Player</h1>
+  
     <select name="team" data-ng-model="player.team">
       <option value="{{teamId._id}}" data-ng-repeat="teamId in teams">{{teamId.name}}</option>
     </select>
@@ -78,4 +79,5 @@
     <input type="button" name="updatePlayer" value="Update Player" data-ng-click="updatePlayer()" data-ng-show="playerFormatting">
     <input type="button" name="cancelPlayerEditing" value="Cancel" data-ng-click="cancelPlayerEditing()" data-ng-show="playerFormatting">
   </form>
+</section>
 </section>
