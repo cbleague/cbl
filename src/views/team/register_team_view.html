@@ -26,28 +26,28 @@
 
   <form>
     <h1>Register Team</h1>
-    Team Name<input placeholder="Team Name" type="text" name="teamname" data-ng-model="team.name">
-    Division<input placeholder="Division" type="text" name="division" data-ng-model="team.division">
-    Season<input placeholder="Season" type="text" name="season" data-ng-model="team.season">
+    <input placeholder="Team Name" type="text" name="teamname" data-ng-model="team.name">
+    <input placeholder="Division" type="text" name="division" data-ng-model="team.division">
+    <input placeholder="Season" type="text" name="season" data-ng-model="team.season">
     Choose a Team image<input type="file" name="teampic" accept="image/*">
     <h2>Administrator</h2>
-    First Name<input placeholder="First Name" type="text" name="adminFirstname" data-ng-model="team.admin.firstName">
-    Middle Name or Initial<input placeholder="Middle Name or Inital" type="text" name="adminMiddlename" data-ng-model="team.admin.middleName">
-    Last name<input placeholder="Last Name" type="text" name="adminLastname" data-ng-model="team.admin.lastName">
-    Email<input placeholder="Email" type="email" name="adminEmail" data-ng-model="team.admin.email">
-    Phone Number<input  placeholder="Phone Number" type="phone" name="adminPhone" data-ng-model="team.admin.phone">
+    <input placeholder="First Name" type="text" name="adminFirstname" data-ng-model="team.admin.firstName">
+    <input placeholder="Middle Name or Inital" type="text" name="adminMiddlename" data-ng-model="team.admin.middleName">
+    <input placeholder="Last Name" type="text" name="adminLastname" data-ng-model="team.admin.lastName">
+    <input placeholder="Email" type="email" name="adminEmail" data-ng-model="team.admin.email">
+    <input  placeholder="Phone Number" type="phone" name="adminPhone" data-ng-model="team.admin.phone">
     <h2>Captain</h2>
-    First Name<input type="text" name="capFirstname" data-ng-model="team.cap.firstName">
-    Middle Name or Initial<input type="text" name="capMiddlename" data-ng-model="team.cap.middleName">
-    Last name<input type="text" name="capLastname" data-ng-model="team.cap.lastName">
-    Email<input type="email" name="capEmail" data-ng-model="team.cap.email">
-    Phone Number<input type="phone" name="capPhone" data-ng-model="team.cap.phone">
+    <input placeholder="First Name" type="text" name="capFirstname" data-ng-model="team.cap.firstName">
+    <input placeholder="Middle Name or Initial" type="text" name="capMiddlename" data-ng-model="team.cap.middleName">
+    <input placeholder="Last name" type="text" name="capLastname" data-ng-model="team.cap.lastName">
+    <input placeholder="Email" type="email" name="capEmail" data-ng-model="team.cap.email">
+    <input placeholder="Phone Number" type="phone" name="capPhone" data-ng-model="team.cap.phone">
     <h2>Coach</h2>
-    First Name<input type="text" name="coachFirstname" data-ng-model="team.coach.firstName">
-    Middle Name or Initial<input type="text" name="coachMiddlename" data-ng-model="team.coach.middleName">
-    Last name<input type="text" name="coachLastname" data-ng-model="team.coach.lastName">
-    Email<input type="email" name="coachEmail" data-ng-model="team.coach.email">
-    Phone Number<input type="phone" name="coachPhone" data-ng-model="team.coach.phone">
+    <input placeholder="First Name" type="text" name="coachFirstname" data-ng-model="team.coach.firstName">
+    <input placeholder="Middle Name or Initial" type="text" name="coachMiddlename" data-ng-model="team.coach.middleName">
+    <input placeholder="Last name" type="text" name="coachLastname" data-ng-model="team.coach.lastName">
+    <input placeholder="Email" type="email" name="coachEmail" data-ng-model="team.coach.email">
+    <input placeholder="Phone Number" type="phone" name="coachPhone" data-ng-model="team.coach.phone">
     <input type="button" name="submitTeam" value="Create Team" data-ng-click="createTeam()" data-ng-show="!teamFormatting">
     <input type="button" name="updateTeam" value="Update Team" data-ng-click="updateTeam()" data-ng-show="teamFormatting">
     <input type="button" name="cancelTeamEditing" value="Cancel" data-ng-click="cancelEditing()" data-ng-show="teamFormatting">
@@ -60,23 +60,22 @@
       <option value="{{teamId._id}}" data-ng-repeat="teamId in teams">{{teamId.name}}</option>
     </select>
 
-    First Name<input placeholder="First Name" type="text" name="firstname" data-ng-model="player.firstname">
-    Middle Name or Initial<input type="text" name="middlename" data-ng-model="player.middlename">
-    Last Name<input type="text" name="lastname" data-ng-model="player.secondname">
-    Email<input type="email" name="email" data-ng-model="player.email">
-    Phone Number<input type="phone" name="phone" data-ng-model="player.phone">
-    DOB<input type="date" name="dob" data-ng-model="player.dob">
-    Age<input type="text" name="age" data-ng-model="player.age">
-    Height<input type="text" name="height" data-ng-model="player.height">
-    Weight<input type="text" name="weight" data-ng-model="player.weight">
-    Player Number<input type="text" name="number" data-ng-model="player.number">
-    Player Position<input type="text" name="position" data-ng-model="player.position">
+    <input placeholder="First Name" type="text" name="firstname" data-ng-model="player.firstname">
+    <input placeholder="Middle Name or Initial" type="text" name="middlename" data-ng-model="player.middlename">
+    <input placeholder="Last Name" type="text" name="lastname" data-ng-model="player.secondname">
+    <input placeholder="Email" type="email" name="email" data-ng-model="player.email">
+    <input placeholder="Phone Number" type="phone" name="phone" data-ng-model="player.phone">
+    <input placeholder="DOB" type="date" name="dob" data-ng-model="player.dob">
+    <input placeholder="Age" type="text" name="age" data-ng-model="player.age">
+    <input placeholder="Height(optional)" type="text" name="height" data-ng-model="player.height">
+    <input placeholder="Weight(optional)" type="text" name="weight" data-ng-model="player.weight">
+    <input placeholder="Player Number(optional)" type="text" name="number" data-ng-model="player.number">
+    <input placeholder="Player Position(optional)" type="text" name="position" data-ng-model="player.position">
     Player Profile Picture<input type="file" name="playerpic" accept="image/*" data-ng-model="player.img">
     <button type="button" name="delete" value="Delete">
     <button type="button" name="edit" value="Edit">
     <input type="button" name="submitPlayer" value="Add player" data-ng-submit="createPlayer()" data-ng-show="!playerFormatting">
     <input type="button" name="updatePlayer" value="Update Player" data-ng-click="updatePlayer()" data-ng-show="playerFormatting">
     <input type="button" name="cancelPlayerEditing" value="Cancel" data-ng-click="cancelPlayerEditing()" data-ng-show="playerFormatting">
-
   </form>
 </section>
