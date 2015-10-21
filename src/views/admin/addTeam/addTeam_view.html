@@ -1,10 +1,9 @@
-<section data-ng-init="getSome()">
+<section class="addTeam-view" data-ng-init="getSome()">
   <ul id="teamsNotInSeason">
       <li data-ng-repeat="team in teamArray">
         <span data-ng-if="true">{{team.name}}
-           <button data-ng-click="addTeamToSeason(team._id)">Add To Season</button>
-           <button data-ng-click="updateTeam(team._id)">Update Team</button>
-           <button data-ng-click="removeTeamFromSeason(team._id)">Remove Team</button>
+           <button data-ng-click="addTeamToSeason(team._id)" class="submit-btn">Add To Season</button>
+           <button data-ng-click="updateTeam(team._id)" class="submit-btn">Update Team</button>
         </span>
       </li>
     </ul>
