@@ -33,7 +33,7 @@ teamRouter.delete('/deleteteam/:name', isUser, function(req, res){
 
 teamRouter.put('/updateteam/:id', jsonParser, isUser, function(req, res){
   Team.findOne({_id: req.params.id}, function(err, team){
-    team.name = req.body.name; 
+    team.name = req.body.name;
     team.division = req.body.division;
     team.season = req.body.season;
     team.logo = req.body.logo;
@@ -56,7 +56,7 @@ teamRouter.get('/getteam/:name', function(req,res){
   });
 });
 
-teamRouter.get('/getteamsnotinseason/:season', function(req,res){
+teamRouter.post('/getteamsnotinseason/:season', jsonParser, function(req,res){
   Team.find({season: req.body.seasonNumber, inSeason: false}, function(err, teams){
     if(err) return handleError(err, res);
     res.json(teams);
