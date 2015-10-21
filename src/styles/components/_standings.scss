@@ -2,7 +2,7 @@
 	@extend %flex-box;
 	justify-content: space-around;
 	align-items: center;
-	height: 34em;
+	min-height: 40em;
 }
 .standings-section {
 	background-color: white;
@@ -61,5 +61,8 @@
 	height: 2em;
 	padding-right: .5em;
 }
+@media screen and (max-width: 50em) {
+
+} 
 
 
