@@ -25,7 +25,7 @@ module.exports = function(app){
       url: 'api/season/addteam',
       data: {
         teamId: id,
-        seasonId: '5626d12643d81a6c6e311556'
+        seasonId: $scope.currentSeason._id
       }
     }).then(function(res){
       $scope.changeInSeason(id);

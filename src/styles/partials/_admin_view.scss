@@ -1,3 +1,31 @@
-@media screen and (max-width: 50em) {
+.admin-view{
+  @extend %flex-form;
 
+  ul {
+    list-style: none;
+    display: inline;
+    text-align: center;
+    margin-bottom: 3em;
+    li {
+      display: inline;
+      padding-top: 1em;
+    }
+    a {
+      text-decoration: none;
+      font-size: 2em;
+      font-family: Roboto-bold;
+      margin-left: 1em;
+      color: $primary-font-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+    }
+  }
+ul li a:hover {
+  color: $highlight;
+  border-bottom: 0.125em solid $primary-font-color;
+
+}
+
+  @media screen and (max-width: 50em) {
+
+  }
 }
