@@ -1,7 +1,7 @@
 .admin-view{
   @extend %flex-form;
 
-  ul {
+  .admin-nav {
     list-style: none;
     display: inline;
     text-align: center;
