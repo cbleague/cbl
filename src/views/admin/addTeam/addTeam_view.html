@@ -1,22 +1,11 @@
 <section data-ng-init="getSome()">
   <ul id="teamsNotInSeason">
-      <li data-ng-repeat="teams in teamArray">
-        <span data-ng-if="true">{{teams.name}}
-           <button data-ng-click="addTeamToSeason()">Add Team To Season</button>
+      <li data-ng-repeat="team in teamArray">
+        <span data-ng-if="true">{{team.name}}
+           <button data-ng-click="addTeamToSeason(team._id)">Add To Season</button>
+           <button data-ng-click="updateTeam(team._id)">Update Team</button>
+           <button data-ng-click="removeTeamFromSeason(team._id)">Remove Team</button>
         </span>
       </li>
     </ul>
-
-  <form name="createTeamForm" data-ng-submit="createTeam()" role="form">
-    <select>
-      <option value="team1">Team 1</option>
-      <option value="team2">Team 2</option>
-      <option value="team3">Team 3</option>
-    </select>
-    <button type="showteam">Show Team</button>
-    <button type="closeteam">Close Team</button>
-      <div>
-      </div>
-    <input type="submit" name="addTeamToSeason" value="Add Team to Season">
-  </form>
 </section>
