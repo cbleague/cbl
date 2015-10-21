@@ -19,29 +19,29 @@ module.exports = function(app){
     });
   };
 
-  $scope.addTeamToSeason = function(id){
+  $scope.addTeamToSeason = function(team){
     $http({
       method: 'POST',
       url: 'api/season/addteam',
       data: {
-        teamId: id,
+        teamId: team._id,
         seasonId: $scope.currentSeason._id
       }
     }).then(function(res){
-      $scope.changeInSeason(id);
+      $scope.changeInSeason(team);
       console.log('response is: ' + res.data);
     }, function(res){
       console.log('AddTeamController add2season error ' + res);
     });
   };
 
-  $scope.changeInSeason = function(id){
+  $scope.changeInSeason = function(team){
     $http({
       method: 'PUT',
-      url: 'api/team/changeinseason/' + id
+      url: 'api/team/changeinseason/' + team._id
     }).then(function(res){
       // team.id slice()
-      $scope.teamArray.splice($scope.teamArray.indexOf(id));
+      $scope.teamArray.splice($scope.teamArray.indexOf(team), 1);
       console.log('In Season is now true ' + res.data);
     }, function(res){
       console.log('AddTeamController change error ' + res);
