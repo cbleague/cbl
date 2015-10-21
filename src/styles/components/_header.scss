@@ -39,8 +39,9 @@ header {
 .header-section {
 	@extend %flex-box;
 	align-items: center;
-	font-size: em(36);
+	font-size: em(32);
 	height: 3em;
+	border-bottom: 1px solid $light-font-color;
 	img {
 		width: 2em;
 		fill: $highlight;
