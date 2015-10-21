@@ -1,18 +1,41 @@
-<section data-ng-init="">
+<section class="addGame-view" data-ng-init="">
   <form>
-    <p><input type="radio" name="division" value="a">Division A</p>
-		<p><input type="radio" name="division" value="b">Division B</p>
-		<input type="text" name="team1" value="">
-		<input type="text" name="team2" value="">
-		<select>
-      <option value="Team 1">Team 1</option>
-      <option value="Team 2">Team 2</option>
-      <option value="Team 3">Team 3</option>
-      <option value="Team 4">Team 4</option>
-    </select>
-    <input type="date" name="gameday">
-    <input type="time" name="gametime">
-    <input type="address" name="gamelocation">
-    <input type="submit" name="addgame" value="Add Game">
+    <div class="radioSection">
+     <input type="radio" name="division" value="a" class="radioA">
+     <p> Division A </p>
+		 <input type="radio" name="division" value="b" class="radioB">
+     <p> Division B </p>
+    </div>
+		<div>
+      <p>Home Team:</p>
+      <select>
+        <option value="Team 1">Team 1</option>
+        <option value="Team 2">Team 2</option>
+        <option value="Team 3">Team 3</option>
+        <option value="Team 4">Team 4</option>
+      </select>
+    </div>
+    <div>
+      <p>Visiting Team:</p>
+		  <select>
+        <option value="Team 1">Team 1</option>
+        <option value="Team 2">Team 2</option>
+        <option value="Team 3">Team 3</option>
+        <option value="Team 4">Team 4</option>
+      </select>
+    </div>
+    <div>
+      <p>Game Day: </p>
+      <input type="date" name="gameday">
+    </div>
+    <div>
+      <p>Game Time: </p>
+      <input type="time" name="gametime">
+    </div>
+    <div>
+      <p>Game Location: </p>
+      <input type="address" name="gamelocation">
+    </div>
+    <input type="submit" class="submit-btn" name="addgame" value="Add Game">
   </form>
 </section>
