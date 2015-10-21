@@ -1,6 +1,14 @@
 Final Project at Code Fellows 10/2015
 Authors: Roman Gusev, Sredna Kunowski, Benton Green, and David Sheffield
 
+Sources:
+
+Sports icons:
+Icon made by Freepick from www.flaticon.com 
+
+
+
+
 
 # Ukrainian Basketball REST API
 ### [Heroku deployment](http://sleepy-shore-7853.herokuapp.com/)
