@@ -1,40 +1,34 @@
 <section class="addGame-view" data-ng-init="">
-  <form>
+  <form data-ng-submit="addGame">
     <div class="radioSection">
-     <input type="radio" name="division" value="a" class="radioA">
+     <input type="radio" name="division" value="A" class="radioA" data-ng-model="division.name" data-ng-change="swapDivisions()">
      <p> Division A </p>
-		 <input type="radio" name="division" value="b" class="radioB">
+		 <input type="radio" name="division" value="B" class="radioB" data-ng-model="division.name" data-ng-change="swapDivisions()">
      <p> Division B </p>
     </div>
 		<div>
       <p>Home Team:</p>
-      <select>
-        <option value="Team 1">Team 1</option>
-        <option value="Team 2">Team 2</option>
-        <option value="Team 3">Team 3</option>
-        <option value="Team 4">Team 4</option>
+      <select ng-model="data.team1">
+        <option ng-repeat="team in currentTeams" value="{{team}}">{{team}}</option>
       </select>
     </div>
     <div>
       <p>Visiting Team:</p>
-		  <select>
-        <option value="Team 1">Team 1</option>
-        <option value="Team 2">Team 2</option>
-        <option value="Team 3">Team 3</option>
-        <option value="Team 4">Team 4</option>
+		  <select ng-model="data.team2">
+        <option ng-repeat="team in currentTeams" value="{{team}}">{{team}}</option>
       </select>
     </div>
     <div>
       <p>Game Day: </p>
-      <input type="date" name="gameday">
+      <input type="date" name="gameday" data-ng-model="data.date">
     </div>
     <div>
       <p>Game Time: </p>
-      <input type="time" name="gametime">
+      <input type="time" name="gametime" data-ng-model="data.time">
     </div>
     <div>
       <p>Game Location: </p>
-      <input type="address" name="gamelocation">
+      <input type="address" name="gamelocation" data-ng-model="data.location">
     </div>
     <input type="submit" class="submit-btn" name="addgame" value="Add Game">
   </form>
