@@ -36,3 +36,13 @@ seasonRouter.get('/getcurrentseason', jsonParser, function(req, res) {
     res.json({seasonId: season._id, seasonNumber: season.seasonNumber});
   });
 });
+
+seasonRouter.put('/changecurrentseason/:id', jsonParser, function(req, res){
+  Season.findOne({_id: req.params.id}, function(err, season){
+    season.current = false;
+    season.save(function(err){
+      if(err) return handleError.standard(err, res);
+      res.json({"msg": "success prior season current is false"});
+    });
+  });
+});
