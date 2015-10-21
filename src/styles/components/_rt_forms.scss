@@ -10,16 +10,16 @@
       margin-top: 0.5em;
       margin-bottom: 0.5em;
       display: block;
-      background-color: $main-bk-color;
+      //background-color: $main-bk-color;
       border-top: 0;
       border-left: 0;
       border-right: 0;
-      border-bottom: 1px solid $btn-hover-light;
+      border-bottom: 2px solid $btn-hover-light;
       margin-top: 1em;
       
     }
 .input-no-border {
-	border-bottom-color: $main-bk-color;
+	border-bottom-color: white;
 } 
 .rt-sections, .rt-player {
 	width: 100%;
@@ -38,6 +38,9 @@
 }
 .rt-player {
 	margin-bottom: 2em;
+	background-color: white;
+	opacity: .8;
+	width: 58%;
 }
 .rt-header {
 	padding: 0;
@@ -51,5 +54,10 @@
 }
 .rt-subheader {
 	font-family: Roboto-bold;
+}
+.rt-team-section {
+	background-color: white;
+	opacity: .8;
+
 }
 
