@@ -14,13 +14,5 @@
                         required>
       <input type="submit" name="submitSeason" value="Submit">
     </form>
-
-    <ul id="teamsNotInSeason">
-      <li data-ng-repeat="teams in teamArray">
-        <span data-ng-if="true">{{teams.name}}
-           <button data-ng-click="addToSeason()">Add To Season</button>
-        </span>
-      </li>
-    </ul>
 </section>
 

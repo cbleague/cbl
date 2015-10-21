@@ -8,6 +8,11 @@ var scoreEventEmitter = require(__dirname + '/../lib/scoreEvents');
 var scoreRouter = module.exports = exports = express.Router();
 
 //should receive {id1: _id, id2: _id, id1Score: score, id2Score:score, seasonNumber: number}
-scoreRouter.post('/', jsonParser, function(req, res) {
+scoreRouter.post('/', jsonParser, isAdmin, function(req, res) {
   scoreEventEmitter.emit('addScoreToGames', req, res);
+});
+
+// should update scores already posted
+scoreRouter.put('/update', jsonParser, isAdmin, function(req, res) {
+
 });

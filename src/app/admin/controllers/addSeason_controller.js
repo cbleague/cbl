@@ -26,25 +26,6 @@ module.exports = function(app){
       });
     };
 
-    $scope.getSome = function(){
-      $http({
-        method: 'POST',
-        url: 'api/team/getteamsnotinseason/:season',
-        headers: {
-          'token': $cookies.get('token')
-        },
-        data: {
-          'seasonNumber': 10,
-          'inSeason': false
-        }
-      }).then(function(res){
-        $scope.teamArray = res.data;
-        console.log('we got data ' + res.data);
-      }, function(res){
-        console.log('AddSeasonController getSome error ' + res);
-      });
-    };
-
     // need to add server routes for future functionality
     $scope.updateSeason = function(){
      $http({
