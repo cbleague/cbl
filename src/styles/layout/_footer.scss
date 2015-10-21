@@ -1,6 +1,7 @@
 footer {
 	background-color: white;
+	border-top: 1px solid $light-font-color;
 	width: 100%;
 	bottom: 0;
-	position: relative;
+	position: fixed;
 }
