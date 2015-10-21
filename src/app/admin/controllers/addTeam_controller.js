@@ -28,19 +28,33 @@ module.exports = function(app){
         'token': $cookies.get('token')
       },
       data: {
-        teamID: id,
-        seasonID: '5626d12643d81a6c6e311556'
+        teamId: id,
+        seasonId: '5626d12643d81a6c6e311556'
       }
     }).then(function(res){
-      // call team put function
+      $scope.changeInSeason();
       console.log('response is: ' + res.data);
     }, function(res){
       console.log('AddTeamController add2season error ' + res);
     });
   };
 
-  $scope.thinkOfSomething = function(id){
-  // $http PUT inSeason = true
+  $scope.changeInSeason = function(id){
+    $http({
+      method: 'PUT',
+      url: 'api/team/updateteam/:id',
+      headers: {
+        'token': $cookies.get('token')
+      },
+      data: {
+        teamId: id,
+        inSeason: true
+      }
+    }).then(function(res){
+      console.log('In Season is now true ' + res.data);
+    }, function(res){
+      console.log('AddTeamController change error ' + res);
+    });
   };
 
   $scope.updateTeam = function(){
@@ -56,6 +70,10 @@ module.exports = function(app){
     }, function(res){
       console.log('AddTeamController updateTeam error ' + res);
     });
+  };
+
+  $scope.removeTeamFromAngular = function(){
+
   };
 
   $scope.removeTeamFromSeason = function(){
