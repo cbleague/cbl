@@ -3,10 +3,10 @@ module.exports = function(app){
 
   $scope.game = {};
 
-  $scope.createGame = function(){
+  $scope.addGame = function(){
     $http({
         method: 'POST',
-        url: 'api/game/create',
+        url: 'api/game/addgame',
         headers: {
           'token': $cookies.get('token')
         },
@@ -22,7 +22,7 @@ module.exports = function(app){
   $scope.findGame = function(){
     $http({
         method: 'POST',
-        url: 'api/game/find',
+        url: 'api/game/findgame',
         headers: {
           'token': $cookies.get('token')
         },
@@ -41,7 +41,7 @@ module.exports = function(app){
   $scope.updateGame = function(){
     $http({
       method: 'PUT',
-      url: 'api/game/update', // need to add this route
+      url: 'api/game/updategame', // need to add this route
       headers: {
         'token': $cookies.get('token')
       },
@@ -54,7 +54,7 @@ module.exports = function(app){
   $scope.removeGame = function(){
     $http({
       method: 'DELETE',
-      url: 'api/game/delete', // add js logic to this route
+      url: 'api/game/removegame', // add js logic to this route
       headers: {
         'token': $cookies.get('token')
       },

@@ -3,10 +3,10 @@ module.exports = function(app){
 
   $scope.score = {};
 
-  $scope.createScore = function(){
+  $scope.addScore = function(){
     $http({
         method: 'POST',
-        url: 'api/score/create',
+        url: 'api/score/addscore',
         headers: {
           'token': $cookies.get('token')
         },
@@ -22,7 +22,7 @@ module.exports = function(app){
   $scope.updateScore = function(){
     $http({
       method: 'PUT',
-      url: 'api/score/update', // need to add this route
+      url: 'api/score/updatescore', // need to add this route
       headers: {
         'token': $cookies.get('token')
       },
