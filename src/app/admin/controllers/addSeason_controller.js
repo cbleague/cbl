@@ -14,9 +14,10 @@ module.exports = function(app){
     $scope.changeCurrentSeason = function(){
       $http({
         method: 'PUT',
-        url: 'api/season/changecurrentseason/' + $scope.currenSeason._id
+        url: 'api/season/changecurrentseason/' + $scope.currentSeason._id
       }).then(function(res){
         console.log('Prior season is now false ' + res.data);
+        $scope.getCurrentSeason();
       }, function(res){
         console.log('AddSeasonController changeCurrent error ' + res);
       });

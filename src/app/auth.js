@@ -22,7 +22,7 @@ module.exports = function(app) {
       $state.go('home');
     };
 
-    $scope.getCurrenSeason = function() {
+    $scope.getCurrentSeason = function() {
       $http({
           method: 'GET',
           url:'api/season/getcurrentseason/',
@@ -35,7 +35,7 @@ module.exports = function(app) {
     };
 
     $scope.loggedIn();
-    $scope.getCurrenSeason();
+    $scope.getCurrentSeason();
 
   }]);
 };
