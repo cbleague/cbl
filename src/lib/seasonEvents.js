@@ -21,6 +21,7 @@ ee.on('addTeamToExectDivision', function(team, req, res) {
   };
   var push = {};
   push.teams = newTeam;
+  debugger;
   Season.findByIdAndUpdate(req.body.seasonId, {
     $push: push
   }, {

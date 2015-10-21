@@ -28,8 +28,8 @@ module.exports = function(app){
         'token': $cookies.get('token')
       },
       data: {
-        teamID: id,
-        seasonID: '5626d12643d81a6c6e311556'
+        teamId: id,
+        seasonId: $scope.currentSeason._id
       }
     }).then(function(res){
       // call team put function
