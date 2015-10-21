@@ -3,11 +3,13 @@
   <list>
     <li data-ng-repeat="t in teams" ng-init="getPlayers(t); t.show = false">
       <label>{{t.name}}</label>
-      <span ng-click="edit(t)">edit-icon</span>
-      <span ng-click="delete(t)">del-icon</span>
+      <span ng-click="editTeam(t)">edit-icon</span>
+      <span ng-click="deleteTeam(t)">del-icon</span>
       <span ng-click="t.show = t.show? false: true">show-players-icon</span>
         <span ng-show="t.show" data-ng-repeat="player in t.playersArray">
           <p>{{player.firstname}} {{player.middlename}} {{player.secondname}}</p>
+          <span ng-click="editPlayer(player)">edit-icon</span>
+          <span ng-click="deletePlayer(player)">del-icon</span>
           <p>Email: {{player.email}}</p>
           <p>Phone Number: {{player.phone}}</p>
           <p>Date Of Birth: {{player.dob}}</p>
@@ -49,9 +51,10 @@
     team_pic<input type="file" name="teampic" accept="image/*">
     <input type="button" name="submitTeam" value="Create Team" data-ng-click="createTeam()" data-ng-show="!teamFormatting">
     <input type="button" name="updateTeam" value="Update Team" data-ng-click="updateTeam()" data-ng-show="teamFormatting">
+    <input type="button" name="cancelTeamEditing" value="Cancel" data-ng-click="cancelEditing()" data-ng-show="teamFormatting">
   </form>
 
-  <form data-ng-submit="createPlayer()">
+  <form>
     <select name="team" data-ng-model="player.team">
       <option value="{{teamId._id}}" data-ng-repeat="teamId in teams">{{teamId.name}}</option>
     </select>
@@ -70,6 +73,9 @@
     img<input type="file" name="playerpic" accept="image/*" data-ng-model="player.img">
     <button type="button" name="delete" value="Delete">
     <button type="button" name="edit" value="Edit">
-    <input type="submit" name="submitPlayer" value="Add player">
+    <input type="button" name="submitPlayer" value="Add player" data-ng-submit="createPlayer()" data-ng-show="!playerFormatting">
+    <input type="button" name="updatePlayer" value="Update Player" data-ng-click="updatePlayer()" data-ng-show="playerFormatting">
+    <input type="button" name="cancelPlayerEditing" value="Cancel" data-ng-click="cancelPlayerEditing()" data-ng-show="playerFormatting">
+
   </form>
 </section>

@@ -49,25 +49,24 @@ playerRouter.delete('/delete/:email', isUser, function(req,res) {
   });
 });
 
-playerRouter.put('/update/:email', jsonParser, isUser, function(req,res) {
-  Player.findOne({'email': req.params.email}, function(err, player) {
+playerRouter.put('/updateplayer/:id', jsonParser, isUser, function(req,res) {
+  Player.findOne({'_id': req.params.id}, function(err, player) {
     if (err) return handleError.standard(err, res);
     player.firstname = req.body.firstname;
     player.middlename = req.body.middlename;
     player.secondname = req.body.secondname;
     player.email = req.body.email;
     player.phone = req.body.phone;
-    player.dateOfBirth = req.body.dateOfBirth;
+    player.dateOfBirth = req.body.dob;
     player.age = req.body.age;
     player.height = req.body.height;
     player.weight = req.body.weight;
     player.number = req.body.number;
     player.position = req.body.position;
     player.photo = req.body.photo;
-
     player.save(function(err, data) {
-    if(err) return handleError.standard(err,res);
-    res.json(data);
+      if(err) return handleError.standard(err,res);
+      res.json(data);
     });
   });
 });
