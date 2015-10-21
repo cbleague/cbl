@@ -56,10 +56,20 @@ teamRouter.get('/getteam/:name', function(req,res){
   });
 });
 
-teamRouter.post('/getteamsnotinseason/:season', jsonParser, function(req,res){
+teamRouter.post('/getteamsnotinseason/:season', jsonParser, isUser, function(req,res){
   Team.find({season: req.body.seasonNumber, inSeason: false}, function(err, teams){
     if(err) return handleError(err, res);
     res.json(teams);
+  });
+});
+
+teamRouter.put('/changeinseason/:id', jsonParser, isUser, function(req, res){
+  Team.findOne({_id: req.params.id}, function(err, team){
+    team.inSeason = true;
+    team.save(function(err){
+      if(err) return handleError.standard(err, res);
+      res.json({"msg": "success changing in season"});
+    });
   });
 });
 

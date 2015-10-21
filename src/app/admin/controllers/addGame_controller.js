@@ -2,14 +2,12 @@ module.exports = function(app){
   app.controller('AddGameController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
 
   $scope.game = {};
+  $http.defaults.headers.common.token = $cookies.get('token');
 
   $scope.addGame = function(){
     $http({
         method: 'POST',
         url: 'api/game/addgame',
-        headers: {
-          'token': $cookies.get('token')
-        },
         data: $scope.season
       }).then(function(res){
          console.log(res);
@@ -22,10 +20,7 @@ module.exports = function(app){
   $scope.findGame = function(){
     $http({
         method: 'POST',
-        url: 'api/game/findgame',
-        headers: {
-          'token': $cookies.get('token')
-        },
+        url: 'api/game/findgame'
         /* data: {
           'seasonNumber': 10,
           'inSeason': false
@@ -42,9 +37,6 @@ module.exports = function(app){
     $http({
       method: 'PUT',
       url: 'api/game/updategame', // need to add this route
-      headers: {
-        'token': $cookies.get('token')
-      },
       data: {
         // grab by teams and date
       }
@@ -55,9 +47,6 @@ module.exports = function(app){
     $http({
       method: 'DELETE',
       url: 'api/game/removegame', // add js logic to this route
-      headers: {
-        'token': $cookies.get('token')
-      },
       data: {
         // delete game by teams and date
       }
