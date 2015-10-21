@@ -33,7 +33,7 @@ var teamSchema = new mongoose.Schema({
     phone: String
   },
   teamPhoto: String,
-  creator: String
+  creator: {type: String, required: true}
 });
 
 teamSchema.plugin(uniqueValidator);

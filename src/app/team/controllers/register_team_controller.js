@@ -10,8 +10,14 @@ module.exports = function(app) {
     $scope.teams = {};
     $scope.player = {};
     $scope.teamFormatting = false;
+    $scope.playerFormatting = false;
 
     $http.defaults.headers.common.token = $cookies.get('token');
+
+    $scope.clearTeamForm = function() {
+      $scope.team = {};
+      $scope.team.creator = $scope.loggedUser;
+    };
 
     $scope.getTeamsByCreator = function() {
       console.log("---<>>>");
@@ -36,13 +42,13 @@ module.exports = function(app) {
         data: $scope.team
       }).then(function(res) {
         $scope.teams[res.data._id] = res.data;
-        $scope.team = {};
+        $scope.clearTeamForm();
       }, function(res) {
         console.log(res);
       });
     };
 
-    $scope.delete = function(team) {
+    $scope.deleteTeam = function(team) {
       $http({
         method: 'DELETE',
         url:'api/team/deleteteam/' + team.name
@@ -92,7 +98,7 @@ module.exports = function(app) {
       });
     };
 
-    $scope.edit = function(team) {
+    $scope.editTeam = function(team) {
       $scope.team = team;
       $scope.teamFormatting = true;
     };
@@ -104,10 +110,39 @@ module.exports = function(app) {
           data: $scope.team
         }).then(function(res) {
           $scope.teamFormatting = false;
-          $scope.team = {};
+          $scope.clearTeamForm();
         }, function(res) {
           console.log(res);
         });
+    };
+
+    $scope.editPlayer = function(player) {
+      $scope.player = player;
+      console.log(player);
+      $scope.playerFormatting = true;
+    };
+
+    $scope.updatePlayer = function() {
+      $http({
+          method: 'PUT',
+          url:'api/player/updateplayer/' + $scope.player._id,
+          data: $scope.player
+        }).then(function(res) {
+          $scope.playerFormatting = false;
+          $scope.player = {};
+        }, function(res) {
+          console.log(res);
+        });
+    };
+
+    $scope.cancelTeamEditing = function() {
+      $scope.teamFormatting = false;
+      $scope.clearTeamForm();
+    };
+
+    $scope.cancelPlayerEditing = function() {
+      $scope.playerFormatting = false;
+      $scope.player = {};
     };
 
   }]);
