@@ -1,29 +1,63 @@
-.rt-team, .rt-player {
-	background-color: white;
+.rt-page-section {
+	padding-left: 2em;
 }
 .rt-team {
+	@extend %flex-box;
+
 	
-	input {
-	white-space: nowrap;
-	}
 }
-.rt-team-form {
-
-
-}
-form {
-      margin-top: 1em;
-      margin-right: 4em;
-    }
-
     input {
       margin-top: 0.5em;
       margin-bottom: 0.5em;
       display: block;
-      background-color: $main-bk-color;
+      //background-color: $main-bk-color;
       border-top: 0;
       border-left: 0;
       border-right: 0;
-      border-bottom: 1;
-      border-bottom-color: $btn-color;
+      border-bottom: 2px solid $btn-hover-light;
+      margin-top: 1em;
+      
     }
+.input-no-border {
+	border-bottom-color: white;
+} 
+.rt-sections, .rt-player {
+	width: 100%;
+	@extend %flex-box;
+	justify-content: space-around;
+} 
+
+.rt-box {
+	width: 20em;
+}
+.rt-player, .rt-team-section {
+	@extend %flex-box;
+	justify-content: flex-start;
+	margin-top: 2em;
+
+}
+.rt-player {
+	margin-bottom: 2em;
+	background-color: white;
+	opacity: .8;
+	width: 58%;
+}
+.rt-header {
+	padding: 0;
+	margin-top: 0;
+	font-size: em(36);
+	font-family: Roboto-bold;
+}
+.rt-body {
+	color: $darkest-color;
+	margin-top: 1.5em;
+}
+.rt-subheader {
+	font-family: Roboto-bold;
+}
+.rt-team-section {
+	background-color: white;
+	opacity: .8;
+
+}
+
