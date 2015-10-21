@@ -36,7 +36,7 @@ module.exports = function(app){
         },
         data: $scope.season
       }).then(function(res){
-        // overwrite what is already in MongoDB
+        $scope.season._id = res.data;
       }, function(res){
         console.log('AddSeasonController update error ' + res);
       });
@@ -49,7 +49,8 @@ module.exports = function(app){
         url: 'api/season/deleteseason',
         headers: {
           'token': $cookies.get('token')
-        }
+        },
+        data: $scope.season
       }).then(function(res){
         // remove what is already in MongoDB
       }, function(res){

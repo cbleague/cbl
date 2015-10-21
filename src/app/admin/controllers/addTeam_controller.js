@@ -25,25 +25,35 @@ module.exports = function(app){
 
   $scope.addTeamToSeason = function(){
     $http({
-      method: 'POST',
-      url: 'api/team/getteamsnotinseason/:season',
+      method: 'PUT',
+      url: 'api/team/updateteam/:id',
       headers: {
         'token': $cookies.get('token')
       },
       data: {
-        'seasonNumber': 10,
-        'inSeason': false
+        'inSeason': true
       }
     }).then(function(res){
-      $scope.teamArray = res.data;
+      $scope.teamArray._id = res.data;
       console.log('we got data ' + res.data);
     }, function(res){
-      console.log('AddTeamController getSome error ' + res);
+      console.log('AddTeamController add2season error ' + res);
     });
   };
 
   $scope.updateTeam = function(){
-
+    $http({
+      method: 'PUT',
+      url: 'api/team/updateteam/:id',
+      headers: {
+        'token': $cookies.get('token')
+      }
+    }).then(function(res){
+      $scope.teamArray._id = res.data;
+      console.log('we got data ' + res.data);
+    }, function(res){
+      console.log('AddTeamController updateTeam error ' + res);
+    });
   };
 
   $scope.removeTeamFromSeason = function(){
