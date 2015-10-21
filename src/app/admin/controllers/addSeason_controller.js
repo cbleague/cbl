@@ -28,15 +28,18 @@ module.exports = function(app){
 
     $scope.getSome = function(){
       $http({
-        method: 'GET',
+        method: 'POST',
         url: 'api/team/getteamsnotinseason/:season',
         headers: {
           'token': $cookies.get('token')
         },
-        seasonNumber: 1,
-        inSeason: false
-      }).then(function(res, data){
-        $scope.teamText = data;
+        data: {
+          'seasonNumber': 10,
+          'inSeason': false
+        }
+      }).then(function(res){
+        $scope.teamArray = res.data;
+        console.log('we got data ' + res.data);
       }, function(res){
         console.log('AddSeasonController getSome error ' + res);
       });

@@ -1,4 +1,4 @@
-<section data-ng-controller="AddSeasonController">
+<section data-ng-init="getSome()">
     <form name="createSeasonForm" data-ng-submit="createSeason()" role="form">
 		  Season Number<input name="seasonNumber"
                           data-ng-model="season.seasonNumber"
@@ -16,8 +16,8 @@
     </form>
 
     <ul id="teamsNotInSeason">
-      <li data-ng-init="getSome()" data-ng-repeat="teams in season">
-        <span data-ng-if="">{{teamText}}
+      <li data-ng-repeat="teams in teamArray">
+        <span data-ng-if="true">{{teams.name}}
            <button data-ng-click="addToSeason()">Add To Season</button>
         </span>
       </li>
