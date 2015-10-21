@@ -40,7 +40,6 @@ module.exports = function(app){
       method: 'PUT',
       url: 'api/team/changeinseason/' + team._id
     }).then(function(res){
-      // team.id slice()
       $scope.teamArray.splice($scope.teamArray.indexOf(team), 1);
       console.log('In Season is now true ' + res.data);
     }, function(res){
