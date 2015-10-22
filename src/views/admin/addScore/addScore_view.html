@@ -1,22 +1,29 @@
 <section class="addScore-view" data-ng-init="filterScoreArray()">
-  <form>
-    <div>
-      <p>Game to add Score to: </p>
-      <select>
-        <option value="Game 1">Game 1</option>
-        <option value="Game 2">Game 2</option>
-        <option value="Game 3">Game 3</option>
-        <option value="Game 4">Game 4</option>
-      </select>
-    </div>
-		<p>Home Team: </p>
-    <input type="text" name="team1name" value="">
-    <p>Home Team Score: </p>
-    <input type="text" name="team1score" value="">
-    <p>Visiting Team: </p>
-		<input type="text" name="team2name" value="">
-    <p>Visiting Team Score: </p>
-    <input type="text" name="team2score" value="">
-    <input type="submit" class="submit-btn" name="addscore" value="Add Score">
-  </form>
+
+  <h1>Add Score to Game: </h1>
+    <table>
+      <thead>
+        <tr>
+          <td>Home Team:</td>
+          <td>Home Team Score:</td>
+          <td>Away Team:</td>
+          <td>Away Team Score:</td>
+          <td>Game Date:</td>
+          <td>Location:</td>
+          <td></td>
+        </tr>
+     </thead>
+        <tr data-ng-repeat="game in season">
+          <td data-ng-model="game.team1.name">{{team1.name}}</td>
+          <td data-ng-model="game.team1.score">{{team1.score}}</td>
+          <td data-ng-model="game.team2.name">{{team2.name}}</td>
+          <td data-ng-model="game.team2.score">{{team2.score}}</td>
+          <td data-ng-model="game.date">Game Date:</td>
+          <td data-ng-model="game.location">Location:</td>
+          <td>
+            <button data-ng-if="game.editing" data-ng-click="post(game)">Post</button>
+            <button data-ng-if="game.editing" data-ng-click="cancel(game)">Cancel</button>
+          </td>
+        </tr>
+    </table>
 </section>
