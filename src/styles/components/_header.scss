@@ -53,3 +53,9 @@ header {
 	height: 4em;
 	@extend %left-padding;
 }
+
+@media screen and (max-width: 50em) {
+	header {
+		padding-top: 2em;
+	}
+}

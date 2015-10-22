@@ -62,7 +62,9 @@
 	padding-right: .5em;
 }
 @media screen and (max-width: 50em) {
-
+	.standings-container {
+		min-height: 20em;
+	}
 } 
 
 
