@@ -20,6 +20,7 @@ ee.on('updateSeason', function(team1, team2, req, res, err){
   var newGame = {
     date: req.body.date,
     location: req.body.location,
+    division: team1.division,
     teams: teamArray
   };
   Season.update({_id: req.body.seasonId},
