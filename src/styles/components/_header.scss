@@ -55,3 +55,21 @@ header {
 .header-style {
 	font-family: Roboto-thin;
 }
+
+.header-link{
+	text-decoration: none;
+	color: $primary-font-color;
+}
+
+.header-link:hover{
+  color: $highlight;
+  border-bottom: 0.125em solid $primary-font-color;
+}
+
+.welcome-mess{
+	text-decoration: none;
+	font-size: 1.1em;
+  font-family: Roboto-bold;
+  color: $btn-color;
+  text-shadow: 1px 1px 1px #CCCCCC;
+}

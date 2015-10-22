@@ -1,3 +1,42 @@
-@media screen and (max-width: 50em) {
+.changeTable-view{
+  @extend %flex-form;
 
+    .submit-btn{
+      margin-right: auto;
+      margin-left: auto;
+      @extend %main-button;
+      background-color: $highlight;
+    }
+
+    .submit-btn:hover{
+      background-color: $dark-highlight;
+      border-color: $dark-highlight;
+    }
+
+    td{
+      text-decoration: none;
+      font-size: 1em;
+      font-family: Roboto-bold;
+      color: $btn-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+    }
+    
+    table{
+    	border: 1px solid $drk-head-color;
+    }
+
+    td{
+      text-decoration: none;
+      font-size: 1em;
+      font-family: Roboto-bold;
+      color: $btn-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      border: 1px solid $drk-head-color;
+    }
+
+  @media screen and (max-width: 50em) {
+
+  }
 }
