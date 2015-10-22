@@ -30,7 +30,8 @@ module.exports = function(app){
       $http({
           method: 'POST',
           url: 'api/score/addscore',
-          data: {
+          req.body.data: {
+            game.id: game._id,
             id1: game.teams[0].id,
             id1Score: game.teams[0].score,
             id2: game.teams[1].id,
