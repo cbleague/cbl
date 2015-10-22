@@ -5,9 +5,15 @@
     @extend %flex-box;
   	input{
       margin-right: 0.5em;
+      @media screen and (max-width: 50em) {
+        margin: 0em;
+      }
     }
     p{
   	  margin-right: 1em;
+      @media screen and (max-width: 50em) {
+        margin: 0em;
+      }
   	}
   }
 
@@ -53,7 +59,4 @@
     div{
       margin-top: 2em;
     }
-  @media screen and (max-width: 50em) {
-
-  }
 }
