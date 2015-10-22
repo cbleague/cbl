@@ -1,0 +1,65 @@
+.addScore-view{
+  @extend %flex-form;
+
+  .submit-btn{
+      margin-top: 2em;
+      @extend %main-button;
+      background-color: $highlight;
+      font-size: 1.5em;
+    }
+
+    .submit-btn:hover{
+      background-color: $dark-highlight;
+      border-color: $dark-highlight;
+    }
+
+    input{
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      display: block;
+      background-color: $main-bk-color;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1;
+      border-bottom-color: $btn-color;
+    }
+
+    p{
+      text-decoration: none;
+      font-size: 1.75em;
+      font-family: Roboto-bold;
+      color: $btn-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+    }
+
+    h1{
+      text-decoration: none;
+      font-size: 1.75em;
+      font-family: Roboto-bold;
+      color: $btn-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+    }
+
+    td{
+      text-decoration: none;
+      font-size: 1em;
+      font-family: Roboto-bold;
+      color: $btn-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+
+    div{
+      @extend %flex-box;
+      margin-bottom: 1em;
+      p{
+        margin-right: 0.5em;
+      }
+    }
+
+  @media screen and (max-width: 50em) {
+
+  }
+}

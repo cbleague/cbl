@@ -1,0 +1,13 @@
+<section class="admin-view" data-ng-if="isAdmin">
+<ul class="admin-nav">
+  <li><a ui-sref="admin.addSeason">Add Season</a></li>
+  <li><a ui-sref="admin.addGame">Add Game</a></li>
+  <li><a ui-sref="admin.addTeam">Add Team</a></li>
+  <li><a ui-sref="admin.addScore">Add Score</a></li>
+  <li><a ui-sref="admin.changeTable">Change Table</a></li>
+</ul>
+<div ui-view>
+<!--this is where injectable partials will go-->
+</div>
+
+</section>

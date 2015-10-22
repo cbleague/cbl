@@ -1,0 +1,62 @@
+.addGame-view{
+  @extend %flex-form;
+  text-align: center;
+  .radioSection{
+    @extend %flex-box;
+  	input{
+      margin-right: 0.5em;
+      @media screen and (max-width: 50em) {
+        margin: 0em;
+      }
+    }
+    p{
+  	  margin-right: 1em;
+      @media screen and (max-width: 50em) {
+        margin: 0em;
+      }
+  	}
+  }
+
+  .submit-btn{
+      margin-top: 2em;
+      margin-right: auto;
+      margin-left: auto;
+      @extend %main-button;
+      background-color: $highlight;
+      font-size: 2em;
+    }
+
+    .submit-btn:hover{
+      background-color: $dark-highlight;
+      border-color: $dark-highlight;
+    }
+
+    input{
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      display: block;
+      background-color: $main-bk-color;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1;
+      border-bottom-color: $btn-color;
+      font-family: Roboto-bold;
+      color: $btn-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+    }
+
+    p{
+      text-decoration: none;
+      font-size: 1.75em;
+      font-family: Roboto-bold;
+      color: $btn-color;
+      text-shadow: 1px 1px 1px #CCCCCC;
+    }
+
+    div{
+      margin-top: 2em;
+    }
+}

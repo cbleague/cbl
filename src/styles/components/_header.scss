@@ -1,0 +1,97 @@
+header {
+	background-color: white;
+  @media screen and (max-width: 736px) {
+    header{
+      background-color: green;
+    }
+  }
+	h1 {
+		color: $primary-font-color;
+		margin: 0;
+		text-shadow: 1px 1px 1px #CCCCCC;
+		margin-left: .25em;
+	}
+
+}
+.header-nav {
+	@extend %right-padding;
+}
+
+.header-nav ul {
+	display: inline;
+	li {
+		display: inline;
+	}
+	a {
+		text-decoration: none;
+		font-size: em(18);
+		margin-left: 1em;
+		color: $primary-font-color;
+		text-shadow: 1px 1px 1px #CCCCCC;
+
+	}
+}
+.header-nav ul li a:hover {
+	color: $highlight;
+	border-bottom: 0.125em solid $primary-font-color;
+
+}
+.header-nav ul li a:active {
+	//border-bottom: .15em solid $primary-font-color;
+	color: $drk-head-color;
+}
+.header-section {
+	@extend %flex-box;
+	align-items: center;
+	font-size: em(24);
+	height: 3em;
+	border-bottom: 1px solid $light-font-color;
+	img {
+		width: 1em;
+		fill: $highlight;
+	}
+}
+.logo-header {
+	@extend %flex-box;
+	align-items: center;
+	height: 4em;
+	@extend %left-padding;
+}
+
+.header-style {
+	font-family: Roboto-thin;
+}
+
+.header-link{
+	text-decoration: none;
+	color: $primary-font-color;
+}
+
+.header-link:hover{
+  color: $highlight;
+  border-bottom: 0.125em solid $primary-font-color;
+}
+
+.welcome-mess{
+	text-decoration: none;
+	font-size: 1.1em;
+  font-family: Roboto-bold;
+  color: $btn-color;
+  text-shadow: 1px 1px 1px #CCCCCC;
+}
+
+@media screen and (max-width: 1024px) { 
+
+	header {
+		background-color: $main-bk-color;
+	}
+	.header-section {
+		border-bottom-color: $main-bk-color;
+		background-color: white;
+		padding-top: 1.5em;
+		height: 4em;
+		padding-bottom: 2.5em;
+
+	}
+
+}

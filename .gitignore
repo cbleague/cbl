@@ -28,3 +28,9 @@ node_modules
 db
 .env
 build
+
+
+# Compiled Public Directory
+public/js/
+public/styles/main.css
+public/html/views/

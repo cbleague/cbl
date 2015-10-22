@@ -1,0 +1,31 @@
+<section class="changeTable-view">
+  <form>
+    <table>
+      <tr>
+        <td>Position:</td>
+        <td>Team:</td>
+        <td>Played:</td>
+        <td>Won:</td>
+        <td>Lost:</td>
+        <td>Baskets Scored:</td>
+        <td>Baskets Missed:</td>
+        <td>Points:</td>
+      </tr>
+      <tr data-ng-repeat="">
+      	<td data-ng-repeat="">{{team.position}}</td>
+      	<td data-ng-repeat="">{{team.name}}</td>
+      	<td data-ng-repeat="">{{team.played}}</td>
+      	<td data-ng-repeat="">{{team.win}}</td>
+      	<td data-ng-repeat="">{{team.lost}}</td>
+      	<td data-ng-repeat="">{{team.baskets[0]}}</td>
+      	<td data-ng-repeat="">{{team.baskets[1]}}</td>
+      	<td data-ng-repeat="">{{team.points}}</td>
+      </tr>
+    </table>
+    <input type="button" class="submit-btn" name="canceltable" value="Cancel Changes"/>
+    <input type="submit" class="submit-btn" name="savetable" value="Save Changes"/>
+  </form> 
+</section>
+
+<li data-ng-repeat="team in teamArray">
+        <span data-ng-if="true">{{team.name}}

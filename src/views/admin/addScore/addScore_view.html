@@ -1,0 +1,26 @@
+<section class="addScore-view" data-ng-init="filterScoreArray()">
+
+  <h1>Add Score to Game: </h1>
+    <table>
+      <thead>
+        <tr>
+          <td>Home Team:</td>
+          <td>Score:</td>
+          <td>Away Team:</td>
+          <td>Score:</td>
+          <td>Game Date:</td>
+          <td></td>
+        </tr>
+     </thead>
+        <tr data-ng-repeat="game in scoreArray | orderBy: '+date'">
+          <td>{{game.teams[0].name}}</td>
+          <td><input data-ng-model="game.newscore1"></input></td>
+          <td>{{game.teams[1].name}}</td>
+          <td><input data-ng-model="game.newscore2"></input></td>
+          <td>{{game.date | date: 'dd-MM-yyyy'}}</td>
+          <td>
+            <button data-ng-click="addScore(game)">Post</button>
+          </td>
+        </tr>
+    </table>
+</section>

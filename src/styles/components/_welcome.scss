@@ -1,0 +1,10 @@
+.welcome-mess {
+	font-family: Roboto-thin;
+	margin-right: 1em;
+
+}
+@media screen and (max-width: 1024px) {
+	.welcome-mess {
+		display: none;
+	}
+}
