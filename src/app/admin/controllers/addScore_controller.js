@@ -13,6 +13,7 @@ module.exports = function(app){
         url: 'api/season/getwholeseason'
       }).then(function(res){
         season = res.data;
+        console.log(season);
 
         // create newGameNoScoreArray
         for (i = 0; i < season.games.length; i++){
