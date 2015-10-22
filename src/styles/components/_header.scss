@@ -58,6 +58,15 @@ header {
 }
 @media screen and (max-width: 50em) {
 	header {
-		padding-top: 2em;
+		background-color: $main-bk-color;
 	}
+	.header-section {
+		border-bottom-color: $main-bk-color;
+		background-color: white;
+		padding-top: 1.5em;
+		height: 4em;
+		padding-bottom: 2.5em;
+
+	}
+
 }

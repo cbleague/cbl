@@ -14,3 +14,13 @@ body {
 main {
 	min-height: 90%;
 }
+#square {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    background-color: red;
+}

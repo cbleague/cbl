@@ -65,6 +65,22 @@
 	.standings-container {
 		min-height: 20em;
 	}
+	.standings-section {
+		margin-top: 2em;
+		margin-bottom: 2em;
+		width: 20em;
+	}
+	.standings-only-table td:nth-child(3), .standings-only-table th:nth-child(3),
+	.standings-only-table td:nth-child(4), .standings-only-table th:nth-child(4),
+	.standings-only-table td:nth-child(7), .standings-only-table th:nth-child(7),
+	.standings-only-table td:nth-child(8), .standings-only-table th:nth-child(8),
+	.standings-only-table td:nth-child(9), .standings-only-table th:nth-child(9),
+	.standings-only-table td:nth-child(10), .standings-only-table th:nth-child(10)      {
+		display: none;
+	}
+	.standings-only-table {
+		
+	}
 } 
 
 
