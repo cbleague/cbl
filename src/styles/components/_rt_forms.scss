@@ -8,7 +8,6 @@
       margin-top: 0.5em;
       margin-bottom: 0.5em;
       display: block;
-      //background-color: $main-bk-color;
       border-top: 0;
       border-left: 0;
       border-right: 0;
@@ -47,7 +46,6 @@
 }
 .rt-team-section, .rt-player {
 	background-color: white;
-	//opacity: .8;
 	padding: 2.5em 0 2.5em 3em;
 	border: em(2) solid $btn-hover-light;
     border-radius: em(25);
@@ -70,6 +68,7 @@
 	}
 		img {
 			padding-left: 1em;
+			height: 1em;
 		}
 }
 .rt-page-section {

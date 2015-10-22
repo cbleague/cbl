@@ -23,8 +23,6 @@
           <p>Picture: {{player.img}}</p> -->
       <section ng-show="t.show" data-ng-repeat="player in t.playersArray">
         <span>{{player.firstname}} {{player.middlename}} {{player.secondname}}</span>
-        <span ng-click="editPlayer(player)">edit-icon</span>
-        <span ng-click="deletePlayer(player)">del-icon</span>
       </section>
     </li>
   </ul>
