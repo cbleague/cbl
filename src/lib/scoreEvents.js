@@ -63,16 +63,16 @@ scoreEventEmitter.on('updateLoser', function(loser, req, res) {
 });
 
 scoreEventEmitter.on('magicPositionAlgorithm', function(req, res) {
-Season.findOne({seasonNumber: req.body.seasonNumber}, function(err, season) {
-  var teamsArray = season.teams;
-  var dictionary = [];
+// Season.findOne({seasonNumber: req.body.seasonNumber}, function(err, season) {
+//   var teamsArray = season.teams;
+//   var dictionary = [];
   
-  teamsArray.forEach(function(name) {
-    var obj = {};
-    obj.points = name.points;
-    obj.name = name.name;
-    dictionary.push(obj);
-  });
+//   teamsArray.forEach(function(name) {
+//     var obj = {};
+//     obj.points = name.points;
+//     obj.name = name.name;
+//     dictionary.push(obj);
+//   });
   //dictionary = array of points and names
   // [ { points: 2, name: 'Timberwolves' },
   //   { points: 3, name: 'Lakers' },
@@ -81,17 +81,17 @@ Season.findOne({seasonNumber: req.body.seasonNumber}, function(err, season) {
   //   { points: 5, name: 'ChicagoBulls' } ]
 
   //bubble sorting dictionary object
-  var swapped = true; 
-  while(swapped)
-    swapped = false;
-    for (var i = 1; i < dictionary.length; i++) {
-      if(dictionary[i].points > dictionary[i-1].points) {
-        var temp = dictionary[i-1];
-        dictionary[i-1] = dictionary[i];
-        dictionary[i] = temp;
-        swapped = true;
-      }
-  }
+  // var swapped = true; 
+  // while(swapped)
+  //   swapped = false;
+  //   for (var i = 1; i < dictionary.length; i++) {
+  //     if(dictionary[i].points > dictionary[i-1].points) {
+  //       var temp = dictionary[i-1];
+  //       dictionary[i-1] = dictionary[i];
+  //       dictionary[i] = temp;
+  //       swapped = true;
+  //     }
+  // }
 
   // so we have sorted array
   // [ { points: 5, name: 'Timberwolves' },
@@ -106,7 +106,7 @@ Season.findOne({seasonNumber: req.body.seasonNumber}, function(err, season) {
   //DID NOT FINISHED MY MAGIC ALGORITHM YET!!!!!!!!!
   
   res.json({msg:'Updated'});
-  });
+  // });
 });
 
 module.exports = exports = scoreEventEmitter;

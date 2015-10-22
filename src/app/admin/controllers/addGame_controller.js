@@ -18,6 +18,7 @@ module.exports = function(app){
         url: 'api/season/getwholeseason'
       }).then(function(res){
          $scope.season = res.data;
+         $scope.data.seasonId = res.data._id;
          $scope.populateTeams();
       }, function(res){
         console.log('AddGameController getSeason error ' + res);
@@ -27,9 +28,9 @@ module.exports = function(app){
   $scope.populateTeams = function() {
     $scope.season.teams.forEach(function(team) {
       if (team.division == 'A') {
-        $scope.divATeams.push(team.name);
+        $scope.divATeams.push({name:team.name, _id: team.team});
       } else {
-        $scope.divBTeams.push(team.name);
+        $scope.divBTeams.push({name:team.name, _id: team.team});
       }
     });
   };
@@ -40,8 +41,7 @@ module.exports = function(app){
         url: 'api/game/addgame',
         data: $scope.data
       }).then(function(res){
-         console.log(res);
-         $scope.data = {};
+        $scope.data = {};
       }, function(res){
         console.log('AddGameController addGame error ' + res);
     });

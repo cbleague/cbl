@@ -21,26 +21,20 @@
 .input-no-border {
 	border-bottom-color: white;
 } 
-.rt-sections, .rt-player {
-	width: 100%;
-	@extend %flex-box;
-	justify-content: space-around;
-} 
+
 
 .rt-box {
 	width: 20em;
+}
+.rt-box2 {
+	@extend %flex-box;
+	margin-top: 2em;
 }
 .rt-player, .rt-team-section {
 	@extend %flex-box;
 	justify-content: flex-start;
 	margin-top: 2em;
 
-}
-.rt-player {
-	margin-bottom: 2em;
-	background-color: white;
-	opacity: .8;
-	width: 58%;
 }
 .rt-header {
 	padding: 0;
@@ -55,9 +49,19 @@
 .rt-subheader {
 	font-family: Roboto-bold;
 }
-.rt-team-section {
+.rt-team-section, .rt-player {
 	background-color: white;
-	opacity: .8;
+	//opacity: .8;
+	padding: 2.5em 0 2.5em 3em;
+	border: em(2) solid $btn-hover-light;
+    border-radius: em(25);
+}
+.rt-team-section {
+	
 
+}
+.rt-player {
+	margin-bottom: 2em;
+	width: 58%;
 }
 
