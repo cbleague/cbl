@@ -1,5 +1,10 @@
 header {
 	background-color: white;
+  @media screen and (max-width: 736px) {
+    header{
+      background-color: green;
+    }
+  }
 	h1 {
 		color: $primary-font-color;
 		margin: 0;
