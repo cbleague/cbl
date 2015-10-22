@@ -31,19 +31,19 @@ scoreEventEmitter.on('addScoreToTeam', function(req, res) {
   if (req.body.id1Score > req.body.id2Score) {
     winner.id = req.body.id1;
     winner.scored = req.body.id1Score;
-    winner.missed = req.body.id2Score;
+    winner.allowed = req.body.id2Score;
     loser.id = req.body.id2;
     loser.scored = req.body.id2Score;
-    loser.missed = req.body.id1Score;
+    loser.allowed = req.body.id1Score;
   } else {
     winner.id = req.body.id2;
     winner.scored = req.body.id2Score;
-    winner.missed = req.body.id1Score;
+    winner.allowed = req.body.id1Score;
     loser.id = req.body.id1;
     loser.scored = req.body.id1Score;
-    loser.missed = req.body.id2Score;
+    loser.allowed = req.body.id2Score;
   }
-  scoreEventEmitter.emit('updateWinner', winner, loser, req, res);  
+  scoreEventEmitter.emit('updateWinner', winner, loser, req, res);
 });
 
 scoreEventEmitter.on('updateWinner', function(winner, loser, req, res) {
@@ -66,7 +66,7 @@ scoreEventEmitter.on('magicPositionAlgorithm', function(req, res) {
 // Season.findOne({seasonNumber: req.body.seasonNumber}, function(err, season) {
 //   var teamsArray = season.teams;
 //   var dictionary = [];
-  
+
 //   teamsArray.forEach(function(name) {
 //     var obj = {};
 //     obj.points = name.points;
@@ -76,12 +76,12 @@ scoreEventEmitter.on('magicPositionAlgorithm', function(req, res) {
   //dictionary = array of points and names
   // [ { points: 2, name: 'Timberwolves' },
   //   { points: 3, name: 'Lakers' },
-  //   { points: 1, name: 'ChicagoBulls' } 
-  //   { points: 7, name: 'ChicagoBulls' } 
+  //   { points: 1, name: 'ChicagoBulls' }
+  //   { points: 7, name: 'ChicagoBulls' }
   //   { points: 5, name: 'ChicagoBulls' } ]
 
   //bubble sorting dictionary object
-  // var swapped = true; 
+  // var swapped = true;
   // while(swapped)
   //   swapped = false;
   //   for (var i = 1; i < dictionary.length; i++) {
@@ -104,7 +104,7 @@ scoreEventEmitter.on('magicPositionAlgorithm', function(req, res) {
   //DID NOT FINISHED MY MAGIC ALGORITHM YET!!!!!!!!!
   //DID NOT FINISHED MY MAGIC ALGORITHM YET!!!!!!!!!
   //DID NOT FINISHED MY MAGIC ALGORITHM YET!!!!!!!!!
-  
+
   res.json({msg:'Updated'});
   // });
 });

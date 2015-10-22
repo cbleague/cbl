@@ -16,7 +16,7 @@ var seasonSchema = new mongoose.Schema({
     lost: {type: Number, default: 0},
     baskets: {
       scored: {type: Number, default: 0},
-      missed: {type: Number, default: 0}
+      allowed: {type: Number, default: 0}
     },
     points: {type: Number, default: 0}
   }],

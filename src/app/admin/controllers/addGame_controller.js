@@ -21,7 +21,7 @@ module.exports = function(app){
          $scope.data.seasonId = res.data._id;
          $scope.populateTeams();
       }, function(res){
-        console.log('AddGameController create error ' + res);
+        console.log('AddGameController getSeason error ' + res);
     });
   }();
 
@@ -43,7 +43,7 @@ module.exports = function(app){
       }).then(function(res){
         $scope.data = {};
       }, function(res){
-        console.log('AddGameController create error ' + res);
+        console.log('AddGameController addGame error ' + res);
     });
   };
 
