@@ -56,7 +56,7 @@ header {
 .header-style {
 	font-family: Roboto-thin;
 }
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 1024px) {
 	header {
 		background-color: $main-bk-color;
 	}
