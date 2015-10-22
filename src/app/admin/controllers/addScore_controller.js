@@ -31,10 +31,11 @@ module.exports = function(app){
           method: 'POST',
           url: 'api/score/addscore',
           data: {
+            id: game._id,
             id1: game.teams[0].id,
-            id1Score: game.teams[0].score,
+            id1Score: game.newscore1,
             id2: game.teams[1].id,
-            id2Score: game.teams[1].score,
+            id2Score: game.newscore2,
             seasonNumber: $scope.currentSeason.seasonNumber
           }
         }).then(function(res){

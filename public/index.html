@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
-    <div data-ng-if="alerts.exists" data-ng-class="alerts.type">{{alerts.msg}}</div>
-    <div data-ng-if="busy">Please Wait</div>
+    <div id="square" data-ng-class="alerts.type">Temp msg</div>
+    <div data-ng-if="busy">Please Put something here</div>
     <header>
       <section class="header-section">
         <section class="logo-header">
@@ -35,7 +35,7 @@
       <a class="green-button home-button-layout" ui-sref="signin" data-ng-if="!isLoggedIn">Sign In</a>
       <a class="green-button home-button-layout" ui-sref="signup" data-ng-if="!isLoggedIn">Sign Up</a>
       <p class="welcome-mess"data-ng-if="isLoggedIn">Welcome {{loggedUser}}! Good to see you again </p>
-      <a class="green-button" href="" ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
+      <a class="green-button home-button-layout" href="" ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
     </section>
     <main ui-view>
     </main>
