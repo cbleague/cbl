@@ -1,18 +1,18 @@
-<section data-ng-init="getSome()">
+<section class="addSeason-view" data-ng-init="getSome()">
     <form name="createSeasonForm" data-ng-submit="createSeason()" role="form">
-		  Season Number<input name="seasonNumber"
+		  <p>Season Number<input name="seasonNumber"
                           data-ng-model="season.seasonNumber"
                           type="number"
                           placeholder="10"
                           value=""
-                          required>
-		  Season Name<input name="seasonName"
+                          required></p>
+		  <p>Season Name<input name="seasonName"
                         data-ng-model="season.name"
                         type="text"
                         placeholder="SeasonName"
                         value=""
-                        required>
-      <input type="submit" name="submitSeason" value="Submit">
+                        required></p>
+      <input type="submit" class="submit-btn" name="submitSeason" value="Submit">
     </form>
 </section>
 

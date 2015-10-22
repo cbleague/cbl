@@ -19,8 +19,7 @@ header {
 	}
 	a {
 		text-decoration: none;
-		font-size: em(16);
-		font-family: Roboto-bold;
+		font-size: em(18);
 		margin-left: 1em;
 		color: $primary-font-color;
 		text-shadow: 1px 1px 1px #CCCCCC;
@@ -29,7 +28,7 @@ header {
 }
 .header-nav ul li a:hover {
 	color: $highlight;
-	border-bottom: .125em solid $primary-font-color;
+	border-bottom: 0.125em solid $primary-font-color;
 
 }
 .header-nav ul li a:active {
@@ -39,11 +38,11 @@ header {
 .header-section {
 	@extend %flex-box;
 	align-items: center;
-	font-size: em(32);
+	font-size: em(24);
 	height: 3em;
 	border-bottom: 1px solid $light-font-color;
 	img {
-		width: 2em;
+		width: 1em;
 		fill: $highlight;
 	}
 }
@@ -54,6 +53,9 @@ header {
 	@extend %left-padding;
 }
 
+.header-style {
+	font-family: Roboto-thin;
+}
 @media screen and (max-width: 50em) {
 	header {
 		padding-top: 2em;

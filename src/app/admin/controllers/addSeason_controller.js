@@ -6,21 +6,32 @@ module.exports = function(app){
       'seasonName': ''
     };
     $scope.season = {};
-    $scope.season.admin = {};
-    $scope.season.creator = $scope.loggedUser;
     $scope.seasons = [];
+    $http.defaults.headers.common.token = $cookies.get('token');
+
+
+    // when new season created changes the prior season current to false
+    $scope.changeCurrentSeason = function(){
+      $http({
+        method: 'PUT',
+        url: 'api/season/changecurrentseason/' + $scope.currentSeason._id
+      }).then(function(res){
+        console.log('Prior season is now false ' + res.data);
+        $scope.getCurrentSeason();
+      }, function(res){
+        console.log('AddSeasonController changeCurrent error ' + res);
+      });
+    };
 
     $scope.createSeason = function(){
       $http({
         method: 'POST',
         url: 'api/season/createseason',
-        headers: {
-          'token': $cookies.get('token')
-        },
         data: $scope.season
       }).then(function(res){
          console.log(res);
          $scope.season = {};
+         $scope.changeCurrentSeason();
       }, function(res){
         console.log('AddSeasonController create error ' + res);
       });
@@ -31,12 +42,9 @@ module.exports = function(app){
      $http({
         method: 'PUT',
         url: 'api/season/updateseason',
-        headers: {
-          'token': $cookies.get('token')
-        },
         data: $scope.season
       }).then(function(res){
-        // overwrite what is already in MongoDB
+        $scope.season._id = res.data;
       }, function(res){
         console.log('AddSeasonController update error ' + res);
       });
@@ -47,9 +55,7 @@ module.exports = function(app){
       $http({
         method: 'DELETE',
         url: 'api/season/deleteseason',
-        headers: {
-          'token': $cookies.get('token')
-        }
+        data: $scope.season
       }).then(function(res){
         // remove what is already in MongoDB
       }, function(res){

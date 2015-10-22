@@ -1,0 +1,104 @@
+.rt-page-section {
+	padding-left: 2em;
+}
+.rt-team {
+	@extend %flex-box;	
+}
+    input {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      display: block;
+      //background-color: $main-bk-color;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 2px solid $btn-hover-light;
+      margin-top: 1em;
+      
+    }
+.input-no-border {
+	border-bottom-color: white;
+} 
+
+.rt-box {
+	width: 20em;
+}
+.rt-box2 {
+	@extend %flex-box;
+	margin-top: 2em;
+}
+.rt-player, .rt-team-section {
+	@extend %flex-box;
+	justify-content: flex-start;
+	margin-top: 2em;
+}
+.rt-header {
+	padding: 0;
+	margin-top: 0;
+	font-size: em(36);
+	font-family: Roboto-bold;
+}
+.rt-body {
+	color: $darkest-color;
+	margin-top: 1.5em;
+}
+.rt-subheader {
+	font-family: Roboto-bold;
+}
+.rt-team-section, .rt-player {
+	background-color: white;
+	//opacity: .8;
+	padding: 2.5em 0 2.5em 3em;
+	border: em(2) solid $btn-hover-light;
+    border-radius: em(25);
+}
+.rt-player {
+	margin-bottom: 2em;
+	width: 58%;
+}
+.rt-lineup {
+	background-color: white;
+	border: em(2) solid $btn-hover-light;
+	border-radius: em(25);
+	padding: 3em 3em 3em 3em;
+	width: 20em;
+	display: inline;
+
+	label {
+		font-size: em(24);
+		font-family: Roboto-bold;
+	}
+		img {
+			padding-left: 1em;
+		}
+}
+.rt-page-section {
+
+	ul {
+		//overflow: hidden;
+		@extend %flex-box;
+		justify-content: flex-start;
+		
+		li {
+			//list-style-type: none;
+			display: inline;
+			height: 10em;
+			padding-right: 2em;
+
+		}
+	}
+}
+.rt-header-1 {
+	height: 3em;
+	margin-left: 0;
+	padding-left: 0.5em;
+}
+.rt-img1:hover {
+	content:url("styles/fonts/icomoon/rt-icons/players2.svg");
+}
+.rt-img2:hover {
+	content:url("styles/fonts/icomoon/rt-icons/edit2.svg");
+}
+.rt-img3:hover {
+	content:url("styles/fonts/icomoon/rt-icons/delete2.svg");
+}

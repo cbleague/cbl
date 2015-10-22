@@ -9,14 +9,16 @@
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
+    <div data-ng-if="alerts.exists" data-ng-class="alerts.type">{{alerts.msg}}</div>
+    <div data-ng-if="busy">Please Put something here</div>
     <header>
       <section class="header-section">
         <section class="logo-header">
           <img src="styles/fonts/icomoon/basketball-logo/svg/basketball.svg" alt="basketball logo"/>
-          <h1>CB League</h1>
+          <h1 class="header-style">CB League</h1>
         </section>
       <section class="nav-section">    
-      <nav class="header-nav">
+      <nav class="header-nav header-style">
         <ul>
           <li><a ui-sref="home">Home</a></li>
           <li><a href="">Calendar</a></li>
@@ -32,8 +34,8 @@
    <section class="home-button">
       <a class="green-button home-button-layout" ui-sref="signin" data-ng-if="!isLoggedIn">Sign In</a>
       <a class="green-button home-button-layout" ui-sref="signup" data-ng-if="!isLoggedIn">Sign Up</a>
-      <p data-ng-if="isLoggedIn">Hi, {{loggedUser}} </p>
-      <a href="" ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
+      <p class="welcome-mess"data-ng-if="isLoggedIn">Welcome {{loggedUser}}! Good to see you again </p>
+      <a class="green-button" href="" ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
     </section>
     <main ui-view>
     </main>

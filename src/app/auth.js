@@ -1,9 +1,10 @@
 module.exports = function(app) {
-  app.run(['$rootScope', '$cookies', '$state', function($scope, $cookies, $state) {
+  app.run(['$rootScope', '$cookies', '$state', '$http', function($scope, $cookies, $state, $http) {
 
     $scope.isLoggedIn = false;
     $scope.isAdmin = false;
     $scope.loggedUser = '';
+    $scope.currentSeason = {};
 
     $scope.loggedIn = function() {
       var token = $cookies.get('token');
@@ -21,6 +22,20 @@ module.exports = function(app) {
       $state.go('home');
     };
 
+    $scope.getCurrentSeason = function() {
+      $http({
+          method: 'GET',
+          url:'api/season/getcurrentseason/',
+        }).then(function(res) {
+          $scope.currentSeason._id = res.data.seasonId;
+          $scope.currentSeason.seasonNumber = res.data.seasonNumber;
+        }, function(res) {
+          console.log(res);
+        });
+    };
+
     $scope.loggedIn();
+    $scope.getCurrentSeason();
+
   }]);
 };
