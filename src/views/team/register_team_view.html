@@ -3,27 +3,20 @@
   <h1 class="rt-header rt-header-1">Current Team Lineup</h1>
   <ul>
     <li data-ng-repeat="t in teams" ng-init="getPlayers(t); t.show = false">
+      
       <section class="rt-lineup">
         <label>{{t.name}}</label>
         <img src="styles/fonts/icomoon/rt-icons/players1.svg" ng-click="t.show = t.show? false: true">
         <img src="styles/fonts/icomoon/rt-icons/edit1.svg" ng-click="editTeam(t)">
-        <img src="styles/fonts/icomoon/rt-icons/delete1.svg" ng-click="deleteTeam(t)">
-        
+        <img src="styles/fonts/icomoon/rt-icons/delete1.svg" ng-click="deleteTeam(t)">  
       </section>  
-        <section ng-show="t.show" data-ng-repeat="player in t.playersArray">
-          <p>{{player.firstname}} {{player.middlename}} {{player.secondname}}</p>
-          <span ng-click="editPlayer(player)">edit-icon</span>
-          <span ng-click="deletePlayer(player)">del-icon</span>
-          <p>Email: {{player.email}}</p>
-          <p>Phone Number: {{player.phone}}</p>
-          <p>Date Of Birth: {{player.dob}}</p>
-          <p>Age: {{player.age}}</p>
-          <p>Height: {{player.height}}</p>
-          <p>Weight: {{player.weight}}</p>
-          <p>Number: {{player.number}}</p>
-          <p>Position: {{player.position}}</p>
-          <p>Picture: {{player.img}}</p>
-        </section>  
+      
+      <section ng-show="t.show" data-ng-repeat="player in t.playersArray">
+        <span>{{player.firstname}} {{player.middlename}} {{player.secondname}}</span>
+        <span ng-click="editPlayer(player)">edit-icon</span>
+        <span ng-click="deletePlayer(player)">del-icon</span>
+      </section>
+
     </li>
   </ul>
 </section>

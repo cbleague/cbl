@@ -28,7 +28,8 @@ var seasonSchema = new mongoose.Schema({
       score: {type: Number, default: 0}
     }],
     date: Date,
-    location: String
+    location: String,
+    division: String
   }]
 
 });
