@@ -5,3 +5,23 @@ footer {
 	bottom: 0;
 	position: relative;
 }
+@media screen and (max-width: 767px) {
+
+.footer-nav {
+	display: flex;
+	flex-direction: row;	 
+	flex-wrap: wrap;
+	align-items: flex-start;
+	align-content: center;
+	justify-content: center;
+	ul {
+		width: em(320);
+	}
+}
+	.contact-info {
+		font-size: em(14);
+		white-space: nowrap;
+		text-align: center;
+	}
+
+}
