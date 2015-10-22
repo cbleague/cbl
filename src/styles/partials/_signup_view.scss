@@ -16,6 +16,10 @@
     form{
       margin-top: 1em;
       margin-right: 4em;
+      @media screen and (max-width: 50em) {
+        max-width: 99%;
+        margin: 0em;
+      }
     }
 
     input{
@@ -36,9 +40,9 @@
       font-family: Roboto-bold;
       color: $primary-font-color;
       text-shadow: 1px 1px 1px #CCCCCC;
+      @media screen and (max-width: 50em) {
+        max-width: 90%;
+        margin: 0em;
+      }
     }
-
-  @media screen and (max-width: 50em) {
-
-  }
 }

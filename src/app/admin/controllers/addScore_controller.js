@@ -7,7 +7,6 @@ module.exports = function(app){
 
     // filter list of games in current season with no scores
     $scope.filterScoreArray = function(){
-      // grab current season object
       $http({
         method: 'GET',
         url: 'api/season/getwholeseason'
@@ -15,7 +14,7 @@ module.exports = function(app){
         season = res.data;
         console.log(season);
 
-        // create newGameNoScoreArray
+        // creates array of games with no score
         for (i = 0; i < season.games.length; i++){
           if (season.games[i].teams[0].score === 0 && season.games[i].teams[1].score === 0){
             $scope.scoreArray.push(season.games[i]);
@@ -40,6 +39,8 @@ module.exports = function(app){
           }
         }).then(function(res){
            console.log(res);
+           // removes addScore game from scoreArray (Array of games with no score)
+           $scope.scoreArray.splice($scope.scoreArray.indexOf(game), 1);
            $scope.data = {};
         }, function(res){
           console.log('AddScoreController addScore error ' + res);
