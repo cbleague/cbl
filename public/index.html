@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cblApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CB League</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/main.css">
+  </head>
+  <body>
+   <!--  <div id="square" data-ng-class="alerts.type">Temp msg</div> -->
+    <div data-ng-if="busy">Please Put something here</div>
+    <header>
+      <section class="header-section">
+        <section class="logo-header">
+          <img src="styles/fonts/icomoon/basketball-logo/svg/basketball.svg" alt="basketball logo"/>
+          <h1 class="header-style">CB League</h1>
+        </section>
+      <section class="nav-section">    
+      <nav class="header-nav header-style">
+        <ul>
+          <li><a ui-sref="home">Home</a></li>
+          <li><a href="">Calendar</a></li>
+          <li><a href="">News</a></li>
+          <li><a ui-sref="contact">Contact</a></li>
+          <li data-ng-if="isLoggedIn"><a ui-sref="registerTeam">R.T.</a></li>
+          <li data-ng-if="isAdmin"><a ui-sref="admin">Admin</a></li>
+        </ul>
+      </nav>
+    </section>
+  </section>
+    </header>
+   <section class="home-button">
+      <a class="green-button home-button-layout" ui-sref="signin" data-ng-if="!isLoggedIn">Sign In</a>
+      <a class="green-button home-button-layout" ui-sref="signup" data-ng-if="!isLoggedIn">Sign Up</a>
+      <p class="welcome-mess"data-ng-if="isLoggedIn">Welcome {{loggedUser}}! Good to see you again </p>
+      <a class="green-button home-button-layout" href="" ng-click="logOut()" data-ng-if="isLoggedIn">LogOut</a>  
+    </section>
+    <main ui-view>
+    </main>
+    <footer class="home-footer">
+      <!-- <section class="contact">
+      <div class="contact_info">
+        <p>Phone Number: (111)-111-1111</p>
+        <a href="tel:380936522322" class="contact_phone"></a>
+        <p></p>
+        <a href="mailto:chbl.org@gmail.com" class="contact_email"></a>
+      </div>
+      </section> -->
+      <section class="social-footer-section">
+      <nav class="social-nav">
+        <ul>
+          <li><a href="https://twitter.com/" target="blank" class="links_media_item"><img class="social-img" src="styles/fonts/social-icons/twitter2.svg"></a></li>
+          <li><a href="https://facebook.com/" target="blank" class="links_media_item "><img class="social-img"src="styles/fonts/social-icons/facebook2.svg"></a></li>
+          <li><a href="https://plus.google.com/" target="blank" class="links_media_item"><img class="social-img"src="styles/fonts/social-icons/google-plus2.svg"></a></li>
+          <li><a href="https://dribbble.com/" target="blank" class="links_media_item"><img class="social-img"src="styles/fonts/social-icons/dribbble2.svg"></a></li>
+          <li><a href="https://www.pinterest.com/" target="blank" class="links_media_item"><img class="social-img"src="styles/fonts/social-icons/pinterest2.svg"></a></li>
+        </ul>  
+      </nav>
+      <!-- <ul class="social-text">
+        <li><a href="https://twitter.com/" target="blank" class="links_media_item">Follow Us</a></li>
+        <li><a href="https://facebook.com/" target="blank" class="links_media_item ">Like Us</a></li>
+        <li><a href="https://plus.google.com/" target="blank" class="links_media_item">Connect</a></li>
+        <li><a href="https://dribbble.com/" target="blank" class="links_media_item">Follow Us</a></li>
+        <li><a href="https://www.pinterest.com/" target="blank" class="links_media_item">Pin It</a></li>
+      </ul>  -->
+      <nav class="header-nav footer-nav">
+        <ul>
+          <li><strong><span class="contact-info">Phone Number :</strong> <a href="tel:380936522322">(+38) 093 652 23 22</a></span></li>
+          <li><strong><span class="contact-info">Email address :</strong><a href="mailto:chbl.org@gmail.com">chbl.org@gmail.com</a></span></li>
+        </ul>
+      </nav>
+      <nav class="header-nav footer-nav">
+        <ul>
+          <li><a ui-sref="home">Home</a></li>
+          <li><a href="">Calendar</a></li>
+          <li><a href="">News</a></li>
+          <li><a href="">Contact</a></li>
+          <li data-ng-if="isAdmin"><a ui-sref="admin">Admin</a></li>
+        </ul>
+      </nav>
+    </section>
+    </footer>
+    <script src="/js/packed.js"></script>
+  </body>
+</html>

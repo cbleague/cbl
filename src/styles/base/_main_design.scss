@@ -1,0 +1,26 @@
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+
+}
+body {
+	background-color: $main-bk-color;
+	height: 100%;
+	font-family: Roboto-regular, sans-serif;
+	color: $darkest-color;
+
+}
+main {
+	min-height: 90%;
+}
+#square {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    background-color: red;
+}

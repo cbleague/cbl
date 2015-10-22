@@ -1,0 +1,86 @@
+.standings-container {
+	@extend %flex-box;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 40em;
+}
+.standings-section {
+	background-color: white;
+	opacity: .8;
+	box-shadow: 10px 10px 5px #888888;
+	margin: 0;
+	width: 40em;
+	border: 1px solid $light-font-color;
+	h1 {
+		color: $darkest-color;
+		margin: 0;
+		font-size: em(36);
+		margin: 0;
+		padding-left: .4em;
+		font-family: Roboto-bold;
+	}
+	h2 {
+		margin-bottom: 1em;
+		padding-left: .9em;
+		font-family: Roboto-bold;
+	}
+}
+.standings-only-table {
+	table-layout: fixed;
+	width: 100%;
+}
+.standings-only-table, th, td {
+   border-bottom: 1px solid $light-font-color;
+   text-align:center; 
+   vertical-align:middle;
+   padding-top: .5em;
+   padding-bottom: .5em;
+
+}
+.standings-only-table th {
+	color: $light-font-color;
+	font-family: Roboto-bold;
+}
+
+.standings-only-table td:nth-child(2), .standings-only-table th:nth-child(2) {
+	text-align: left;
+	width: 12em;
+}
+.standings-only-table td:nth-child(1), .standings-only-table th:nth-child(1) {
+	padding-right: 1em;
+	color: $light-font-color;
+	font-family: Roboto-bold;
+}
+.standings-only-table td:nth-child(odd), .standings-only-table td:nth-child(10) {
+	font-family: Roboto-bold;
+}
+.standings-only-table td:nth-child(10) {
+	color: $drk-head-color;
+}
+.sport-icons {
+	height: 2em;
+	padding-right: .5em;
+}
+@media screen and (max-width:1024px) {
+	.standings-container {
+		min-height: 20em;
+	}
+	.standings-section {
+		margin-top: 2em;
+		margin-bottom: 2em;
+		width: 20em;
+	}
+	.standings-only-table td:nth-child(3), .standings-only-table th:nth-child(3),
+	.standings-only-table td:nth-child(4), .standings-only-table th:nth-child(4),
+	.standings-only-table td:nth-child(7), .standings-only-table th:nth-child(7),
+	.standings-only-table td:nth-child(8), .standings-only-table th:nth-child(8),
+	.standings-only-table td:nth-child(9), .standings-only-table th:nth-child(9),
+	.standings-only-table td:nth-child(10), .standings-only-table th:nth-child(10)      {
+		display: none;
+	}
+	.standings-only-table {
+		
+	}
+} 
+
+
