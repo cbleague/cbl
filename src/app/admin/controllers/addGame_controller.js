@@ -20,7 +20,7 @@ module.exports = function(app){
          $scope.season = res.data;
          $scope.populateTeams();
       }, function(res){
-        console.log('AddGameController create error ' + res);
+        console.log('AddGameController getSeason error ' + res);
     });
   }();
 
@@ -43,7 +43,7 @@ module.exports = function(app){
          console.log(res);
          $scope.data = {};
       }, function(res){
-        console.log('AddGameController create error ' + res);
+        console.log('AddGameController addGame error ' + res);
     });
   };
 
