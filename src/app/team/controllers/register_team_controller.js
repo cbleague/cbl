@@ -3,9 +3,6 @@ module.exports = function(app) {
   app.controller('RegisterTeamController', ['$scope', '$http', '$cookies',function($scope, $http, $cookies) {
     
     $scope.team = {};
-    $scope.team.admin = {};
-    $scope.team.cap = {};
-    $scope.team.coach = {};
     $scope.team.creator = $scope.loggedUser;
     $scope.teams = {};
     $scope.player = {};
