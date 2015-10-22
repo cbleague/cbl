@@ -30,12 +30,12 @@ module.exports = function(app){
       $http({
           method: 'POST',
           url: 'api/score/addscore',
-          data: $scope.season
+          data: $scope.data
         }).then(function(res){
            console.log(res);
-           $scope.season = {};
+           $scope.data = {};
         }, function(res){
-          console.log('AddScoreController create error ' + res);
+          console.log('AddScoreController addScore error ' + res);
       });
     };
 
