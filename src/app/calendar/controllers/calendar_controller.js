@@ -1,6 +1,8 @@
 module.exports = function(app) {
   app.controller('calendarController', ['$scope', '$http', 'alertService', 'busy', function($scope, $http, alertService, busy) {
-    $scope.games = {};
+    $scope.games = [];
+    $scope.seasonFilter = '';
+    $scope.divisionFilter = 'A';
 
     $scope.getWholeSeason = function() {
       $http({
@@ -12,6 +14,10 @@ module.exports = function(app) {
           console.log('AddGameController getSeason error ' + res);
       });
     }();
+
+    $scope.myFilterFunction = function (item) { 
+      return true; 
+    };
 
   }]);
 };

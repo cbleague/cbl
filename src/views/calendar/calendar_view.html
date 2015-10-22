@@ -1,13 +1,13 @@
 <section>
 	
   <div class="radioSection">
-     <input type="radio" name="division" value="A" class="radioA" data-ng-model="division.name" data-ng-change="">
+     <input type="radio" name="division" value="A" class="radioA" data-ng-model="divisionFilter">
      <p> Division A </p>
-     <input type="radio" name="division" value="B" class="radioB" data-ng-model="division.name" data-ng-change="">
+     <input type="radio" name="division" value="B" class="radioB" data-ng-model="divisionFilter">
      <p> Division B </p>
   </div>
   
-  <div data-ng-repeat="game in games">
+  <div data-ng-repeat="game in games | filter: {division: divisionFilter}">
     <p>{{game.teams[0].name}} - {{game.teams[1].name}}</p>
     <p>{{game.teams[0].score}} - {{game.teams[1].score}}</p>
     <p>{{game.date | date: 'dd/MM/yyyy'}}</p>
