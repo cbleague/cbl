@@ -26,11 +26,17 @@ module.exports = function(app){
       });
     };
 
-    $scope.addScore = function(){
+    $scope.addScore = function(game){
       $http({
           method: 'POST',
           url: 'api/score/addscore',
-          data: $scope.data
+          data: {
+            id1: game.teams[0].id,
+            id1Score: game.teams[0].score,
+            id2: game.teams[1].id,
+            id2Score: game.teams[1].score,
+            seasonNumber: $scope.currentSeason.seasonNumber
+          }
         }).then(function(res){
            console.log(res);
            $scope.data = {};
