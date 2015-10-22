@@ -1,0 +1,13 @@
+.alert-msg {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15em;
+    height: 5em;
+    margin-top: -40px;
+    margin-left: -40px;
+    background-color: $highlight;
+    border: 1px solid $highlight;
+    color: white;
+    border-radius: em(25);
+}
