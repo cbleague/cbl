@@ -1,6 +1,8 @@
 .changeTable-view{
   @extend %flex-form;
-
+  @media screen and (max-width: 50em) {
+        max-width: 99%;
+  }
     .submit-btn{
       margin-right: auto;
       margin-left: auto;
@@ -22,6 +24,9 @@
     }
     
     table{
+      @media screen and (max-width: 50em) {
+        max-width: 99%;
+      }
     	border: 1px solid $drk-head-color;
     }
 
@@ -35,8 +40,4 @@
       padding-right: 0.5em;
       border: 1px solid $drk-head-color;
     }
-
-  @media screen and (max-width: 50em) {
-
-  }
 }
