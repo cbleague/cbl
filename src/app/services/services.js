@@ -1,4 +1,4 @@
 module.exports = function(app) {
   require('./alert_service')(app);
-  require('./rest_services')(app);
+  require('./busy_service')(app);
 };

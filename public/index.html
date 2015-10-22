@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
+    <div data-ng-if="alerts.exists" data-ng-class="alerts.type">{{alerts.msg}}</div>
+    <div data-ng-if="busy">Please Put something here</div>
     <header>
       <section class="header-section">
         <section class="logo-header">

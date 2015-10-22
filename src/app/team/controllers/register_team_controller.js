@@ -1,6 +1,6 @@
 module.exports = function(app) {
   
-  app.controller('RegisterTeamController', ['$scope', '$http', '$cookies',function($scope, $http, $cookies) {
+  app.controller('RegisterTeamController', ['$scope', '$http', '$cookies', 'alertService', 'busy', function($scope, $http, $cookies, alertService, busy) {
     
     $scope.team = {};
     $scope.team.creator = $scope.loggedUser;
@@ -40,6 +40,7 @@ module.exports = function(app) {
       }).then(function(res) {
         $scope.teams[res.data._id] = res.data;
         $scope.clearTeamForm();
+        alertService.add('success', 'You Just Added The Team');
       }, function(res) {
         console.log(res);
       });
