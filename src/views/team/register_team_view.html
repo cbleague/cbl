@@ -58,7 +58,7 @@
           <input placeholder="Phone Number" type="phone" name="coachPhone" data-ng-model="team.coach.phone">
           <input class="blue-button" type="button" name="submitTeam" value="Create Team" data-ng-click="createTeam()" data-ng-show="!teamFormatting">
       <input class="blue-button" type="button" name="updateTeam" value="Update Team" data-ng-click="updateTeam()" data-ng-show="teamFormatting">
-      <input class="blue-button" type="button" name="cancelTeamEditing" value="Cancel" data-ng-click="cancelEditing()" data-ng-show="teamFormatting">
+      <input class="blue-button" type="button" name="cancelTeamEditing" value="Cancel" data-ng-click="cancelTeamEditing()" data-ng-show="teamFormatting">
         </section>  
       </section> 
       <section class="rt-box"> 
@@ -66,7 +66,7 @@
     </section>
     </form>
 </section>
-  <section class="rt-player">
+<section class="rt-player">
   <section class="rt-box">  
     <h1 class="rt-header">Register Player</h1>
      <h2 class="rt-body">Choose team to join!</h2>
@@ -85,20 +85,18 @@
       <input placeholder="DOB (MM/DD/YYYY)" type="text" name="dob" data-ng-model="player.dob">
   </section>  
   <section class="rt-box">
-  <section class="rt-box-button"> 
-    <input placeholder="Age" type="text" name="age" data-ng-model="player.age">
-    <input placeholder="Height(optional)" type="text" name="height" data-ng-model="player.height">
-    <input placeholder="Weight(optional)" type="text" name="weight" data-ng-model="player.weight">
-    <input placeholder="Player Number(optional)" type="text" name="number" data-ng-model="player.number">
-    <input placeholder="Player Position(optional)" type="text" name="position" data-ng-model="player.position">
-  </section>
-  <section class="rt-box"> 
-    <input class="blue-button" type="button" name="delete" value="Delete">
-    <input class="blue-button" type="button" name="edit" value="Edit">
-    <input class="blue-button" type="button" name="submitPlayer" value="Add player" data-ng-submit="createPlayer()" data-ng-show="!playerFormatting">
-    <input class="blue-button" type="button" name="updatePlayer" value="Update Player" data-ng-click="updatePlayer()" data-ng-show="playerFormatting">
-    <input class="blue-button" type="button" name="cancelPlayerEditing" value="Cancel" data-ng-click="cancelPlayerEditing()" data-ng-show="playerFormatting">
+    <section class="rt-box-button"> 
+      <input placeholder="Age" type="text" name="age" data-ng-model="player.age">
+      <input placeholder="Height(optional)" type="text" name="height" data-ng-model="player.height">
+      <input placeholder="Weight(optional)" type="text" name="weight" data-ng-model="player.weight">
+      <input placeholder="Player Number(optional)" type="text" name="number" data-ng-model="player.number">
+      <input placeholder="Player Position(optional)" type="text" name="position" data-ng-model="player.position">
+    </section>
+    <section class="rt-box">
+      <input class="blue-button" type="button" name="submitPlayer" value="Add player" data-ng-click="createPlayer()" data-ng-show="!playerFormatting">
+      <input class="blue-button" type="button" name="updatePlayer" value="Update Player" data-ng-click="updatePlayer()" data-ng-show="playerFormatting">
+      <input class="blue-button" type="button" name="cancelPlayerEditing" value="Cancel" data-ng-click="cancelPlayerEditing()" data-ng-show="playerFormatting">
     </section> 
-   </section>  
+  </section>  
 </section>
 </section>

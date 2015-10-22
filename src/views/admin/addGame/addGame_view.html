@@ -1,5 +1,5 @@
 <section class="addGame-view" data-ng-init="">
-  <form data-ng-submit="addGame">
+  <form data-ng-submit="addGame()">
     <div class="radioSection">
      <input type="radio" name="division" value="A" class="radioA" data-ng-model="division.name" data-ng-change="swapDivisions()">
      <p> Division A </p>
@@ -9,13 +9,13 @@
 		<div>
       <p>Home Team:</p>
       <select ng-model="data.team1">
-        <option ng-repeat="team in currentTeams" value="{{team}}">{{team}}</option>
+        <option ng-repeat="team in currentTeams" value="{{team}}">{{team.name}}</option>
       </select>
     </div>
     <div>
       <p>Visiting Team:</p>
 		  <select ng-model="data.team2">
-        <option ng-repeat="team in currentTeams" value="{{team}}">{{team}}</option>
+        <option ng-repeat="team in currentTeams" value="{{team}}">{{team.name}}</option>
       </select>
     </div>
     <div>
