@@ -2,16 +2,16 @@
  <section class="rt-current-section"> 
   <h1 class="rt-header rt-header-1">Current Team Lineup</h1>
   <ul>
-    <li data-ng-repeat="t in teams" ng-init="getPlayers(t); t.show = false">
-      <section class="rt-lineup">
+    <li data-ng-repeat="t in teams" ng-init="getPlayers(t); t.show = false" class="rt-lineup">
+      <section>
         <label>{{t.name}}</label>
         <img src="styles/fonts/icomoon/rt-icons/players1.svg" ng-click="t.show = t.show? false: true">
         <img src="styles/fonts/icomoon/rt-icons/edit1.svg" ng-click="editTeam(t)">
         <img src="styles/fonts/icomoon/rt-icons/delete1.svg" ng-click="deleteTeam(t)">
-        <section ng-show="t.show" data-ng-repeat="player in t.playersArray">
-          <span>{{player.firstname}} {{player.middlename}} {{player.secondname}}</span>
-          <span ng-click="editPlayer(player)">edit-icon</span>
-          <span ng-click="deletePlayer(player)">del-icon</span>
+        <section data-ng-if="t.show" data-ng-repeat="player in t.playersArray">
+          {{player.firstname}} {{player.middlename}} {{player.secondname}}
+          <img src="styles/fonts/icomoon/rt-icons/edit1.svg" ng-click="editPlayer(player)">
+          <img src="styles/fonts/icomoon/rt-icons/delete1.svg" ng-click="deletePlayer(player)">
         </section>
       </section>
     </li>
