@@ -21,6 +21,11 @@
 	display: inline-block;
 }
 
+.links_media_item img:hover { //remove this section to fix issue of footer twitching
+	border: 3px solid $btn-hover-light; 
+	border-radius: 10px;
+}
+
 .social-img {
 	height: 2.5em;
 }
