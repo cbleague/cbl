@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/main.css">
   </head>
   <body>
-    <div id="square" data-ng-class="alerts.type">Temp msg</div>
+    <div data-ng-if="alerts.exists" id="square" data-ng-class="alerts.type">{{alerts.msg}}</div>
     <div data-ng-if="busy">Please Put something here</div>
     <header>
       <section class="header-section">
@@ -21,7 +21,7 @@
       <nav class="header-nav header-style">
         <ul>
           <li><a ui-sref="home">Home</a></li>
-          <li><a href="">Calendar</a></li>
+          <li><a ui-sref="calendar">Calendar</a></li>
           <li><a href="">News</a></li>
           <li><a ui-sref="contact">Contact</a></li>
           <li data-ng-if="isLoggedIn"><a ui-sref="registerTeam">R.T.</a></li>

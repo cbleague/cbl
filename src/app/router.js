@@ -54,6 +54,11 @@ module.exports = function(app) {
         url: '/contact',
         templateUrl: '/html/views/contact/contact_view.html',
         controller: 'contactController'
+      })
+      .state('calendar', {
+        url: '/calendar',
+        templateUrl: '/html/views/calendar/calendar_view.html',
+        controller: 'calendarController'
       });
   });
 };
